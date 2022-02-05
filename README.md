@@ -15,4 +15,5 @@
 | Zeel Khokhariya| zeelkhokhariya | Back-end Developer |
 | Zil Patel | PatelZil | Front-end Developer |
 | Viki Makadia | Viki4325 | Full Stack Developer |
-| Rutu Barvaliya| Rutu136 | Full Stack Developer |
+| Rutu Barvaliya | Rutu136 | Back-end Developer |
+| Parth Patel | | Full Stack Developer|
