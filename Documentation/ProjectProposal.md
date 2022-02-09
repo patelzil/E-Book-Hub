@@ -1,4 +1,4 @@
-## Project Summary and Vision 
+## Project Summary and Vision
 
 ### Vision
 
@@ -15,18 +15,25 @@ To encourage our platform's use, a web application will be providing an option t
 With the potential growth of adding new ebooks and features, Ebook provides a helpful tool for reading books. In the future, Ebook Hub will be expanded with an additional part for the disabled user by converting text to speech feature. Adding more historical books converting from Ebook to Ebook Hub will help save dying printed books and help save the historical knowledge.
 
 ### Core Features
+
 1. User Profile
-	 - Users will be able to Sign-up and Sign-in into web application and users would have an option to reset password if user ever forgot password.
-	 - Customizable and editable user profile showing the users their personal information and statisticss . 
+   - Users will be able to Sign-up and Sign-in into web application and users would have an option to reset password if user ever forgot password.
+   - Customizable and editable user profile showing the users their personal information and statisticss .
 2. Search E-Books | Homepage
    - Home page would allow to users to search specific book as well as users can apply filters to search books.
 3. Buy / Rent E-Books
    - Functionality to rent or buy a book to have limited or lifetime access respectively.
 4. Book Club (Create or Join)
    - Users would be able to join a group of people or create their own group where they can talk other users and ask about the particular book.
+
 ### Technologies
-	
 
+    Written Web Application using a MERN stack
 
-### User Stories 
+> DB => [MongoDB Atlas](https://www.mongodb.com/atlas/database)
 
+> Front End => [React](https://reactjs.org/)
+
+> Logic => [NodeJS](https://nodejs.org/en/) + [ExpressJS](https://expressjs.com/)
+
+### User Stories
