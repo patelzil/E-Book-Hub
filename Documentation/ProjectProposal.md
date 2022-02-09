@@ -1,0 +1,32 @@
+## Project Summary and Vision 
+
+### Vision
+
+For kids, youth and adults who are looking to make reading more interesting and unremarkable, E-Book Hub is a web application that offers a variety of books and awesome experience to readers to read electronic books with various type of features. Our web application can be used by kids, youth, adults, and senior in their preferred light mode of reading.
+
+### Project Summary
+
+Our goal is to revitalize people's interest in reading ebooks by simplifying and enhancing the overall reading experience. People intend to read fewer printed books compared to past or quit reading due to the cost of books, carrying heavy books, and not accessing books from anywhere. Therefore, we have seen a sharp decline in the number of readers. Our application will offer comparatively less expensive books with lifetime access to the books from anywhere and reduce the environmental burden per printed book by reducing carbon emission. Ebook hub will give users access to multiple texts from a single device.
+
+E-book Hub will be a web application that develops an interest to its users towards reading electronic books in an easily viewable layout of all popular books. Moreover, Users of the application will be able to search a specific book by applying filters- such as popular, cheaper, rented books which will prevent unnecessary scrolling through the application after creating the user’s profile. Users will then be able to build their library of the books which they have frequently been using daily or if they want to add books to the library to read it later. Users of the application will have an option to buy or rent a book, such as a user can have lifetime access to the purchased book and limited-time access to the rented books. To ensure users' convenience, the web application will be providing an option to all users to read the book in their convenient modes -such as light mode or dark mode. That will allow users to spend interestingly more time reading books. Users will have an option to join book clubs and create their book clubs.
+
+To encourage our platform's use, a web application will be providing an option to create/join book clubs. Users will be able to customize their profile in the form of their bio description and upload a profile picture. The user profile will also show how many books they have purchased, the number of books rented, a list of clubs they have created, and the number of clubs they have joined. The user will then have an opportunity to explore the interest of reading to different people by entering the various types of book clubs where one of the users has posted one book. Users in that club will have an opportunity to discuss the core part of the book.
+
+With the potential growth of adding new ebooks and features, Ebook provides a helpful tool for reading books. In the future, Ebook Hub will be expanded with an additional part for the disabled user by converting text to speech feature. Adding more historical books converting from Ebook to Ebook Hub will help save dying printed books and help save the historical knowledge.
+
+### Core Features
+1. User Profile
+	 - Users will be able to Sign-up and Sign-in into web application and users would have an option to reset password if user ever forgot password.
+	 - Customizable and editable user profile showing the users their personal information and statisticss . 
+2. Search E-Books | Homepage
+   - Home page would allow to users to search specific book as well as users can apply filters to search books.
+3. Buy / Rent E-Books
+   - Functionality to rent or buy a book to have limited or lifetime access respectively.
+4. Book Club (Create or Join)
+   - Users would be able to join a group of people or create their own group where they can talk other users and ask about the particular book.
+### Technologies
+	
+
+
+### User Stories 
+
