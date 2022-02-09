@@ -12,7 +12,7 @@
 ## Contributors
 | Name | Username | Role |
 |---|---|---|
-| Zeel Khokhariya| zeelkhokhariya | Back-end Developer |
+| Zeel Khokhariya| zeelkhokhariya | Back-end Developer (Leader) |
 | Zil Patel | PatelZil | Front-end Developer |
 | Viki Makadia | Viki4325 | Full Stack Developer |
 | Rutu Barvaliya | Rutu136 | Back-end Developer |
