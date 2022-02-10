@@ -36,4 +36,32 @@ With the potential growth of adding new ebooks and features, Ebook provides a he
 
 > Logic => [NodeJS](https://nodejs.org/en/) + [ExpressJS](https://expressjs.com/)
 
-### User Stories
+### User Stories for Core Features:
+
+#### User Profile
+
+- As a new user, I should be able to register by creating a username and a password so that the system can remember me and my data.
+- As a registered user, I should be able to log in with my credentials every time so that I can access the information specific to me.
+- As a user, I should be able to reset my password so that I can log into my account again.
+- As a user, I should be able to logout of the application so that I may restrict others from using my account.
+- As a user, I should be able to edit my profile that I could update my personal information. (i.e., Name, bio, photo).
+
+#### Search E-Book | Homepage
+
+- As a user, I should be able to search the book by its title so that I could easily find them or add to my library list.
+- As a user, I should be able to apply filters to the search (i.e., Rent books, year of published, author name) so that I may easily see what books I want to read.
+- As a user, I should be able to view books in different categories so that I could easily see what ebooks exist in a specific category.
+- As a user, I should be able to sort the books by its rating so that I may start reading the most popular book.
+
+#### Buy / Rent E-Book
+
+- As a user, I should be able to set up a payment method so that I could buy or rent an E-book of my choice.
+- As a user, I should be able to choose whether to remember my payment method or just once so that I can make my account more secure.
+- As a user, I should be able to buy a book so that I could have a lifetime access to that book.
+- As a user, I should be able to rent a book so that I could have limited access (i.e., 4 months) to that book.
+
+#### Book Club (Create or Join)
+
+- As a user, I should be able to create book club so that I may be able to invite other people to share my view and opinion on a specific book.
+- As a user, I should be able to join book club so that I may be able to know more detail about the people thoughts on a specific book.
+- As a user, I should be able to chat with other user so that I may be able to communicate better.
