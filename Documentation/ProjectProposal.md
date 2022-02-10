@@ -36,8 +36,6 @@ With the potential growth of adding new ebooks and features, Ebook provides a he
 
 > Logic => [NodeJS](https://nodejs.org/en/) + [ExpressJS](https://expressjs.com/)
 
-### User Stories
-
 ### User Stories for Core Features:
 
 #### User Profile
