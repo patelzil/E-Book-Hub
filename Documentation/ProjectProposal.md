@@ -25,7 +25,8 @@ With the potential growth of adding new ebooks and features, Ebook provides a he
    - Functionality to rent or buy a book to have limited or lifetime access respectively.
 4. Book Club (Create or Join)
    - Users would be able to join a group of people or create their own group where they can talk other users and ask about the particular book.
-
+5. Audio Book 
+   - Users would be able to listen the book content while they are doing their some other work (i.e., May be able to do multitasking).
 ### Technologies
 
     Written Web Application using a MERN stack
@@ -65,3 +66,6 @@ With the potential growth of adding new ebooks and features, Ebook provides a he
 - As a user, I should be able to create book club so that I may be able to invite other people to share my view and opinion on a specific book.
 - As a user, I should be able to join book club so that I may be able to know more detail about the people thoughts on a specific book.
 - As a user, I should be able to chat with other user so that I may be able to communicate better.
+
+#### Audio Book
+- As a user, I should be able to listen the book content so that I may be able to do other stuff while listen the book.
