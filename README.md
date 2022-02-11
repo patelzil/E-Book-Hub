@@ -6,8 +6,9 @@
 ## Project Proposal
 * Our [Project Proposal](https://github.com/Patelzil/E-Book-Hub/blob/main/Documentation/ProjectProposal.md)
 
-## Branching Strategy 
+## Branching Strategy
 * Our [Branching Strategy](https://github.com/Patelzil/E-Book-Hub/blob/developer/BRANCHING_STRATEGY.md)
+
 ## Documentation
 * Find our other documentation on our [Wiki Page](https://github.com/Patelzil/E-Book-Hub/wiki)
 
