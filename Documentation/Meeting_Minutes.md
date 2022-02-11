@@ -72,3 +72,45 @@
 ### Outcomes:
 * Inform Rutu and Viki about what was discussed in today's meeting in detail if needed.
 
+## Feb 8 at 6:00 PM (Team Meeting)
+### Attendance
+* Everyone was present
+
+### Agenda: 
+* Gone through final draft of project distribution.
+* Work Distribution
+* Architectural diagram
+
+### Discussion:
+* Went through the vision statement and made final edits.
+* Discuss the three layer of web application and the data flow across the three layers.
+* Discussed an extra feature to add to the project:
+  * Discuss the user stories for the Audio book.
+* Distributd the Architectural diagram task as per the user stories.
+
+### Outcomes:
+* Zil - User Profile and Buy/Rent book diagram
+* Zeel - Overall application block diagram
+* Rutu, Zeel - To complete the final draft of project proposal
+* Viki - Search feature diagram
+* Parth - Create or Join book diagram, Chat diagram
+
+## Feb 10 at 6:00 PM (Team Meeting)
+### Attendance
+* Everyone was present
+
+### Agenda: 
+* Review Architerctural diagram 
+* Plan to release Sprint1
+
+### Discussion:
+* Review diagrams and corrects the mistakes.
+* Review the issues and make sure all the issues are closed before the release of Sprint1.
+* Demo on the issue tracking system Kanban style automation.
+* Discusson on assigning the core features to Sprints.
+* Discussed what went well and what not during the completion of Sprint1.
+
+### Outcomes:
+* Happy faces!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+* scheduling next meeting early to discuss dev and front end issues and assignment of work for the issue2
+
