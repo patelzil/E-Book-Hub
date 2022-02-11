@@ -18,7 +18,7 @@
 > As mentioned, we push and commit changes to our branches regularly. This acceptable to do because we won't mess up anyone else's work since everything that is not in the main branch is considered as being worked on/in development.
 > Write the Commit message with borad description and assigned the issue# with each commit.
 
-**4. Pulling **
+**4. Pulling**
 
 > Once the work is pushed into respected branch to that issue#.
 > Create a pull request and assigne to other devs to review it and set labels and assign to respected sprint.
