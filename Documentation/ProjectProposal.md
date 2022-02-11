@@ -1,4 +1,4 @@
-## Project Summary and Vision 
+## Project Summary and Vision
 
 ### Vision
 
@@ -15,18 +15,57 @@ To encourage our platform's use, a web application will be providing an option t
 With the potential growth of adding new ebooks and features, Ebook provides a helpful tool for reading books. In the future, Ebook Hub will be expanded with an additional part for the disabled user by converting text to speech feature. Adding more historical books converting from Ebook to Ebook Hub will help save dying printed books and help save the historical knowledge.
 
 ### Core Features
+
 1. User Profile
-	 - Users will be able to Sign-up and Sign-in into web application and users would have an option to reset password if user ever forgot password.
-	 - Customizable and editable user profile showing the users their personal information and statisticss . 
+   - Users will be able to Sign-up and Sign-in into web application and users would have an option to reset password if user ever forgot password.
+   - Customizable and editable user profile showing the users their personal information and statisticss .
 2. Search E-Books | Homepage
    - Home page would allow to users to search specific book as well as users can apply filters to search books.
 3. Buy / Rent E-Books
    - Functionality to rent or buy a book to have limited or lifetime access respectively.
 4. Book Club (Create or Join)
    - Users would be able to join a group of people or create their own group where they can talk other users and ask about the particular book.
+5. Audio Book 
+   - Users would be able to listen the book content while they are doing their some other work (i.e., May be able to do multitasking).
 ### Technologies
-	
 
+    Written Web Application using a MERN stack
 
-### User Stories 
+> DB => [MongoDB Atlas](https://www.mongodb.com/atlas/database)
 
+> Front End => [React](https://reactjs.org/)
+
+> Logic => [NodeJS](https://nodejs.org/en/) + [ExpressJS](https://expressjs.com/)
+
+### User Stories for Core Features:
+
+#### User Profile
+
+- As a new user, I should be able to register by creating a username and a password so that the system can remember me and my data.
+- As a registered user, I should be able to log in with my credentials every time so that I can access the information specific to me.
+- As a user, I should be able to reset my password so that I can log into my account again.
+- As a user, I should be able to logout of the application so that I may restrict others from using my account.
+- As a user, I should be able to edit my profile that I could update my personal information. (i.e., Name, bio, photo).
+
+#### Search E-Book | Homepage
+
+- As a user, I should be able to search the book by its title so that I could easily find them or add to my library list.
+- As a user, I should be able to apply filters to the search (i.e., Rent books, year of published, author name) so that I may easily see what books I want to read.
+- As a user, I should be able to view books in different categories so that I could easily see what ebooks exist in a specific category.
+- As a user, I should be able to sort the books by its rating so that I may start reading the most popular book.
+
+#### Buy / Rent E-Book
+
+- As a user, I should be able to set up a payment method so that I could buy or rent an E-book of my choice.
+- As a user, I should be able to choose whether to remember my payment method or just once so that I can make my account more secure.
+- As a user, I should be able to buy a book so that I could have a lifetime access to that book.
+- As a user, I should be able to rent a book so that I could have limited access (i.e., 4 months) to that book.
+
+#### Book Club (Create or Join)
+
+- As a user, I should be able to create book club so that I may be able to invite other people to share my view and opinion on a specific book.
+- As a user, I should be able to join book club so that I may be able to know more detail about the people thoughts on a specific book.
+- As a user, I should be able to chat with other user so that I may be able to communicate better.
+
+#### Audio Book
+- As a user, I should be able to listen the book content so that I may be able to do other stuff while listen the book.
