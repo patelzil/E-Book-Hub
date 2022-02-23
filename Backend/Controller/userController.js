@@ -3,7 +3,7 @@ const Users = require("../models/userModel");
 exports.createUser = async(req, res) => {
     try {
         const newUser = await Users.create(req.body);
-        res.status("201").json({
+        res.status(201).json({
             status: "sucess",
             message: "new user created",
             data: {
@@ -54,7 +54,7 @@ exports.getUser = async(req, res) => {
         if (user == null) {
             throw err;
         }
-        res.status("200").json({
+        res.status(200).json({
             status: "sucess",
             message: "Found user",
             data: {
@@ -71,7 +71,7 @@ exports.getUser = async(req, res) => {
 };
 
 exports.deleteUser = (req, res) => {
-    res.status("500").json({
+    res.status(500).json({
         status: "err",
         message: "route not yet implemented",
     });
