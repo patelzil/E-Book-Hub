@@ -9,6 +9,7 @@
     "author": "Webito",
     "license": "ISC",
     "dependencies": {
+        "cors": "^2.8.5",
         "express": "^4.17.3",
         "mongoose": "^5.13.14",
         "morgan": "^1.10.0",
