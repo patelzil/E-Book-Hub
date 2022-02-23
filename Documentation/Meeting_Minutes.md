@@ -142,7 +142,7 @@
 * Look for resources that would help the team with.
 
 ### Discussion:
-* Decided who will work on front end and who will work in back-end.
+* Share the resources and went trough the resources together so that everyone was up-to-date.
 * As a group, decided on what features to release by the end of sprint 2.
 
 ### Outcomes:
@@ -161,7 +161,7 @@
 
 ### Discussion:
 * Decided who will work on front end and who will work in back-end.
-* As a group, decided on what features to release by the end of sprint 2.
+* Assigning front-end tasks and back-end tasks to the respective groups(Team working with front-end and team working with back-end).
 
 ### Outcomes:
 * scheduling next meeting to discuss progress on sprint 2.
