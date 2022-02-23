@@ -5,15 +5,15 @@ const express = require("express");
 const router = express.Router();
 
 //checking for paramter
-router.param("userID", userController.checkUserID);
+//router.param("userID", userController.checkUserID);
 
 router.route("/").post(userController.createUser);
 
 //: means parameter
-
 router
-    .route("/:userID")
+    .route("/:username")
     .get(userController.getUser)
-    .patch(userController.updateUser);
+    .patch(userController.updateUser)
+    .delete(userController.deleteUser);
 
 module.exports = router;

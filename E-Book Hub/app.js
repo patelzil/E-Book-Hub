@@ -6,7 +6,6 @@ const userRouter = require("./routes/userRoutes");
 const app = express();
 
 //Middlewares
-
 //output in console a response status
 app.use(morgan("dev"));
 
