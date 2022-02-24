@@ -4,7 +4,7 @@ exports.createUser = async(req, res) => {
     try {
         const newUser = await Users.create(req.body);
         res.status(201).json({
-            status: "sucess",
+            status: "success",
             message: "new user created",
             data: {
                 newUser,
@@ -33,7 +33,7 @@ exports.updateUser = async(req, res) => {
         }
 
         res.status(200).json({
-            status: "sucess",
+            status: "success",
             message: "updated user",
             data: {
                 user: updateUser,
@@ -55,7 +55,7 @@ exports.getUser = async(req, res) => {
             throw err;
         }
         res.status(200).json({
-            status: "sucess",
+            status: "success",
             message: "Found user",
             data: {
                 user: user,
