@@ -1,7 +1,6 @@
 import React, {Component} from "react";
 import {Col, Row, Container, Form, Button} from "react-bootstrap";
 import login_page from '../assets/login_page.svg'
-import { useState } from "react";
 
 export default class Login extends Component {
     render() {
