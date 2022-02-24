@@ -20,6 +20,52 @@
     max-width: 100px;
 }
 
+.button-block {
+    border: 1px solid black;
+    background: white;
+    color: black;
+    margin: 10px;
+    padding: 5px 15px;
+    border-radius: 6px;
+    transition-duration: 0.5s;
+    text-decoration: none;
+    width: 100%;
+}
+
+.button-block:hover {
+    border: 1px solid white;
+    background: black;
+    color: white;
+    margin: 10px;
+    padding: 5px 15px;
+    border-radius: 6px;
+    width: 100%;
+}
+
+.icon-img{
+    width: 70px;
+    height: 70px;
+    margin-bottom: 2rem;
+    display: 'flex';
+    justify-content: 'center';
+    text-align: center;
+}
+
+.card{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.card-header{
+    background-color: white;
+}
+
+
+.SignUp{
+    color: black;
+    font-weight: bold;
+}
+
 .user {
     justify-content: flex-end;
 }
