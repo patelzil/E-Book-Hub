@@ -7,7 +7,7 @@ const router = express.Router();
 //checking for paramter
 //router.param("userID", userController.checkUserID);
 
-router.route("/").post(userController.createUser);
+router.route("/createUser").post(userController.createUser);
 
 //: means parameter
 router
