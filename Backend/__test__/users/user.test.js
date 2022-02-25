@@ -117,20 +117,20 @@ describe('User signin/Login test', () => {
         });
     })
 
-    // describe('Enter existing username' , () => {
-    //     test('User has entered duplicate details',async () => {
-    //         jest.setTimeout(30000)
-    //         await request.post('/EBookhub/users/createUser').send({
-    //             username: 'TestUser',
-    //             password: 'Test123'
-    //         }) 
-    //         const response1 = await request.post('/EBookhub/users/createUser').send({
-    //             username: 'TestUser',
-    //             password: 'Test123'
-    //         }) 
-    //         expect(response1.statusCode).toBe(400);
-    //         await user.findOneAndDelete({username: 'TestUser'});
-    //     });
-    // })
+    describe('Enter existing username' , () => {
+        test('User has entered duplicate details',async () => {
+            jest.setTimeout(30000)
+            await request.post('/EBookhub/users/createUser').send({
+                username: 'TestUser',
+                password: 'Test123'
+            }) 
+            const response1 = await request.post('/EBookhub/users/createUser').send({
+                username: 'TestUser',
+                password: 'Test123'
+            }) 
+            expect(response1.statusCode).toBe(400);
+            await user.findOneAndDelete({username: 'TestUser'});
+        });
+    })
     
 })
