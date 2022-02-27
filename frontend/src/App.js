@@ -4,6 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import Home from "./components/home.component"
 import Login from "./components/login.component";
 import Signup from "./components/signup.component";
+import User from "./components/user.component";
 import NavBar from "./components/navbar.component";
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
           <Route path="/" exact element={<Home/>}/>
           <Route path="/login" element={<Login/>}/>
           <Route path="/signup" element={<Signup/>}/>
+          <Route path="/user" element={<User />}/>
         </Routes>
       </Router>
   );
