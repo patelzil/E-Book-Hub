@@ -16,7 +16,7 @@ export default function Login() {
         event.preventDefault();
         axios.get(`http://localhost:5000/EBookHub/users/${ username }`)
             .then(function(response){
-                if(response.data.status === "sucess"){
+                if(response.data.status === "success"){
                     if (response.data.data.user.password === password)
                     {
                         setLoginflag(1);

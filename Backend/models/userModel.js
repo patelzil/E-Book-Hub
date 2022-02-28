@@ -1,6 +1,19 @@
 const mongoose = require("mongoose");
 
 const userSchema = mongoose.Schema({
+    firstName: {
+        type: String,
+        required: [true, "A user must have FirstName"],
+    },
+    lastName: {
+        type: String,
+        required: [true, "A user must have lastName"],
+    },
+    eMail: {
+        type: String,
+        required: [true, "A user must have Email"],
+        unique: true,
+    },
     username: {
         type: String,
         required: [true, "A user must have username"],
@@ -14,4 +27,6 @@ const userSchema = mongoose.Schema({
 
 const Users = mongoose.model("Users", userSchema);
 
-module.exports = Users;
+const TestUsers = mongoose.model("TestUsers", userSchema);
+
+(module.exports = Users), TestUsers;

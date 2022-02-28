@@ -4,14 +4,21 @@
     "description": "",
     "main": "app.js",
     "scripts": {
-        "start": "nodemon server.js"
+        "start": "nodemon server.js",
+        "test": "jest --testEnvironment=node --runInBand"
     },
     "author": "Webito",
     "license": "ISC",
     "dependencies": {
+        "cors": "^2.8.5",
         "express": "^4.17.3",
         "mongoose": "^5.13.14",
         "morgan": "^1.10.0",
         "nodemon": "^2.0.15"
+    },
+    "devDependencies": {
+        "env-cmd": "^8.0.2",
+        "jest": "^27.5.1",
+        "supertest": "^6.2.2"
     }
 }

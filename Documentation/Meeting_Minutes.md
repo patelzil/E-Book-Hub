@@ -114,3 +114,54 @@
 * Happy faces!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 * scheduling next meeting early to discuss dev and front end issues and assignment of work for the issue2
 
+## Feb 13 at 6:00 PM (Team Meeting)
+### Attendance
+* Parth
+* Zil
+* Viki
+
+### Agenda: 
+* Discuss on what and how to prepare the project proposal presentation
+* Work Distribution on the project proposal powerpoint slides
+
+### Discussion:
+* Prepared the base powerpoint slides.
+* Added content to each slide and informed the other group members on what to add.
+
+### Outcomes:
+* Everyone present contributed on various things to include on the presentation.
+
+## Feb 18 at 6:00 PM (Team Meeting)
+### Attendance
+* Everyone was present
+
+### Agenda: 
+* Review sprint 2 expectations. 
+* Create issues and assign them to group members.
+* Come up with developer tasks from user stories.
+* Look for resources that would help the team with.
+
+### Discussion:
+* Share the resources and went trough the resources together so that everyone was up-to-date.
+* As a group, decided on what features to release by the end of sprint 2.
+
+### Outcomes:
+* scheduling next meeting to discuss about front end skeleton code and back end skeleton code, so that foundation is setup for the team to continue working on it.
+
+## Feb 22 at 6:00 PM (Team Meeting)
+### Attendance
+* Zeel
+* Rutu
+* Zil
+* Parth
+
+### Agenda: 
+* Discuss how back-end skeleton code was setup.
+* Discuss how front-end skeleton code was setup. 
+
+### Discussion:
+* Decided who will work on front end and who will work in back-end.
+* Assigning front-end tasks and back-end tasks to the respective groups(Team working with front-end and team working with back-end).
+
+### Outcomes:
+* scheduling next meeting to discuss progress on sprint 2.

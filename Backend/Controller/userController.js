@@ -3,8 +3,8 @@ const Users = require("../models/userModel");
 exports.createUser = async(req, res) => {
     try {
         const newUser = await Users.create(req.body);
-        res.status("201").json({
-            status: "sucess",
+        res.status(201).json({
+            status: "success",
             message: "new user created",
             data: {
                 newUser,
@@ -33,7 +33,7 @@ exports.updateUser = async(req, res) => {
         }
 
         res.status(200).json({
-            status: "sucess",
+            status: "success",
             message: "updated user",
             data: {
                 user: updateUser,
@@ -54,8 +54,8 @@ exports.getUser = async(req, res) => {
         if (user == null) {
             throw err;
         }
-        res.status("200").json({
-            status: "sucess",
+        res.status(200).json({
+            status: "success",
             message: "Found user",
             data: {
                 user: user,
@@ -71,7 +71,7 @@ exports.getUser = async(req, res) => {
 };
 
 exports.deleteUser = (req, res) => {
-    res.status("500").json({
+    res.status(500).json({
         status: "err",
         message: "route not yet implemented",
     });
