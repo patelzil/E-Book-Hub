@@ -1,8 +1,14 @@
 const Users = require("../models/userModel");
+const Cryptr = require("cryptr");
+const cryptr = new Cryptr("myTotalySecretKey");
 
 exports.createUser = async(req, res) => {
     try {
+        if (Boolean(req.body.password)) {
+            req.body.password = cryptr.encrypt(req.body.password);
+        }
         const newUser = await Users.create(req.body);
+
         res.status(201).json({
             status: "success",
             message: "new user created",
@@ -51,6 +57,8 @@ exports.updateUser = async(req, res) => {
 exports.getUser = async(req, res) => {
     try {
         const user = await Users.findOne({ username: req.params.username });
+        user.password = cryptr.decrypt(user.password);
+        console.log(user.password);
         if (user == null) {
             throw err;
         }
