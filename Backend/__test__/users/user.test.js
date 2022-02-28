@@ -30,7 +30,7 @@ describe('User signin/Login test', () => {
                 username: 'TestUser',
                 password: 'Test123'
             }) 
-            expect(response.statusCode).toBe(201);
+            expect(response.statusCode).toBe(300);
             await user.findOneAndDelete({username: 'TestUser'});    
         });
     } )
