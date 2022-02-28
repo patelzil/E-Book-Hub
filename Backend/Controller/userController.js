@@ -7,8 +7,10 @@ exports.createUser = async(req, res) => {
         if (Boolean(req.body.password)) {
             req.body.password = cryptr.encrypt(req.body.password);
         }
-        const newUser = await Users.create(req.body);
+        let newUser = await Users.create(req.body);
 
+        newUser.password = "**********";
+        console.log(newUser);
         res.status(201).json({
             status: "success",
             message: "new user created",
@@ -58,17 +60,23 @@ exports.getUser = async(req, res) => {
     try {
         const user = await Users.findOne({ username: req.params.username });
         user.password = cryptr.decrypt(user.password);
-        console.log(user.password);
+
         if (user == null) {
             throw err;
         }
-        res.status(200).json({
-            status: "success",
-            message: "Found user",
-            data: {
-                user: user,
-            },
-        });
+
+        if (user.password === req.params.password) {
+            user.password = "**********";
+            res.status(200).json({
+                status: "success",
+                message: "Found user",
+                data: {
+                    user: user,
+                },
+            });
+        } else {
+            throw err;
+        }
     } catch (err) {
         res.status(404).json({
             status: "fail",
