@@ -4,7 +4,7 @@ const cryptr = new Cryptr("myTotalySecretKey");
 
 exports.createUser = async(req, res) => {
     try {
-        if (req.body.password != null) {
+        if (Boolean(req.body.password)) {
             req.body.password = cryptr.encrypt(req.body.password);
         }
         const newUser = await Users.create(req.body);
