@@ -12,8 +12,9 @@ router.route("/createUser").post(userController.createUser);
 //: means parameter
 router
     .route("/:username")
-    .get(userController.getUser)
     .patch(userController.updateUser)
     .delete(userController.deleteUser);
+
+router.route("/:username/:password").get(userController.getUser);
 
 module.exports = router;
