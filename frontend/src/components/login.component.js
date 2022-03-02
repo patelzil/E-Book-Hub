@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import login_page from '../assets/login_page.svg'
 import axios from "axios";
 
-export default function Login() {
+export default function Login(props) {
 
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
@@ -14,18 +14,13 @@ export default function Login() {
     const handleSubmit = (event) => 
     {
         event.preventDefault();
-        axios.get(`http://localhost:5000/EBookHub/users/${ username }`)
+        
+        axios.get(`http://localhost:5000/EBookHub/users/${ username }/${ password }`)
             .then(function(response){
                 if(response.data.status === "success"){
-                    if (response.data.data.user.password === password)
-                    {
                         setLoginflag(1);
                         const temp = response.data.data.user;
                         setUserObject(temp);
-                    } else
-                    {
-                        setLoginflag(2);
-                    }
                 } else {
                     setLoginflag(2);
                 }
@@ -39,6 +34,7 @@ export default function Login() {
 
     return (
         <div>
+        
         { (loginflag === 1) ? 
             (   <div>
                     <Modal.Dialog style={{marginTop: "300px", width: "500px", borderColor: "green"}}>

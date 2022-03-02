@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import {Button, Form} from "react-bootstrap";
 import Modal from 'react-bootstrap/Modal'
 import axios from "axios";
-import online_reading from '../assets/online_reading.svg'
+import online_reading from '../assets/online_reading.svg';
 
 export default function Signup() {
     const initialUser = {firstName: "", lastName: "", eMail: "", username: "", password: ""}
