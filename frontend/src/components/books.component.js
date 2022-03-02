@@ -1,5 +1,6 @@
 import React from "react";
 import BookCard from "./bookCard.component";
+import {Grid} from "@mui/material";
 
 export default function Books() {
     const list = [{
@@ -60,12 +61,15 @@ export default function Books() {
 
     // const list = [];
     return (
-        <div>
-            { list.length > 0 ? (
-                list.map((book, key)=><BookCard bookDetails={book}/>)
-            ) : (
-                <h3 style={{textAlign: "center", margin: "20px"}}>No books found.</h3>
-            )}
+        <div style={{padding: "30px"}}>
+            <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
+                { list.length > 0 ? (
+                    list.map((book, key)=><BookCard bookDetails={book}/>)
+                ) : (
+                    <h3 style={{textAlign: "center", margin: "20px"}}>No books found.</h3>
+                )}
+            </Grid>
         </div>
+
     )
 }
