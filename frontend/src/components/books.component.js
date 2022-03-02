@@ -59,7 +59,6 @@ export default function Books() {
         imageLinks: "../assets/logo.png",
     }]
 
-    // const list = [];
     return (
         <div style={{padding: "30px"}}>
             <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
@@ -70,6 +69,5 @@ export default function Books() {
                 )}
             </Grid>
         </div>
-
     )
 }

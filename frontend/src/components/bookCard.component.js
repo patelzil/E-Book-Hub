@@ -1,5 +1,6 @@
 import React from "react";
 import {Button, Card} from "react-bootstrap";
+import {Rating} from "@mui/material";
 
 export default function BookCard(props) {
     return (
@@ -13,11 +14,10 @@ export default function BookCard(props) {
                 <Card.Subtitle style={{fontSize: "20px", fontWeight: "bold"}}>{props.bookDetails.subtitle}</Card.Subtitle>
                 <Card.Text style={{fontSize: "18px"}}>{props.bookDetails.author}</Card.Text>
                 <div style={{fontSize: "18px", fontWeight: "bold"}}>$ 29.99
-                    <div style={{ float: "right"}}>Rating: {props.bookDetails.rating}</div>
+                    <div style={{ float: "right"}}><Rating name="read-only" value={props.bookDetails.rating} precision={0.5} readOnly /></div>
                 </div>
                 <Button className="card button">Details</Button>
             </Card.Body>
         </Card>
-
     )
 }
