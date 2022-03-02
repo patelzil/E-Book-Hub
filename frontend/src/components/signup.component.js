@@ -75,32 +75,32 @@ export default function Signup() {
                                     className="form"
                                     onSubmit={handleSubmit}
                                 >
-                                    <Form.Group className="mb-3 input-div" controlId="formFirstName">
+                                    <Form.Group className="mb-3 input-div" controlId="formFirstName" title="firstName">
                                         <Form.Label>First name</Form.Label>
                                         <Form.Control required type="string" placeholder="Enter first name" onChange={(e) => (initialUser.firstName = e.target.value)}/>
                                     </Form.Group>
 
-                                    <Form.Group className="mb-3 input-div" controlId="formLastName">
+                                    <Form.Group className="mb-3 input-div" controlId="formLastName" title="lastName">
                                         <Form.Label>Last name</Form.Label>
                                         <Form.Control required type="string"  placeholder="Enter last name" onChange={(e) => (initialUser.lastName = e.target.value.trim())}/>
                                     </Form.Group>
 
-                                    <Form.Group className="mb-3 input-div" controlId="formEmail">
+                                    <Form.Group className="mb-3 input-div" controlId="formEmail" title="email">
                                         <Form.Label>Email address</Form.Label>
                                         <Form.Control required type="email" placeholder="Enter email" onChange={(e) => (initialUser.eMail = e.target.value.trim())}/>
                                     </Form.Group>
 
-                                    <Form.Group className="mb-3 input-div" controlId="formUserName">
+                                    <Form.Group className="mb-3 input-div" controlId="formUserName" title="userName">
                                         <Form.Label>Username</Form.Label>
                                         <Form.Control required type="string"  placeholder="Enter username" onChange={(e) => (initialUser.username = e.target.value.trim())}/>
                                     </Form.Group>
 
-                                    <Form.Group className="mb-3 input-div" controlId="formPassword">
+                                    <Form.Group className="mb-3 input-div" controlId="formPassword" title="password">
                                         <Form.Label>Password</Form.Label>
                                         <Form.Control required type="password" placeholder="Enter password" onChange={(e) => {initialUser.password = e.target.value.trim(); }}/>
                                     </Form.Group>
 
-                                    <Form.Group className="mb-3 input-div" controlId="formConPassword">
+                                    <Form.Group className="mb-3 input-div" controlId="formConPassword" title="re-Password">
                                         <Form.Label>Confirm Password</Form.Label>
                                         <Form.Control required type="password" placeholder="Re-enter the password" onChange={(e) => setConPass(e.target.value.trim())}/>
                                     </Form.Group>
@@ -110,6 +110,7 @@ export default function Signup() {
                                         style={{width: "350px"}}
                                         variant="primary"
                                         type="submit"
+                                        title= "registerButton"
                                     >
                                         Submit
                                     </Button>
