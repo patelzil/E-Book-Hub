@@ -1,12 +1,8 @@
 import React from "react";
+import Books from "./books.component";
 
 export default function Home() {
-
-        
-
-        return (
-            <>
-            <h1> Welcome Home!</h1>
-            </>
-        )
-    }
+    return (
+        <div><Books/></div>
+    )
+}
