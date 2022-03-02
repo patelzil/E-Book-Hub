@@ -1,14 +1,30 @@
 import React from "react";
-import { useLocation } from "react-router-dom";
+import UserSessionNavBar from "./usersessionnavbar.component";
 
 export default function User() {
 
-    const  location = useLocation()
-    const  userObject = location.state.response; 
+    
+    const userObject = JSON.parse(localStorage.getItem('userObject'));
+
         return (
-            <>
-            <h1> Welcome to your dashboard, {userObject.firstName} {userObject.lastName}! </h1>
-            <p>please add appropriate content</p>
+            <> 
+            <div style={{ zIndex: 1000, top: 0, position: 'sticky', background: 'black' }}>
+            <UserSessionNavBar/>
+            </div>
+            { userObject !== null ? 
+            (
+            <div>
+                <h1> Welcome to your dashboard, {userObject.firstName} { userObject.lastName} ! </h1>
+                <p>please add appropriate content</p>
+            </div>
+            ) : (
+                <div>
+                <h1> Error 404! </h1>
+                <p>please login again</p>
+                </div>
+            )
+            }
+            
             </>
         )
     }

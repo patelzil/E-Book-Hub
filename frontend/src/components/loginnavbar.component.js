@@ -4,7 +4,7 @@ import { Container, Nav, Navbar} from 'react-bootstrap'
 import logo from '../assets/logo.png'
 import '../styles/styles.css'
 
-export default function NavBar(){
+export default function LoginNavBar(){
     return (
         <Container>
             <Navbar collapseOnSelect expand="sm" variant="dark" bg="black">
@@ -18,7 +18,7 @@ export default function NavBar(){
                             </Navbar.Brand>
                         </Nav>
                         <Nav className="">
-                            <Link to="/login" class="button">Log In</Link>
+                            <Link to="/login" class="inactive-button" disabled>Log In</Link>
                             <Link to="/signup" class="button">Sign Up</Link>
                         </Nav>
                     </Navbar.Collapse>
