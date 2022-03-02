@@ -67,23 +67,23 @@ export default function Login() {
                 </div>
             ): 
             (
-                <div class = "card">
-                    <div class = "card-header"> 
+                <div className = "card">
+                    <div className = "card-header"> 
                         <h1>LOGIN</h1> 
                     </div>
     
-                    <div class="card-body"> 
+                    <div className ="card-body"> 
                         <Container className = "mt-5">
                             <Row>
                                 <Col lg={4} md={6} sm={12} className="justify-content-center mt-5 p-3">
                                     
                                     <Form>
-                                        <Form.Group className="mb-3" controlId="formBasicEmail">
+                                        <Form.Group className="mb-3" controlId="formBasicEmail" title="userName">
                                             <Form.Label>Username</Form.Label>
                                             <Form.Control required type="text" onChange={ (event) =>  { setUsername(event.target.value) } } placeholder="Username" />
                                         </Form.Group>
     
-                                        <Form.Group className="mb-3" controlId="formBasicPassword">
+                                        <Form.Group className="mb-3" controlId="formBasicPassword" title="password">
                                             <Form.Label>Password</Form.Label>
                                             <Form.Control required type="password" onChange={ (event) =>  { setPassword(event.target.value) } } placeholder="Password" />
                                         </Form.Group>
@@ -92,9 +92,9 @@ export default function Login() {
                                             <Form.Check type="checkbox" label="Remember me" />
                                         </Form.Group>
     
-                                        <Button className="button-block" type="submit" onClick={ handleSubmit } >Login</Button>
+                                        <Button className="button-block" type="submit" title="logInButton" onClick={ handleSubmit } >Login</Button>
     
-                                        <Button className="button-block" >Forgot Password</Button>
+                                        <Button className="button-block" title="forgotPassword">Forgot Password</Button>
     
                                 
                                     </Form>
