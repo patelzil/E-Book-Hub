@@ -18,8 +18,8 @@ export default function LoginNavBar(){
                             </Navbar.Brand>
                         </Nav>
                         <Nav className="">
-                            <Link to="/login" class="inactive-button" disabled>Log In</Link>
-                            <Link to="/signup" class="button">Sign Up</Link>
+                            <Link to="/login" className="inactive-button" disabled>Log In</Link>
+                            <Link to="/signup" className="button">Sign Up</Link>
                         </Nav>
                     </Navbar.Collapse>
 

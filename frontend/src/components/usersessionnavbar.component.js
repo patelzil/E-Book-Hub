@@ -19,12 +19,12 @@ export default function UserSessionNavBar(){
                                 E-Book-Hub
                             </Navbar.Brand>
                         </Nav>
-                        <DropdownButton id="dropdown-basic-button" class="button" title={ username }>
-                            <Dropdown.Item href="/profile" class="button">Profile</Dropdown.Item>
+                        <DropdownButton id="dropdown-basic-button" className="button" title={ username }>
+                            <Dropdown.Item href="/profile" className="button">Profile</Dropdown.Item>
                             <Dropdown.Divider />
-                            <Dropdown.Item href="/user" class="button">Dashboard</Dropdown.Item>
+                            <Dropdown.Item href="/user" className="button">Dashboard</Dropdown.Item>
                             <Dropdown.Divider />
-                            <Dropdown.Item href="/" class="button" onClick= { () => { localStorage.clear()} }>Logout</Dropdown.Item>
+                            <Dropdown.Item href="/" className="button" onClick= { () => { localStorage.clear()} }>Logout</Dropdown.Item>
                         </DropdownButton>
                     </Navbar.Collapse>
 

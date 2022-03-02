@@ -90,32 +90,32 @@ export default function Signup(props) {
                                     className="form"
                                     onSubmit={handleSubmit}
                                 >
-                                    <Form.Group className="mb-3 input-div" controlId="formFirstName">
+                                    <Form.Group className="mb-3 input-div" controlId="formFirstName" title="firstName">
                                         <Form.Label>First name</Form.Label>
                                         <Form.Control required type="string" placeholder="Enter first name" onChange={(e) => (setFirstName(e.target.value.trim()))}/>
                                     </Form.Group>
 
-                                    <Form.Group className="mb-3 input-div" controlId="formLastName">
+                                    <Form.Group className="mb-3 input-div" controlId="formLastName" title="lastName">
                                         <Form.Label>Last name</Form.Label>
                                         <Form.Control required type="string"  placeholder="Enter last name" onChange={(e) => (setLastName(e.target.value.trim()))}/>
                                     </Form.Group>
 
-                                    <Form.Group className="mb-3 input-div" controlId="formEmail">
+                                    <Form.Group className="mb-3 input-div" controlId="formEmail" title="email">
                                         <Form.Label>Email address</Form.Label>
                                         <Form.Control required type="email" placeholder="Enter email" onChange={(e) => (setEmail(e.target.value.trim()))}/>
                                     </Form.Group>
 
-                                    <Form.Group className="mb-3 input-div" controlId="formUserName">
+                                    <Form.Group className="mb-3 input-div" controlId="formUserName" title="userName">
                                         <Form.Label>Username</Form.Label>
                                         <Form.Control required type="string"  placeholder="Enter username" onChange={(e) => (setUserName(e.target.value.trim()))}/>
                                     </Form.Group>
 
-                                    <Form.Group className="mb-3 input-div" controlId="formPassword">
+                                    <Form.Group className="mb-3 input-div" controlId="formPassword" title="password">
                                         <Form.Label>Password</Form.Label>
                                         <Form.Control required type="password" placeholder="Enter password" onChange={(e) =>  (setPassword(e.target.value.trim()))}/>
                                     </Form.Group>
 
-                                    <Form.Group className="mb-3 input-div" controlId="formconfirmPasswordword">
+                                    <Form.Group className="mb-3 input-div" controlId="formconfirmPasswordword" title="re-Password">
                                         <Form.Label>Confirm Password</Form.Label>
                                         <Form.Control required type="password" placeholder="Re-enter the password" onChange={(e) =>setConfirmPassword(e.target.value.trim())}/>
                                     </Form.Group>
@@ -126,6 +126,7 @@ export default function Signup(props) {
                                         variant="primary"
                                         type="submit"
                                         onClick={handleSubmit}
+                                        title= "registerButton"
                                     >
                                         Submit
                                     </Button>
