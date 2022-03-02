@@ -3,38 +3,38 @@ import { Button, Col, Container, Form, Modal, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import login_page from '../assets/login_page.svg'
 import axios from "axios";
+import LoginNavBar from "./loginnavbar.component";
 
-export default function Login(props) {
+export default function Login() {
 
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [loginflag, setLoginflag] = useState(0);
-    const [userObject, setUserObject] = useState(null);
-
     const handleSubmit = (event) => 
     {
         event.preventDefault();
-        
         axios.get(`http://localhost:5000/EBookHub/users/${ username }/${ password }`)
             .then(function(response){
-                if(response.data.status === "success"){
+                if(response.data.status === "success")
+                {
                         setLoginflag(1);
                         const temp = response.data.data.user;
-                        setUserObject(temp);
+                        localStorage.setItem('userObject', JSON.stringify(temp));
                 } else {
                     setLoginflag(2);
                 }
             })
             .catch(function (error) {
                 setLoginflag(2);
-                alert("Invalid username, please enter a valid username :)");
                 console.log(error)
             })
     }
 
     return (
         <div>
-        
+        <div style={{ zIndex: 1000, top: 0, position: 'sticky', background: 'black' }}>
+        <LoginNavBar/>
+        </div>
         { (loginflag === 1) ? 
             (   <div>
                     <Modal.Dialog style={{marginTop: "300px", width: "500px", borderColor: "green"}}>
@@ -45,8 +45,9 @@ export default function Login(props) {
                             <p style={{fontSize: "25px", textAlign: "center"}}>Successfully Logged In!</p>
                         </Modal.Body>
                         <Modal.Footer>
-                            <Link to="/user" state={ { response: userObject } }> <Button className="submit-button">Close</Button> </Link>
-                                
+                            <Link to={ "/user" }>
+                            <Button className="submit-button" type="button" >Close</Button>
+                            </Link>
                         </Modal.Footer>
                     </Modal.Dialog>
                 </div>
@@ -99,7 +100,7 @@ export default function Login(props) {
                                     </Form>
     
                                     <div className="text-center mt-3">
-                                        <medium className="SignUp">Don't have an account yet?<br></br><Link to="/signup">Sign up</Link></medium>
+                                        <p className="SignUp">Don't have an account yet?<br></br><Link to="/signup">Sign up</Link></p>
                                     </div>
                                 </Col>
     
