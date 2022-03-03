@@ -30,6 +30,10 @@ let checkBookValue = function(book) {
         book.price = "FREE";
     }
 
+    if (book.category === undefined) {
+        book.category = "NOT AVAILABLE";
+    }
+
     return book;
 };
 
@@ -40,8 +44,10 @@ let getBooksResponse = function(bookArray) {
     for (i = 0; i < 40; i++) {
         if (typeof bookArray.items[i].volumeInfo !== undefined) {
             let book = {
+                id: bookArray.items[i].id,
                 title: bookArray.items[i].volumeInfo.title,
                 subTitle: bookArray.items[i].volumeInfo.subtitle,
+                category: bookArray.items[i].volumeInfo.categories,
                 authors: bookArray.items[i].volumeInfo.authors,
                 publisher: bookArray.items[i].volumeInfo.publisher,
                 publishDate: bookArray.items[i].volumeInfo.publishedDate,
@@ -49,6 +55,7 @@ let getBooksResponse = function(bookArray) {
                 pageCount: bookArray.items[i].volumeInfo.pageCount,
                 imageLink: bookArray.items[i].volumeInfo.imageLinks,
                 price: bookArray.items[i].saleInfo.retailPrice,
+                rating: (Math.random() * (5.0 - 0.5) + 0.5).toFixed(1),
             };
 
             book = checkBookValue(book);
