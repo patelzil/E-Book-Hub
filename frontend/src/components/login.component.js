@@ -46,7 +46,7 @@ export default function Login() {
                         </Modal.Body>
                         <Modal.Footer>
                             <Link to={ "/user" }>
-                            <Button className="submit-button" type="button" >Close</Button>
+                            <Button variant="success" type="button" >Close</Button>
                             </Link>
                         </Modal.Footer>
                     </Modal.Dialog>
@@ -61,7 +61,7 @@ export default function Login() {
                             <p style={{fontSize: "25px",textAlign: "center"}}>Could not Login. Please try again.</p>
                         </Modal.Body>
                         <Modal.Footer>
-                            <Button className="submit-button" href="/login">Close</Button>
+                            <Button variant="danger" href="/login">Close</Button>
                         </Modal.Footer>
                     </Modal.Dialog>
                 </div>
