@@ -13,7 +13,7 @@ router.route("/createUser").post(userController.createUser);
 router
     .route("/:username")
     .patch(userController.updateUser)
-    .delete(userController.deleteUser);
+    // .delete(userController.deleteUser);
 
 router.route("/:username/:password").get(userController.getUser);
 
