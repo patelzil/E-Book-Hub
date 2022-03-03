@@ -84,6 +84,7 @@
     align-items: center;
     justify-content: center;
 }
+
 .card-header{
     background-color: white;
 }
@@ -134,7 +135,7 @@
 /* Do not show the scroll bars */
 ::-webkit-scrollbar{
     display: none;
-} 
+}
 
 .dropDownButton{
     position: absolute;
@@ -149,6 +150,6 @@
 }
 
 
-.card {
+.search-card {
     width: 92%;
 }
