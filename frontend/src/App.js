@@ -5,19 +5,19 @@ import Home from "./components/home.component"
 import Login from "./components/login.component";
 import Signup from "./components/signup.component";
 import User from "./components/user.component";
-import NavBar from "./components/navbar.component";
+import UserProfile from "./components/userprofile.component";
 
 function App() {
 
   return (
     <>
       <Router>
-      <div style={{ zIndex: 1000, top: 0, position: 'sticky', background: 'black' }}><NavBar /></div>
           <Routes>
           <Route path="/" exact element={<Home/>}/>
-          <Route path="/login" element={<Login/>}/>
-          <Route path="/signup" element={<Signup/>}/>
+          <Route path="/login" element={<Login />}/>
+          <Route path="/signup" element={<Signup />}/>
           <Route path="/user" element={<User/>}/>
+          <Route path="/profile" element={<UserProfile/>}/>
           </Routes> 
       </Router>
       </>
