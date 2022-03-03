@@ -4,7 +4,7 @@ import {Rating} from "@mui/material";
 
 export default function BookCard(props) {
     return (
-        <Card style={{ width: '18rem', margin: "15px" }}>
+        <Card title="bookCard" style={{ width: '18rem', margin: "15px" }}>
             <div style={{width: "285px", height: "285px", display: "flex", flexDirection: "column", alignItems: "center",
                 justifyContent: "center"}}>
                 <Card.Img  variant="top" src={props.bookDetails.imageLinks+"?text=E-book-hub"}/>

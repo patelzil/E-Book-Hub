@@ -22,7 +22,7 @@ afterAll( async () => {
 describe('User signin/Login test', () => {
     describe('Enter new User',() =>{
         test('User has provided all details correct',async () => {
-            jest.setTimeout(30000)
+            jest.setTimeout(3000)
             const response = await request.post('/EBookHub/users/createUser').send({
                 firstName: 'TestFirstName',
                 lastName: 'TestLastName',
@@ -37,7 +37,7 @@ describe('User signin/Login test', () => {
     
     describe('Enter new User with out password' ,() => {
         test('User has missing password',async () => {
-            jest.setTimeout(30000)
+            jest.setTimeout(3000)
             const response = await request.post('/EBookHub/users/createUser').send({
                 firstName: 'TestFirstName',
                 lastName: 'TestLastName',
@@ -52,7 +52,7 @@ describe('User signin/Login test', () => {
 
     describe('Enter new user without username', () => {
         test('User has missing username',async () => {
-            jest.setTimeout(30000)
+            jest.setTimeout(3000)
             const response = await request.post('/EBookHub/users/createUser').send({
                 firstName: 'TestFirstName',
                 lastName: 'TestLastName',
@@ -66,7 +66,7 @@ describe('User signin/Login test', () => {
 
     describe('Enter new user without email', () => {
         test('User has missing email',async () => {
-            jest.setTimeout(30000)
+            jest.setTimeout(3000)
             const response = await request.post('/EBookHub/users/createUser').send({
                 firstName: 'TestFirstName',
                 lastName: 'TestLastName',
@@ -80,7 +80,7 @@ describe('User signin/Login test', () => {
 
     describe('Enter new user without firstname', () => {
         test('User has missing firstname',async () => {
-            jest.setTimeout(30000)
+            jest.setTimeout(3000)
             const response = await request.post('/EBookHub/users/createUser').send({
                 firstName: '',
                 lastName: 'TestLastName',
@@ -94,7 +94,7 @@ describe('User signin/Login test', () => {
 
     describe('Enter new user without lastname', () => {
         test('User has missing lastname',async () => {
-            jest.setTimeout(30000)
+            jest.setTimeout(3000)
             const response = await request.post('/EBookHub/users/createUser').send({
                 firstName: 'TestFirstName',
                 lastName: '',
@@ -108,7 +108,7 @@ describe('User signin/Login test', () => {
     
     describe('Enter new user without username and password', () => {
         test('User has missing username and password both',async () => {
-            jest.setTimeout(30000)
+            jest.setTimeout(3000)
             const response = await request.post('/EBookHub/users/createUser').send({
                 username: '',
                 password: ''
@@ -119,7 +119,7 @@ describe('User signin/Login test', () => {
 
     describe('Enter existing username' , () => {
         test('User has entered duplicate details',async () => {
-            jest.setTimeout(30000)
+            jest.setTimeout(3000)
             await request.post('/EBookhub/users/createUser').send({
                 username: 'TestUser',
                 password: 'Test123'
