@@ -127,6 +127,13 @@
     align-content: center;
 }
 
+.book-title {
+    width: 10em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
 
 /* STYLE AFFILIATED TO HOME PAGE */
 
