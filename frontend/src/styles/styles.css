@@ -9,6 +9,16 @@
     text-decoration: none;
 }
 
+.inactive-button, .inactive-button:hover {
+    border: 1px solid white;
+    background: black;
+    color: white;
+    margin: 10px;
+    padding: 5px 15px;
+    border-radius: 6px;
+    text-decoration: none;
+}
+
 .button:hover {
     border: 1px solid white;
     background: black;
@@ -64,8 +74,8 @@
     width: 70px;
     height: 70px;
     margin-bottom: 2rem;
-    display: 'flex';
-    justify-content: 'center';
+    display: flex;
+    justify-content: center;
     text-align: center;
 }
 
@@ -116,6 +126,7 @@
     align-content: center;
 }
 
+
 /* STYLE AFFILIATED TO HOME PAGE */
 
 
@@ -137,3 +148,7 @@
     font-size: large;
 }
 
+
+.card {
+    width: 92%;
+}

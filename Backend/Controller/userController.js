@@ -10,7 +10,6 @@ exports.createUser = async(req, res) => {
         let newUser = await Users.create(req.body);
 
         newUser.password = "**********";
-        console.log(newUser);
         res.status(201).json({
             status: "success",
             message: "new user created",

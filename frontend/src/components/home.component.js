@@ -1,7 +1,8 @@
 import axios from 'axios';
 import React, { useState } from "react";
 import SearchBar from "./SearchBar";
-
+import Books from "./books.component";
+import NavBar from "./navbar.component";
 
 export default function Home(){
     const [bookList, setBookList] = useState([])
@@ -23,10 +24,14 @@ export default function Home(){
     }
 
     return (
-        <div className="ui container" style={{marginTop: '10px'}}>
-            <SearchBar onSubmit={onSearchSubmit}></SearchBar>
+        <div>
+        <div style={{ zIndex: 1000, top: 0, position: 'sticky', background: 'black' }}>
+        <NavBar/>
         </div>
-    );
-    
+        <div className="ui container" style={{marginTop: '10px'}}>
+          <SearchBar onSubmit={onSearchSubmit}></SearchBar>
+        </div>
+        <div><Books/></div>
+        </div>
+    )
 }
-
