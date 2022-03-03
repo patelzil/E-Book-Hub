@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import {Button, Card } from "react-bootstrap";
 import {Rating} from "@mui/material";
-import Modal from 'react-bootstrap/Modal'
+import Modal from 'react-bootstrap/Modal';
+import logo from '../assets/logo.png';
 
 export default function BookCard(props) {
     const [show, setShow] = useState(false);
@@ -16,7 +17,7 @@ export default function BookCard(props) {
                 <Card style={{ width: '260px', height: '450px', margin: "15px" }}>
                     <div style={{width: "100%", height: "250px", display: "flex", flexDirection: "column", alignItems: "center",
                         justifyContent: "center"}}>
-                        <Card.Img  width="260px" height="250px" variant="top" src={props.bookDetails.imageLink.thumbnail}/>
+                        <Card.Img  width="260px" height="250px" variant="top" src={props.bookDetails.imageLink ==="NOT AVAILABLE" ? logo : props.bookDetails.imageLink.thumbnail}/>
                     </div>
                     <Card.Body style={{width: "100%", marginTop: "0px"}}>
                         <Card.Title className="book-title" style={{fontSize: "20px", fontWeight: "bold"}}>{props.bookDetails.title}</Card.Title>
