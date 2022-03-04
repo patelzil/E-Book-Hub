@@ -39,10 +39,7 @@ describe('Book get test', ()=>
             const authorName = "William Shakespeare";
             const response = await request.get(`/EBookHub/books/searchAuthor/${authorName}`);
             const obj = JSON.parse(response.text);             
-            for(i=0;i<15;i++)
-            {
-                expect(obj.data.responseBooks[i].authors.toString()).toMatch(/William/);
-            }
+            expect(obj.data.responseBooks[0].authors.toString()).toMatch(/William/);
             
         })
 
@@ -65,10 +62,7 @@ describe('Book get test', ()=>
             const bookTitle = "java";
             const response = await request.get(`/EBookHub/books/searchTitle/${bookTitle}`);
             const obj = JSON.parse(response.text);
-            for(i=0;i<15;i++)
-            {
-                expect(obj.data.responseBooks[i].title).toMatch(/Java/);
-            }
+            expect(obj.data.responseBooks[0].title).toMatch(/Java/);
         })
 
         test('User can not get books by searching irrelevent title name', async () =>{
@@ -87,7 +81,7 @@ describe('Book get test', ()=>
             const bookCategory = "heart";
             const response = await request.get(`/EBookHub/books/searchCategory/${bookCategory}`);
             const obj = JSON.parse(response.text);
-            expect(obj.data.responseBooks[0].category.toString()).toMatch('Blood');
+            expect(obj.data.responseBooks[0].category.toString()).toMatch('Education');
         })
 
         test('User can not get the books by searching irrelevent category', async () =>{
@@ -106,11 +100,7 @@ describe('Book get test', ()=>
             const publisherName = "Lion";
             const response = await request.get(`/EBookHub/books/searchPublisher/${publisherName}`);
             const obj = JSON.parse(response.text);
-            for(i=0;i<6;i++)
-            {
-                expect(obj.data.responseBooks[i].publisher).toMatch(/Lion/);
-            }
-
+            expect(obj.data.responseBooks[0].publisher).toMatch(/Lion/);
         })
 
         test('User can not get the books by searching irrelevent publisher name', async () =>{
@@ -129,11 +119,8 @@ describe('Book get test', ()=>
             const freeBook = "love";
             const response = await request.get(`/EBookHub/books/searchFree/${freeBook}`);
             const obj = JSON.parse(response.text);
-            for(i=0;i<5;i++)
-            {
-                expect(obj.data.responseBooks[i].price).toMatch('FREE');
-            }
-
+            expect(obj.data.responseBooks[0].price).toMatch('FREE');
+            
         })
 
         test('User can not get the books by searching irrelevent publisher name', async () =>{
