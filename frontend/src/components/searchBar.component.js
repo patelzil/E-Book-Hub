@@ -13,7 +13,6 @@ class SearchBar extends React.Component {
             isPriceSelected: false,
             minPrice: 0,
             maxPrice: 0,
-
         }
     }
 
@@ -66,17 +65,17 @@ class SearchBar extends React.Component {
     }
 
     //These functions handle the min price and max price
-    handleMinPrice = (event) => {
-        this.setState({
-            minPrice: event.target.value
-        })
-    }
-
-    handleMaxPrice = (event) => {
-        this.setState({
-            maxPrice: event.target.value
-        })
-    }
+    // handleMinPrice = (event) => {
+    //     this.setState({
+    //         minPrice: event.target.value
+    //     })
+    // }
+    //
+    // handleMaxPrice = (event) => {
+    //     this.setState({
+    //         maxPrice: event.target.value
+    //     })
+    // }
 
     //If user selects free books
     handleFreeBooks = (event) => {
@@ -95,24 +94,24 @@ class SearchBar extends React.Component {
             priceRange =
             <div className="search-card">
                 <Form className="d-flex" style={{display: 'inline-block'}}>
-                    <FormGroup controlId="formInlineMin">
-                        <FormLabel>Min Price</FormLabel>{' '}
-                        <FormControl
-                            type="number"
-                            min = {0}
-                            placeholder="0"
-                            value={this.state.minPrice}
-                            onChange={this.handleMinPrice}/>
-                    </FormGroup>{' '}
-                    -
-                    <FormGroup controlId="formInlineMax">
-                        <FormLabel>Max Price</FormLabel>{' '}
-                        <FormControl
-                            type="number"
-                            placeholder="500"
-                            value={this.state.maxPrice}
-                            onChange={this.handleMaxPrice}/>
-                    </FormGroup>{' '}
+                    {/*<FormGroup controlId="formInlineMin">*/}
+                    {/*    <FormLabel>Min Price</FormLabel>{' '}*/}
+                    {/*    <FormControl*/}
+                    {/*        type="number"*/}
+                    {/*        min = {0}*/}
+                    {/*        placeholder="0"*/}
+                    {/*        value={this.state.minPrice}*/}
+                    {/*        onChange={this.handleMinPrice}/>*/}
+                    {/*</FormGroup>{' '}*/}
+                    {/*-*/}
+                    {/*<FormGroup controlId="formInlineMax">*/}
+                    {/*    <FormLabel>Max Price</FormLabel>{' '}*/}
+                    {/*    <FormControl*/}
+                    {/*        type="number"*/}
+                    {/*        placeholder="500"*/}
+                    {/*        value={this.state.maxPrice}*/}
+                    {/*        onChange={this.handleMaxPrice}/>*/}
+                    {/*</FormGroup>{' '}*/}
 
                     <Form.Check
                         className="big-checkbox"
@@ -123,8 +122,7 @@ class SearchBar extends React.Component {
                     />
                 </Form>
 
-
-                <Button className="submit-button" style={{margin: '0.5rem'}} size="md" type="input" onClick={this.handlePriceSubmit}>Set price range</Button>
+                <Button className="submit-button" style={{margin: '1.5rem'}} size="md" type="input" onClick={this.handlePriceSubmit}>Set price range</Button>
 
             </div>
 

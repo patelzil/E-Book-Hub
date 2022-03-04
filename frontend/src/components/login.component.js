@@ -10,7 +10,7 @@ export default function Login() {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [loginflag, setLoginflag] = useState(0);
-    const handleSubmit = (event) => 
+    const handleSubmit = (event) =>
     {
         event.preventDefault();
         axios.get(`http://localhost:5000/EBookHub/users/${ username }/${ password }`)
@@ -35,7 +35,7 @@ export default function Login() {
         <div style={{ zIndex: 1000, top: 0, position: 'sticky', background: 'black' }}>
         <LoginNavBar/>
         </div>
-        { (loginflag === 1) ? 
+        { (loginflag === 1) ?
             (   <div>
                     <Modal.Dialog style={{marginTop: "300px", width: "500px", borderColor: "green"}}>
                         <Modal.Header style={{justifyContent: "center"}}>
@@ -51,7 +51,7 @@ export default function Login() {
                         </Modal.Footer>
                     </Modal.Dialog>
                 </div>
-            ):  (loginflag === 2) ? 
+            ):  (loginflag === 2) ?
             ( <div>
                     <Modal.Dialog style={{marginTop: "300px", width: "500px"}}>
                         <Modal.Header style={{justifyContent: "center"}}>
@@ -65,54 +65,54 @@ export default function Login() {
                         </Modal.Footer>
                     </Modal.Dialog>
                 </div>
-            ): 
+            ):
             (
                 <div className = "card">
-                    <div className = "card-header"> 
-                        <h1>LOGIN</h1> 
+                    <div className = "card-header">
+                        <h1>LOGIN</h1>
                     </div>
-    
-                    <div className ="card-body"> 
+
+                    <div className ="card-body">
                         <Container className = "mt-5">
                             <Row>
                                 <Col lg={4} md={6} sm={12} className="justify-content-center mt-5 p-3">
-                                    
+
                                     <Form>
                                         <Form.Group className="mb-3" controlId="formBasicEmail" title="userName">
                                             <Form.Label>Username</Form.Label>
                                             <Form.Control required type="text" onChange={ (event) =>  { setUsername(event.target.value) } } placeholder="Username" />
                                         </Form.Group>
-    
+
                                         <Form.Group className="mb-3" controlId="formBasicPassword" title="password">
                                             <Form.Label>Password</Form.Label>
                                             <Form.Control required type="password" onChange={ (event) =>  { setPassword(event.target.value) } } placeholder="Password" />
                                         </Form.Group>
-                                        
+
                                         <Form.Group className="mb-3" controlId="formBasicCheckbox">
                                             <Form.Check type="checkbox" label="Remember me" />
                                         </Form.Group>
-    
+
                                         <Button className="button-block" type="submit" title="logInButton" onClick={ handleSubmit } >Login</Button>
-    
+
                                         <Button className="button-block" title="forgotPassword">Forgot Password</Button>
-    
-                                
+
+
                                     </Form>
-    
+
                                     <div className="text-center mt-3">
                                         <p className="SignUp">Don't have an account yet?<br></br><Link to="/signup">Sign up</Link></p>
                                     </div>
                                 </Col>
-    
+
                                 <Col lg={8} md={12} sm={12}>
                                     <img className = "w-100" src={login_page} alt=""></img>
                                 </Col>
-                                
+
                             </Row>
                             </Container>
                     </div>
                 </div>)
         }
-        </div> 
+        </div>
     )
 }
