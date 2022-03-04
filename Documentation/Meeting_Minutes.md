@@ -113,4 +113,8 @@
 ### Outcomes:
 * Happy faces!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 * scheduling next meeting early to discuss dev and front end issues and assignment of work for the issue2
-
+* filter diagram change 
+* signup diagram - remove the login information
+* default - arrow and user to be removed
+* update diagram - change the top as per the scenario
+* upload testing plan document on git
