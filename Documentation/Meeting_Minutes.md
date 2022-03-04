@@ -1,4 +1,8 @@
 ## Jan 28 at 8:00 PM (Team Meeting)
+
+### Length of Meeting
+* 1hr and 20 min
+
 ### Attendance
 * All group members were present.
 
@@ -39,6 +43,10 @@
 * Come up with user stories of the core features
 
 ## Feb 1 at 6:00 PM (TA Meeting (Ridham Shah))
+
+### Length of Meeting
+* 1hr and 35 min
+
 ### Attendance
 * All group members and the TA were present
 
@@ -56,6 +64,10 @@
 * Zil and Viki to see examples on architectural diagrams based on core functionality
 
 ## Feb 3 at 6:00 PM (Team Meeting)
+
+### Length of Meeting
+* 1hr and 10 min
+
 ### Attendance
 * Zeel and Zil were present
 
@@ -73,6 +85,10 @@
 * Inform Rutu and Viki about what was discussed in today's meeting in detail if needed.
 
 ## Feb 8 at 6:00 PM (Team Meeting)
+
+### Length of Meeting
+* 1hr and 05 min
+
 ### Attendance
 * Everyone was present
 
@@ -96,6 +112,10 @@
 * Parth - Create or Join book diagram, Chat diagram
 
 ## Feb 10 at 6:00 PM (Team Meeting)
+
+### Length of Meeting
+* 1hr and 45 min
+
 ### Attendance
 * Everyone was present
 
@@ -115,6 +135,10 @@
 * scheduling next meeting early to discuss dev and front end issues and assignment of work for the issue2
 
 ## Feb 13 at 6:00 PM (Team Meeting)
+
+### Length of Meeting
+* 1hr
+
 ### Attendance
 * Parth
 * Zil
@@ -131,7 +155,35 @@
 ### Outcomes:
 * Everyone present contributed on various things to include on the presentation.
 
-## Feb 18 at 6:00 PM (Team Meeting)
+## Feb 15 at 6:00 PM (Team Meeting)
+
+### Length of Meeting
+* 1hr and 15 min
+
+### Attendance
+* Parth
+* Zil
+* Viki
+* Rutu
+* Zeel
+
+### Agenda: 
+* Discussed on what features needs to completed before sprint 2.
+* Discussed on which features needs to be completed before sprint 2.
+* Assigned tasks everyone.
+
+### Discussion: 
+* Collect resources and links to get started on react as we are all new to this.
+* Learn techniques to communicate between frontend and backend.
+
+### Outcomes:
+* Decided roles for everyone in sprint 2 and assigned few tasks to finish before next meeting.
+
+## Feb 18 at 6:00 PM (Team Meeting with TA)
+
+### Length of Meeting
+* 2hr and 20 min
+
 ### Attendance
 * Everyone was present
 
@@ -140,15 +192,22 @@
 * Create issues and assign them to group members.
 * Come up with developer tasks from user stories.
 * Look for resources that would help the team with.
+* Discuss with TA that what should be done before sprint 2 done.
 
 ### Discussion:
 * Share the resources and went trough the resources together so that everyone was up-to-date.
 * As a group, decided on what features to release by the end of sprint 2.
+* Got nice feedbacks and suggestions from TA Ridham to implement features and sub-features.
 
 ### Outcomes:
 * scheduling next meeting to discuss about front end skeleton code and back end skeleton code, so that foundation is setup for the team to continue working on it.
+* Started working on the assigned tasks and already stared to watch video on react developement.
 
 ## Feb 22 at 6:00 PM (Team Meeting)
+
+### Length of Meeting
+* 1hr and 10 min
+
 ### Attendance
 * Zeel
 * Rutu
@@ -165,3 +224,53 @@
 
 ### Outcomes:
 * scheduling next meeting to discuss progress on sprint 2.
+
+## Feb 24 at 6:00 PM (Team Meeting)
+
+### Length of Meeting
+* 56 min
+
+### Attendance
+* Zeel
+* Rutu
+* Zil
+* Parth
+* Viki
+
+### Agenda: 
+* Review work that has been done so for (Skeleton for backend, frontend).
+* Discuss about continous integration on github Actions.
+* Discuss on libraries to use for testing.
+
+### Discussion:
+* Decided tasks and divided tasks into seperate teams such as backend and frontend.
+* Decied which library to use for testing for backend and frontend.
+
+### Outcomes:
+* Set up GitHub Actions for CI.
+* Started working on the skeleton.
+* scheduling next meeting to discuss progress on sprint 2.
+
+## March 01 at 6:00 PM (Team Meeting with TA)
+
+### Length of Meeting
+* 1hr and 40 min
+
+### Attendance
+* Zeel
+* Rutu
+* Zil
+* Parth
+* Viki
+
+### Agenda: 
+* Discuss all of the work with our TA Ridham that we have been done so far.
+* Ask for suggestions or anything else that needs to be done before sprint 2.
+* Show our automation on Build and Test code before pushing to developer branch. 
+
+### Discussion:
+* Discussed about the features that we have implemented so far with TA Ridham and He asked to little bit more for book homepage.
+* Discussed about the number of features was enough for sprint 2.
+
+### Outcomes:
+* Got some changes in implementation of code and added extra sub feature for book page as said by TA Ridham.

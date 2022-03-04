@@ -1,37 +1,52 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import {Button, Form} from "react-bootstrap";
 import Modal from 'react-bootstrap/Modal'
 import axios from "axios";
 import online_reading from '../assets/online_reading.svg';
+import SignUpNavBar from "./signupnavbar.component";
 
-export default function Signup() {
-    const initialUser = {firstName: "", lastName: "", eMail: "", username: "", password: ""}
-    const [user, setUser] = useState(initialUser)
-    const [conPass, setConPass] = useState("")
+export default function Signup(props) {
+    
+    const [firstName, setFirstName] = useState("")
+    const [lastName, setLastName] = useState("")
+    const [eMail, setEmail] = useState("")
+    const [username, setUserName] = useState("")
+    const [password, setPassword] = useState("")
+    const [confirmPassword, setConfirmPassword] = useState("")
     const [signedUp,setSignedUp] = useState(0);
 
     const handleSubmit = (event) => {
-        setUser(initialUser);
-        console.log(user);
-        if (user.password !== conPass){
-            window.alert("Passwords do not match!");
-        }  else {
-            axios.post("http://localhost:5000/EBookHub/users/createUser", user)
-                .then(function(response){
-                    if(response.data.status === "success"){
-                         setSignedUp(1);
+        
+        event.preventDefault();
+        if (password === confirmPassword)
+        {
+            axios.post("http://localhost:5000/EBookHub/users/createUser", {firstName: firstName, lastName: lastName, eMail: eMail, username: username, password: password})
+                .then(function(response)
+                {
+                    if(response.data.status === "success")
+                    {
+                        setSignedUp(1);
+                        const temp = response.data.data.newUser;
+                        localStorage.setItem( 'userObject' ,JSON.stringify(temp));
                     } else {
                          setSignedUp(2);
                     }
                 })
                 .catch(function (error) {
+                    setSignedUp(2);
                     console.log(error)
                 })
+        }  else 
+        {
+            window.alert("Passwords do not match!");
         }
     }
 
     return (
         <div>
+            <div style={{ zIndex: 1000, top: 0, position: 'sticky', background: 'black' }}>
+            <SignUpNavBar/>
+            </div>
             { signedUp === 1 ?
                 (<div>
                     <Modal.Dialog style={{marginTop: "300px", width: "500px", borderColor: "green"}}>
@@ -42,7 +57,7 @@ export default function Signup() {
                             <p style={{fontSize: "25px", textAlign: "center"}}>Successfully created an account!</p>
                         </Modal.Body>
                         <Modal.Footer>
-                            <Button className="submit-button" href="/">Close</Button>
+                            <Button variant="success" href="/user" >Close</Button>
                         </Modal.Footer>
                     </Modal.Dialog>
                 </div>
@@ -57,7 +72,7 @@ export default function Signup() {
                                 <p style={{fontSize: "25px",textAlign: "center"}}>Could not sign up. Please try again.</p>
                             </Modal.Body>
                             <Modal.Footer>
-                                <Button className="submit-button" variant="black" href="/signup">Close</Button>
+                                <Button variant="danger" href="/signup">Close</Button>
                             </Modal.Footer>
                         </Modal.Dialog>
                     </div>
@@ -75,34 +90,34 @@ export default function Signup() {
                                     className="form"
                                     onSubmit={handleSubmit}
                                 >
-                                    <Form.Group className="mb-3 input-div" controlId="formFirstName">
+                                    <Form.Group className="mb-3 input-div" controlId="formFirstName" title="firstName">
                                         <Form.Label>First name</Form.Label>
-                                        <Form.Control required type="string" placeholder="Enter first name" onChange={(e) => (initialUser.firstName = e.target.value)}/>
+                                        <Form.Control required type="string" placeholder="Enter first name" onChange={(e) => (setFirstName(e.target.value.trim()))}/>
                                     </Form.Group>
 
-                                    <Form.Group className="mb-3 input-div" controlId="formLastName">
+                                    <Form.Group className="mb-3 input-div" controlId="formLastName" title="lastName">
                                         <Form.Label>Last name</Form.Label>
-                                        <Form.Control required type="string"  placeholder="Enter last name" onChange={(e) => (initialUser.lastName = e.target.value.trim())}/>
+                                        <Form.Control required type="string"  placeholder="Enter last name" onChange={(e) => (setLastName(e.target.value.trim()))}/>
                                     </Form.Group>
 
-                                    <Form.Group className="mb-3 input-div" controlId="formEmail">
+                                    <Form.Group className="mb-3 input-div" controlId="formEmail" title="email">
                                         <Form.Label>Email address</Form.Label>
-                                        <Form.Control required type="email" placeholder="Enter email" onChange={(e) => (initialUser.eMail = e.target.value.trim())}/>
+                                        <Form.Control required type="email" placeholder="Enter email" onChange={(e) => (setEmail(e.target.value.trim()))}/>
                                     </Form.Group>
 
-                                    <Form.Group className="mb-3 input-div" controlId="formUserName">
+                                    <Form.Group className="mb-3 input-div" controlId="formUserName" title="userName">
                                         <Form.Label>Username</Form.Label>
-                                        <Form.Control required type="string"  placeholder="Enter username" onChange={(e) => (initialUser.username = e.target.value.trim())}/>
+                                        <Form.Control required type="string"  placeholder="Enter username" onChange={(e) => (setUserName(e.target.value.trim()))}/>
                                     </Form.Group>
 
-                                    <Form.Group className="mb-3 input-div" controlId="formPassword">
+                                    <Form.Group className="mb-3 input-div" controlId="formPassword" title="password">
                                         <Form.Label>Password</Form.Label>
-                                        <Form.Control required type="password" placeholder="Enter password" onChange={(e) => {initialUser.password = e.target.value.trim(); }}/>
+                                        <Form.Control required type="password" placeholder="Enter password" onChange={(e) =>  (setPassword(e.target.value.trim()))}/>
                                     </Form.Group>
 
-                                    <Form.Group className="mb-3 input-div" controlId="formConPassword">
+                                    <Form.Group className="mb-3 input-div" controlId="formconfirmPasswordword" title="re-Password">
                                         <Form.Label>Confirm Password</Form.Label>
-                                        <Form.Control required type="password" placeholder="Re-enter the password" onChange={(e) => setConPass(e.target.value.trim())}/>
+                                        <Form.Control required type="password" placeholder="Re-enter the password" onChange={(e) =>setConfirmPassword(e.target.value.trim())}/>
                                     </Form.Group>
 
                                     <Button
@@ -110,6 +125,8 @@ export default function Signup() {
                                         style={{width: "350px"}}
                                         variant="primary"
                                         type="submit"
+                                        onClick={handleSubmit}
+                                        title= "registerButton"
                                     >
                                         Submit
                                     </Button>

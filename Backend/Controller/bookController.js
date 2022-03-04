@@ -28,7 +28,6 @@ let getAPI = (req) => {
 
 exports.getBook = async(req, res) => {
     let api_url = getAPI(req);
-    console.log(api_url);
     try {
         const fetch_response = await fetch(api_url);
         const fetchObject = await fetch_response.json();
