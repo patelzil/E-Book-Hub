@@ -23,16 +23,16 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">45.16% </span>
+                <span class="strong">42.42% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>14/31</span>
+                <span class='fraction'>14/33</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">25% </span>
+                <span class="strong">20% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>2/8</span>
+                <span class='fraction'>2/10</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">45.16% </span>
+                <span class="strong">42.42% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>14/31</span>
+                <span class='fraction'>14/33</span>
             </div>
         
             
@@ -155,7 +155,9 @@
 <a name='L90'></a><a href='#L90'>90</a>
 <a name='L91'></a><a href='#L91'>91</a>
 <a name='L92'></a><a href='#L92'>92</a>
-<a name='L93'></a><a href='#L93'>93</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">2x</span>
+<a name='L93'></a><a href='#L93'>93</a>
+<a name='L94'></a><a href='#L94'>94</a>
+<a name='L95'></a><a href='#L95'>95</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -165,7 +167,6 @@
 <span class="cline-any cline-yes">7x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">9x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -185,6 +186,10 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -195,7 +200,7 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -221,7 +226,6 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -257,8 +261,7 @@ exports.createUser = async(req, res) =&gt; {
             req.body.password = cryptr.encrypt(req.body.password);
         }
         let newUser = await Users.create(req.body);
-&nbsp;
-        newUser.password = "**********";
+        newUser.password = cryptr.decrypt(newUser.password);
         res.status(201).json({
             status: "success",
             message: "new user created",
@@ -277,6 +280,10 @@ exports.createUser = async(req, res) =&gt; {
 &nbsp;
 exports.updateUser = <span class="fstat-no" title="function not covered" >as</span>ync(req, res) =&gt; {
 <span class="cstat-no" title="statement not covered" >    try {</span>
+        
+<span class="cstat-no" title="statement not covered" >        if (Boolean(req.body.password)) {</span>
+<span class="cstat-no" title="statement not covered" >            req.body.password = cryptr.encrypt(req.body.password);</span>
+        }
         const updateUser = <span class="cstat-no" title="statement not covered" >await Users.findOneAndUpdate({ username: req.params.username },</span>
             req.body, {
                 new: true,
@@ -287,7 +294,7 @@ exports.updateUser = <span class="fstat-no" title="function not covered" >as</sp
 <span class="cstat-no" title="statement not covered" >        if (updateUser == null) {</span>
 <span class="cstat-no" title="statement not covered" >            throw err;</span>
         }
-&nbsp;
+<span class="cstat-no" title="statement not covered" >        updateUser.password = cryptr.decrypt(updateUser.password);</span>
 <span class="cstat-no" title="statement not covered" >        res.status(200).json({</span>
             status: "success",
             message: "updated user",
@@ -314,7 +321,6 @@ exports.getUser = <span class="fstat-no" title="function not covered" >as</span>
         }
 &nbsp;
 <span class="cstat-no" title="statement not covered" >        if (user.password === req.params.password) {</span>
-<span class="cstat-no" title="statement not covered" >            user.password = "**********";</span>
 <span class="cstat-no" title="statement not covered" >            res.status(200).json({</span>
                 status: "success",
                 message: "Found user",
@@ -346,7 +352,7 @@ exports.deleteUser = <span class="fstat-no" title="function not covered" >(r</sp
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at Thu Mar 03 2022 01:32:56 GMT-0600 (Central Standard Time)
+                at Thu Mar 03 2022 19:13:09 GMT-0600 (Central Standard Time)
             </div>
         <script src="../../prettify.js"></script>
         <script>
