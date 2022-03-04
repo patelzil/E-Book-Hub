@@ -118,7 +118,6 @@ describe('Book get test', ()=>
             const response = await request.get(`/EBookHub/books/searchFree/${freeBook}`);
             const obj = JSON.parse(response.text);
             expect(obj.data.responseBooks[0].price).toMatch('FREE');
-            
         })
 
         test('User can not get the books by searching irrelevent publisher name', async () =>{
