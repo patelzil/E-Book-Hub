@@ -3,17 +3,22 @@ const bookModel = require("../models/bookModel");
 
 let getAPI = (req) => {
     let api_url;
+    let search;
     if (req.params.hasOwnProperty("bookTitle")) {
-        api_url = `https://www.googleapis.com/books/v1/volumes?q=${req.params.bookTitle}+intitle:${req.params.bookTitle}&printType=books&maxResults=40&key=AIzaSyC4JQ0rgJkbS1AB828COl6fV_kUxsGX3Ao`;
+        search = String(req.params.bookTitle).replaceAll(" ", "%20");
+        api_url = `https://www.googleapis.com/books/v1/volumes?q=${search}+intitle:${search}&printType=books&maxResults=40&key=AIzaSyC4JQ0rgJkbS1AB828COl6fV_kUxsGX3Ao`;
     } else if (req.params.hasOwnProperty("bookAuthor")) {
-        console.log("hello");
-        api_url = `https://www.googleapis.com/books/v1/volumes?q=${req.params.bookAuthor}+inauthor:${req.params.bookAuthor}&printType=books&maxResults=40&key=AIzaSyC4JQ0rgJkbS1AB828COl6fV_kUxsGX3Ao`;
+        search = String(req.params.bookAuthor).replaceAll(" ", "%20");
+        api_url = `https://www.googleapis.com/books/v1/volumes?q=${search}+inauthor:${search}&printType=books&maxResults=40&key=AIzaSyC4JQ0rgJkbS1AB828COl6fV_kUxsGX3Ao`;
     } else if (req.params.hasOwnProperty("bookCategory")) {
-        api_url = `https://www.googleapis.com/books/v1/volumes?q=${req.params.bookCategory}+subject:${req.params.bookCategory}&printType=books&maxResults=40&key=AIzaSyC4JQ0rgJkbS1AB828COl6fV_kUxsGX3Ao`;
+        search = String(req.params.bookCategory).replaceAll(" ", "%20");
+        api_url = `https://www.googleapis.com/books/v1/volumes?q=${search}+subject:${search}&printType=books&maxResults=40&key=AIzaSyC4JQ0rgJkbS1AB828COl6fV_kUxsGX3Ao`;
     } else if (req.params.hasOwnProperty("bookPublisher")) {
-        api_url = `https://www.googleapis.com/books/v1/volumes?q=${req.params.bookPublisher}+inpublisher:${req.params.bookPublisher}&printType=books&maxResults=40&key=AIzaSyC4JQ0rgJkbS1AB828COl6fV_kUxsGX3Ao`;
+        search = String(req.params.bookPublisher).replaceAll(" ", "%20");
+        api_url = `https://www.googleapis.com/books/v1/volumes?q=${search}+inpublisher:${search}&printType=books&maxResults=40&key=AIzaSyC4JQ0rgJkbS1AB828COl6fV_kUxsGX3Ao`;
     } else if (req.params.hasOwnProperty("bookTitleFree")) {
-        api_url = `https://www.googleapis.com/books/v1/volumes?q=${req.params.bookTitleFree}+intitle:${req.params.bookTitleFree}&filter=free-ebooks&printType=books&maxResults=40&key=AIzaSyC4JQ0rgJkbS1AB828COl6fV_kUxsGX3Ao`;
+        search = String(req.params.bookTitleFree).replaceAll(" ", "%20");
+        api_url = `https://www.googleapis.com/books/v1/volumes?q=${search}+intitle:${search}&filter=free-ebooks&printType=books&maxResults=40&key=AIzaSyC4JQ0rgJkbS1AB828COl6fV_kUxsGX3Ao`;
     } else {
         api_url = `https://www.googleapis.com/books/v1/volumes?q="comedy"+subject:"comedy"&printType=books&maxResults=40&key=AIzaSyC4JQ0rgJkbS1AB828COl6fV_kUxsGX3Ao`;
     }
