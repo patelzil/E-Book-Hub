@@ -82,10 +82,10 @@ describe('Book get test', ()=>
     {
         test('User get the books by searching title name', async () =>{
             jest.setTimeout(3000);
-            const bookCategory = "heart";
+            const bookCategory = "Education";
             const response = await request.get(`/EBookHub/books/searchCategory/${bookCategory}`);
             const obj = JSON.parse(response.text);
-            expect(obj.data.responseBooks[0].category.toString()).toMatch('Blood');
+            expect(obj.data.responseBooks[0].category.toString()).toMatch('Education');
         })
 
         test('User can not get the books by searching irrelevent category', async () =>{
@@ -127,11 +127,8 @@ describe('Book get test', ()=>
             const freeBook = "love";
             const response = await request.get(`/EBookHub/books/searchFree/${freeBook}`);
             const obj = JSON.parse(response.text);
-            for(i=0;i<5;i++)
-            {
-                expect(obj.data.responseBooks[i].price).toMatch('FREE');
-            }
-
+            expect(obj.data.responseBooks[0].price).toMatch('FREE');
+            
         })
 
         test('User can not get the books by searching irrelevent publisher name', async () =>{
