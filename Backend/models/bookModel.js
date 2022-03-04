@@ -46,12 +46,14 @@ let getBooksResponse = function(bookArray) {
     let bookShelf = [];
     let size;
 
-    if (bookArray.totalItems <= 40) {
+    if (bookArray.totalItems <= 40 && bookArray.totalItems > 0) {
         size = bookArray.totalItems;
-    } else {
+    } else if (bookArray.totalItems > 40) {
         size = 40;
+    } else {
+        throw err;
     }
-    console.log(bookArray);
+    console.log(size);
     for (i = 0; i < size; i++) {
         if (bookArray.items[i].volumeInfo !== undefined) {
             let book = {
