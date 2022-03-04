@@ -34,15 +34,28 @@ let checkBookValue = function(book) {
         book.category = "NOT AVAILABLE";
     }
 
+    if (book.id === undefined) {
+        book.id = "NOT AVAILABLE";
+    }
+
     return book;
 };
 
 let getBooksResponse = function(bookArray) {
     //Generate Book Array to return
     let bookShelf = [];
+    let size;
 
-    for (i = 0; i < 40; i++) {
-        if (typeof bookArray.items[i].volumeInfo !== undefined) {
+    if (bookArray.totalItems <= 40 && bookArray.totalItems > 0) {
+        size = bookArray.totalItems;
+    } else if (bookArray.totalItems > 40) {
+        size = 40;
+    } else {
+        throw err;
+    }
+    console.log(size);
+    for (i = 0; i < size; i++) {
+        if (bookArray.items[i].volumeInfo !== undefined) {
             let book = {
                 id: bookArray.items[i].id,
                 title: bookArray.items[i].volumeInfo.title,
