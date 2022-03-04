@@ -1,23 +1,65 @@
-import React from "react";
-import {Button, Card} from "react-bootstrap";
+import React, { useState } from "react";
+import {Button, Card } from "react-bootstrap";
 import {Rating} from "@mui/material";
+import Modal from 'react-bootstrap/Modal';
+import logo from '../assets/logo.png';
 
 export default function BookCard(props) {
+    const [show, setShow] = useState(false);
+
+    const handleDetails = () => {
+        setShow(true);
+    }
+
     return (
-        <Card title="bookCard" style={{ width: '18rem', margin: "15px" }}>
-            <div style={{width: "285px", height: "285px", display: "flex", flexDirection: "column", alignItems: "center",
-                justifyContent: "center"}}>
-                <Card.Img  variant="top" src={props.bookDetails.imageLinks+"?text=E-book-hub"}/>
+        <>
+            <div>
+                <Card style={{ width: '260px', height: '450px', margin: "15px" }}>
+                    <div style={{width: "100%", height: "250px", display: "flex", flexDirection: "column", alignItems: "center",
+                        justifyContent: "center"}}>
+                        <Card.Img  width="260px" height="250px" variant="top" src={props.bookDetails.imageLink ==="NOT AVAILABLE" ? logo : props.bookDetails.imageLink.thumbnail}/>
+                    </div>
+                    <Card.Body style={{width: "100%", marginTop: "0px"}}>
+                        <Card.Title className="book-title" style={{fontSize: "20px", fontWeight: "bold"}}>{props.bookDetails.title}</Card.Title>
+                        <Card.Subtitle className="book-title" style={{fontSize: "18px", fontWeight: "bold"}}>{props.bookDetails.subtitle}</Card.Subtitle>
+
+                        <Card.Text className="book-title" style={{fontSize: "18px"}}>
+                            {props.bookDetails.authors[0]}
+                        </Card.Text>
+
+                        <div style={{fontSize: "18px", fontWeight: "bold", margin: "0px"}}>FREE
+                            <div style={{ float: "right"}}>
+                                <Rating name="read-only" value={props.bookDetails.rating} precision={0.5} readOnly />
+                            </div>
+                        </div>
+
+                        <Button className="card button" style={{width: "90%", marginBottom: "5px"}} onClick={handleDetails}>Details</Button>
+
+                    </Card.Body>
+                </Card>
             </div>
-            <Card.Body style={{width: "100%"}}>
-                <Card.Title style={{fontSize: "22px", fontWeight: "bold"}}>{props.bookDetails.title}</Card.Title>
-                <Card.Subtitle style={{fontSize: "20px", fontWeight: "bold"}}>{props.bookDetails.subtitle}</Card.Subtitle>
-                <Card.Text style={{fontSize: "18px"}}>{props.bookDetails.author}</Card.Text>
-                <div style={{fontSize: "18px", fontWeight: "bold"}}>$ 29.99
-                    <div style={{ float: "right"}}><Rating name="read-only" value={props.bookDetails.rating} precision={0.5} readOnly /></div>
-                </div>
-                <Button className="card button">Details</Button>
-            </Card.Body>
-        </Card>
+            <div>
+                <Modal
+                    show={show}
+                    onHide={() => setShow(false)}
+                    fullscreen
+                    centered
+                >
+                    <Modal.Body>
+                        <Modal.Title id="contained-modal-title-vcenter">
+                            {props.bookDetails.title}
+                        </Modal.Title>
+                        <h4>{props.bookDetails.subtitle}</h4>
+                        <p>
+                            {props.bookDetails.description}
+                        </p>
+                    </Modal.Body>
+                    <Modal.Footer>
+                        <Button onClick={() => setShow(false)}>Close</Button>
+                    </Modal.Footer>
+                </Modal>
+            </div>
+
+        </>
     )
 }

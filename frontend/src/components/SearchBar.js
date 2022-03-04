@@ -13,7 +13,7 @@ class SearchBar extends React.Component {
             isPriceSelected: false,
             minPrice: 0,
             maxPrice: 0,
-  
+
         }
     }
 
@@ -22,14 +22,14 @@ class SearchBar extends React.Component {
         event.preventDefault();
         console.log(event.target);
         this.props.onSubmit(this.state.term, this.state.filter, this.state.minPrice, this.state.maxPrice);
-        
+
     }
 
     // Handles when user clicks any of the dropdown menu
     handleDropDownChange = (event) => {
         //Chnage the text to what is selected
         this.setState({
-            dropDownValue: event.target.textContent,            
+            dropDownValue: event.target.textContent,
             isPriceSelected: false,
         });
 
@@ -85,36 +85,36 @@ class SearchBar extends React.Component {
             minPrice: 0,
             maxPrice: 0,
         })
-        
+
     }
 
     render() {
         const isPriceSelected = this.state.isPriceSelected;
         let priceRange;
         if(isPriceSelected)(
-            priceRange = 
-            <div className="card">
+            priceRange =
+            <div className="search-card">
                 <Form className="d-flex" style={{display: 'inline-block'}}>
                     <FormGroup controlId="formInlineMin">
                         <FormLabel>Min Price</FormLabel>{' '}
-                        <FormControl 
-                            type="number" 
+                        <FormControl
+                            type="number"
                             min = {0}
                             placeholder="0"
-                            value={this.state.minPrice} 
+                            value={this.state.minPrice}
                             onChange={this.handleMinPrice}/>
                     </FormGroup>{' '}
                     -
                     <FormGroup controlId="formInlineMax">
                         <FormLabel>Max Price</FormLabel>{' '}
-                        <FormControl 
-                            type="number" 
-                            placeholder="500" 
-                            value={this.state.maxPrice} 
+                        <FormControl
+                            type="number"
+                            placeholder="500"
+                            value={this.state.maxPrice}
                             onChange={this.handleMaxPrice}/>
                     </FormGroup>{' '}
-                           
-                    <Form.Check 
+
+                    <Form.Check
                         className="big-checkbox"
                         type = "checkbox"
                         id = "default-checkbox"
@@ -122,16 +122,16 @@ class SearchBar extends React.Component {
                         onChange={this.handleFreeBooks}
                     />
                 </Form>
-                
+
 
                 <Button className="submit-button" style={{margin: '0.5rem'}} size="md" type="input" onClick={this.handlePriceSubmit}>Set price range</Button>
 
             </div>
-                        
+
         )
 
         return(
-           <div className="ui segment" style={{padding: '2rem'}}>
+           <div className="ui segment" style={{padding: '2rem', marginBottom: "20px"}}>
                 <Form onSubmit={this.handleFormSubmit}>
                     <FormGroup>
                         <InputGroup>
@@ -161,14 +161,14 @@ class SearchBar extends React.Component {
                         </InputGroup>
                     </FormGroup>
                 </Form>
-                
+
                 <div>
                     {priceRange}
                 </div>
            </div>
-           
 
-    
+
+
         );
     }
 }
