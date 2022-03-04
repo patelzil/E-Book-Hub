@@ -8,7 +8,6 @@ exports.createUser = async(req, res) => {
             req.body.password = cryptr.encrypt(req.body.password);
         }
         let newUser = await Users.create(req.body);
-        
         newUser.password = cryptr.decrypt(newUser.password);
         res.status(201).json({
             status: "success",

@@ -6,7 +6,6 @@ let getAPI = (req) => {
     if (req.params.hasOwnProperty("bookTitle")) {
         api_url = `https://www.googleapis.com/books/v1/volumes?q=${req.params.bookTitle}+intitle:${req.params.bookTitle}&printType=books&maxResults=40&key=AIzaSyC4JQ0rgJkbS1AB828COl6fV_kUxsGX3Ao`;
     } else if (req.params.hasOwnProperty("bookAuthor")) {
-        console.log("hello");
         api_url = `https://www.googleapis.com/books/v1/volumes?q=${req.params.bookAuthor}+inauthor:${req.params.bookAuthor}&printType=books&maxResults=40&key=AIzaSyC4JQ0rgJkbS1AB828COl6fV_kUxsGX3Ao`;
     } else if (req.params.hasOwnProperty("bookCategory")) {
         api_url = `https://www.googleapis.com/books/v1/volumes?q=${req.params.bookCategory}+subject:${req.params.bookCategory}&printType=books&maxResults=40&key=AIzaSyC4JQ0rgJkbS1AB828COl6fV_kUxsGX3Ao`;
@@ -23,7 +22,6 @@ let getAPI = (req) => {
 
 exports.getBook = async(req, res) => {
     let api_url = getAPI(req);
-    console.log(api_url);
     try {
         const fetch_response = await fetch(api_url);
         const fetchObject = await fetch_response.json();
