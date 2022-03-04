@@ -53,7 +53,6 @@ let getBooksResponse = function(bookArray) {
     } else {
         throw err;
     }
-    console.log(size);
     for (i = 0; i < size; i++) {
         if (bookArray.items[i].volumeInfo !== undefined) {
             let book = {

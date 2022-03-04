@@ -8,6 +8,7 @@ exports.createUser = async(req, res) => {
             req.body.password = cryptr.encrypt(req.body.password);
         }
         let newUser = await Users.create(req.body);
+        
         newUser.password = cryptr.decrypt(newUser.password);
         res.status(201).json({
             status: "success",
@@ -87,9 +88,9 @@ exports.getUser = async(req, res) => {
     }
 };
 
-exports.deleteUser = (req, res) => {
-    res.status(500).json({
-        status: "err",
-        message: "route not yet implemented",
-    });
-};
+// exports.deleteUser = (req, res) => {
+//     res.status(500).json({
+//         status: "err",
+//         message: "route not yet implemented",
+//     });
+// };
