@@ -128,17 +128,46 @@
 }
 
 .book-title {
-    width: 10em;
+    width: 12em;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
 }
 
+/*BOOK MODAL STYLES*/
+.book-modal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 70%;
+    height: 80%;
+    padding-top: 100px;
+    margin-left: 15%;
+    margin-right: 15%;
+    overflow-y: initial !important
+}
+
+.body-modal {
+    display: flex;
+    flex-direction: row;
+    overflow-y: auto;
+}
+
+.image-modal {
+    display: flex;
+    flex-direction: column;
+    white-space: pre;
+}
+
+.description-modal {
+    display: flex;
+    flex-direction: column;
+    margin-right: 10px;
+    margin-left: 15px;
+}
 
 /* STYLE AFFILIATED TO HOME PAGE */
-
-
-
 /* Do not show the scroll bars */
 ::-webkit-scrollbar{
     display: none;
