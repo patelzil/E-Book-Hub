@@ -7,7 +7,8 @@ import logo from '../assets/logo.png';
 export default function BookCard(props) {
     const [show, setShow] = useState(false);
 
-    const handleDetails = () => {
+    const handleDetails = (event) => {
+        event.preventDefault();
         setShow(true);
     }
 
@@ -56,9 +57,7 @@ export default function BookCard(props) {
                                 <br/>
                                 <p><b>Authors:</b><br/>
                                     <div>
-                                        {props.bookDetails.authors.map((author, index) => {
-                                            return <p>{index+1}. {author}</p>
-                                        })}
+                                        {(props.bookDetails.authors === null) ? (<span>No authors available</span>) : (props.bookDetails.authors)}
                                     </div>
                                 </p>
                             </div>
@@ -81,7 +80,7 @@ export default function BookCard(props) {
                     </Modal.Body>
                     <Modal.Footer>
                         <Modal.Title>
-                            {props.bookDetails.price}
+                            {<div>FREE</div>/*props.bookDetails.price*/}
                         </Modal.Title>
                     </Modal.Footer>
                 </Modal>
