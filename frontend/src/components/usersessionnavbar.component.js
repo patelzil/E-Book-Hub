@@ -26,7 +26,7 @@ export default function UserSessionNavBar(){
                             <Dropdown.Divider />
                             <Dropdown.Item href="/user" > <DashboardIcon /> Dashboard</Dropdown.Item>
                             <Dropdown.Divider />
-                            <Dropdown.Item href="/" onClick= { () => { localStorage.clear()} }>Logout</Dropdown.Item>
+                            <Dropdown.Item href="/" onClick= { () => { localStorage.clear(); localStorage.setItem("logout", JSON.stringify({ flag: true })); } }>Logout</Dropdown.Item>
                         </DropdownButton>
                     </Navbar.Collapse>
 
