@@ -1,5 +1,4 @@
-import React, { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import React from "react";
 import NavBar from "./navbar.component";
 import SearchPage from './searchPage.component'
 import UserSessionNavBar from "./usersessionnavbar.component";
@@ -7,10 +6,6 @@ import UserSessionNavBar from "./usersessionnavbar.component";
 export default function Home(){
 
     const  userSessionNavbar = (localStorage.getItem('loginNavbar') !== null) ? (JSON.parse(localStorage.getItem('loginNavbar'))) : (null);
-    const history = useNavigate();
-    useEffect(() => {
-        //console.log(history('/'));
-    });
 
     return (
         <div>
