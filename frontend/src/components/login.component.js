@@ -20,6 +20,8 @@ export default function Login() {
                         setLoginflag(1);
                         const temp = response.data.data.user;
                         localStorage.setItem('userObject', JSON.stringify(temp));
+                        localStorage.setItem('loginNavbar', JSON.stringify({ flag: true }));
+                        localStorage.setItem('logout', JSON.stringify({ flag: false }));
                 } else {
                     setLoginflag(2);
                 }
