@@ -4,6 +4,9 @@ import Modal from 'react-bootstrap/Modal'
 import axios from "axios";
 import online_reading from '../assets/online_reading.svg';
 import SignUpNavBar from "./signupnavbar.component";
+import { TextField } from "@mui/material";
+import VisibilityIcon from '@mui/icons-material/Visibility';
+import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 
 export default function Signup(props) {
     
@@ -14,13 +17,20 @@ export default function Signup(props) {
     const [password, setPassword] = useState("")
     const [confirmPassword, setConfirmPassword] = useState("")
     const [signedUp,setSignedUp] = useState(0);
-
+    const [visibilityFlag, setVisibilityFlag] = useState(false);
+    const [validationFlag, setValidationFlag] = useState(false);
+    const [emailFlag, setEmailFlag] = useState(false);
+    const regex = new RegExp('^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).(?=.*[!@$%#\]).{8,12}$');
+    const regexEmail = new RegExp('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}');
     const handleSubmit = (event) => {
         
         event.preventDefault();
+        if(regexEmail.test(eMail)){
+            setEmailFlag(false);
         if (password === confirmPassword)
         {
-            axios.post("http://localhost:5000/EBookHub/users/createUser", {firstName: firstName, lastName: lastName, eMail: eMail, username: username, password: password})
+            if(regex.test(password) && regex.test(confirmPassword)){
+                axios.post("http://localhost:5000/EBookHub/users/createUser", {firstName: firstName, lastName: lastName, eMail: eMail, username: username, password: password})
                 .then(function(response)
                 {
                     if(response.data.status === "success")
@@ -36,9 +46,16 @@ export default function Signup(props) {
                     setSignedUp(2);
                     console.log(error)
                 })
+            } else 
+            {
+                setValidationFlag(true);
+            }
         }  else 
         {
             window.alert("Passwords do not match!");
+        }
+        }else {
+            setEmailFlag(true);
         }
     }
 
@@ -91,33 +108,97 @@ export default function Signup(props) {
                                     onSubmit={handleSubmit}
                                 >
                                     <Form.Group className="mb-3 input-div" controlId="formFirstName" title="firstName">
-                                        <Form.Label>First name</Form.Label>
-                                        <Form.Control required type="string" placeholder="Enter first name" onChange={(e) => (setFirstName(e.target.value.trim()))}/>
+                                        <TextField
+                                        required
+                                            label="First Name"
+                                            type = "text"
+                                            helperText="* are required fields"
+                                            size="small"
+                                            style={{ width: "100%"}}
+                                            placeholder="First Name"
+                                            onChange={ (event) =>  { setFirstName(event.target.value.trim()) } }
+                                            />
                                     </Form.Group>
 
                                     <Form.Group className="mb-3 input-div" controlId="formLastName" title="lastName">
-                                        <Form.Label>Last name</Form.Label>
-                                        <Form.Control required type="string"  placeholder="Enter last name" onChange={(e) => (setLastName(e.target.value.trim()))}/>
+                                        <TextField
+                                        required
+                                            label="Last Name"
+                                            type = "text"
+                                            size="small"
+                                            style={{ width: "100%"}}
+                                            placeholder="Last Name"
+                                            onChange={ (event) =>  { setLastName(event.target.value.trim()) } }
+                                            />
                                     </Form.Group>
 
                                     <Form.Group className="mb-3 input-div" controlId="formEmail" title="email">
-                                        <Form.Label>Email address</Form.Label>
-                                        <Form.Control required type="email" placeholder="Enter email" onChange={(e) => (setEmail(e.target.value.trim()))}/>
+                                        <TextField
+                                            required
+                                            error={emailFlag}
+                                            label="Email"
+                                            type = "email"
+                                            helperText={ (emailFlag) ? ("invalid email") : ("you can use email to signup only once!") }
+                                            size="small"
+                                            style={{ width: "100%"}}
+                                            placeholder="Email Address"
+                                            onChange={ (event) =>  { setEmail(event.target.value.trim()) } }
+                                            />
                                     </Form.Group>
 
                                     <Form.Group className="mb-3 input-div" controlId="formUserName" title="userName">
-                                        <Form.Label>Username</Form.Label>
-                                        <Form.Control required type="string"  placeholder="Enter username" onChange={(e) => (setUserName(e.target.value.trim()))}/>
+                                        <TextField
+                                            required
+                                            label="Username"
+                                            helperText="username can only be chosen once!"
+                                            type = "text"
+                                            size="small"
+                                            style={{ width: "100%"}}
+                                            placeholder="Last Name"
+                                            onChange={ (event) =>  { setUserName(event.target.value.trim()) } }
+                                            />
                                     </Form.Group>
 
                                     <Form.Group className="mb-3 input-div" controlId="formPassword" title="password">
-                                        <Form.Label>Password</Form.Label>
-                                        <Form.Control required type="password" placeholder="Enter password" onChange={(e) =>  (setPassword(e.target.value.trim()))}/>
+                                    <TextField
+                                            required
+                                            error={validationFlag}
+                                            helperText={ (validationFlag) ? ("Please enter a valid password!") : ("")}
+                                            label="Password"
+                                            style={{ width: "100%"}}
+                                            type = {(visibilityFlag === true) ? ("text") : ("password")}
+                                            size="small"
+                                            InputProps={{
+                                            endAdornment: (visibilityFlag === true) ? (<VisibilityOffIcon onClick={ () => { setVisibilityFlag(false);}  } />) : (<VisibilityIcon onClick={() => {  setVisibilityFlag(true) }}/>)
+                                            }}
+                                            onChange={ (event) =>  {  setPassword(event.target.value.trim());  } }
+                                            />
+                                            
                                     </Form.Group>
 
                                     <Form.Group className="mb-3 input-div" controlId="formconfirmPasswordword" title="re-Password">
-                                        <Form.Label>Confirm Password</Form.Label>
-                                        <Form.Control required type="password" placeholder="Re-enter the password" onChange={(e) =>setConfirmPassword(e.target.value.trim())}/>
+                                    <TextField
+                                            required
+                                            error={validationFlag}
+                                            helperText={ (validationFlag) ? ("Please enter a valid password!") : ("")}
+                                            label="Confirm Password"
+                                            style={{ width: "100%"}}
+                                            type = {(visibilityFlag === true) ? ("text") : ("password")}
+                                            size="small"
+                                            InputProps={{
+                                                endAdornment: (visibilityFlag === true) ? (<VisibilityOffIcon onClick={ () => { setVisibilityFlag(false);}  } />) : (<VisibilityIcon onClick={() => {  setVisibilityFlag(true) }}/>)
+                                                }}
+                                            onChange={ (event) =>  {  setConfirmPassword(event.target.value.trim());  } }
+                                            />
+                                            <p></p>
+                                            <div>
+                                            <strong>Password requirements:</strong>
+                                            <ul>
+                                            <li>between 8 and 12 characters</li>
+                                            <li>must contain at least 1 uppercase letter, 1 lowercase letter, and 1 number</li>
+                                            <li>contain special characters: !, #, @, $, % </li>
+                                            </ul>
+                                            </div>
                                     </Form.Group>
 
                                     <Button

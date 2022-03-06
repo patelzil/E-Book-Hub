@@ -31,7 +31,7 @@ describe('User signin/Login test', () => {
                 lastName: 'TestLastName',
                 eMail: 'TestEmail@com.ca',
                 username: 'TestUser',
-                password: 'Test123'
+                password: 'Test123@'
             }) 
             expect(response.statusCode).toBe(201);
             await user.findOneAndDelete({username: 'TestUser'});    
@@ -44,7 +44,7 @@ describe('User signin/Login test', () => {
             const response = await request.post('/EBookHub/users/createUser').send({
                 firstName: 'TestFirstName',
                 lastName: 'TestLastName',
-                eMail: 'TestEmail',
+                eMail: 'TestEmail@com.ca',
                 username: 'TestUser',
                 password: ''
 
@@ -59,9 +59,9 @@ describe('User signin/Login test', () => {
             const response = await request.post('/EBookHub/users/createUser').send({
                 firstName: 'TestFirstName',
                 lastName: 'TestLastName',
-                eMail: 'TestEmail',
+                eMail: 'TestEmail@com.ca',
                 username: '',
-                password: 'Test123'
+                password: 'Test123@'
             }) 
             expect(response.statusCode).toBe(400);   
         });
@@ -75,7 +75,7 @@ describe('User signin/Login test', () => {
                 lastName: 'TestLastName',
                 eMail: '',
                 username: 'Testuser',
-                password: 'Test123'
+                password: 'Test123@'
             }) 
             expect(response.statusCode).toBe(400);   
         });
@@ -87,9 +87,9 @@ describe('User signin/Login test', () => {
             const response = await request.post('/EBookHub/users/createUser').send({
                 firstName: '',
                 lastName: 'TestLastName',
-                eMail: 'TestEmail',
+                eMail: 'TestEmail@com.ca',
                 username: 'Testuser',
-                password: 'Test123'
+                password: 'Test123@'
             }) 
             expect(response.statusCode).toBe(400);   
         });
@@ -101,9 +101,9 @@ describe('User signin/Login test', () => {
             const response = await request.post('/EBookHub/users/createUser').send({
                 firstName: 'TestFirstName',
                 lastName: '',
-                eMail: 'TestEmail',
+                eMail: 'TestEmail@com.ca',
                 username: 'Testuser',
-                password: 'Test123'
+                password: 'Test123@'
             }) 
             expect(response.statusCode).toBe(400);   
         });
@@ -125,11 +125,11 @@ describe('User signin/Login test', () => {
             jest.setTimeout(30000)
             await request.post('/EBookhub/users/createUser').send({
                 username: 'TestUser',
-                password: 'Test123'
+                password: 'Test123@'
             }) 
             const response1 = await request.post('/EBookhub/users/createUser').send({
                 username: 'TestUser',
-                password: 'Test123'
+                password: 'Test123@'
             }) 
             expect(response1.statusCode).toBe(400);
             await user.findOneAndDelete({username: 'TestUser'});
@@ -151,13 +151,13 @@ describe('User retriving test by username and password', () => {
             const response = await request.post('/EBookHub/users/createUser').send({
                 firstName: 'TestFirstName',
                 lastName: 'TestLastName',
-                eMail: 'TestEmail',
+                eMail: 'TestEmail@com.ca',
                 username: 'TestUser',
-                password: 'Test123'
+                password: 'Test123@'
             }) 
             expect(response.statusCode).toBe(201);
 
-            const response1 = await request.get('/EBookHub/users/TestUser/Test123');
+            const response1 = await request.get('/EBookHub/users/TestUser/Test123@');
             const obj = JSON.parse(response1.text);
             expect(obj.status).toMatch('success');
             await user.findOneAndDelete({username: 'TestUser'});    
@@ -172,9 +172,9 @@ describe('User retriving test by username and password', () => {
             const response = await request.post('/EBookHub/users/createUser').send({
                 firstName: 'TestFirstName',
                 lastName: 'TestLastName',
-                eMail: 'TestEmail',
+                eMail: 'TestEmail@com.ca',
                 username: 'TestUser',
-                password: 'Test123'
+                password: 'Test123@'
             }) 
             expect(response.statusCode).toBe(201);
             //incorrect password provided in route
@@ -193,13 +193,13 @@ describe('User retriving test by username and password', () => {
             const response = await request.post('/EBookHub/users/createUser').send({
                 firstName: 'TestFirstName',
                 lastName: 'TestLastName',
-                eMail: 'TestEmail',
+                eMail: 'TestEmail@com.ca',
                 username: 'TestUser',
-                password: 'Test123'
+                password: 'Test123@'
             }) 
             expect(response.statusCode).toBe(201);
             //incorrect password provided in route
-            const response1 = await request.get('/EBookHub/users/TestUser1/Test123');
+            const response1 = await request.get('/EBookHub/users/TestUser1/Test123@');
             const obj = JSON.parse(response1.text);
             expect(obj.status).toMatch('fail');
             await user.findOneAndDelete({username: 'TestUser'});    
@@ -214,13 +214,13 @@ describe('User retriving test by username and password', () => {
             const response = await request.post('/EBookHub/users/createUser').send({
                 firstName: 'TestFirstName',
                 lastName: 'TestLastName',
-                eMail: 'TestEmail',
+                eMail: 'TestEmail@com.ca',
                 username: 'TestUser',
-                password: 'Test123'
+                password: 'Test123@'
             }) 
             expect(response.statusCode).toBe(201);
             //incorrect password provided in route
-            const response1 = await request.get('/EBookHub/users/" "/Test123');
+            const response1 = await request.get('/EBookHub/users/""/Test123@');
             const obj = JSON.parse(response1.text);
             expect(obj.status).toMatch('fail');
             await user.findOneAndDelete({username: 'TestUser'});    
@@ -235,9 +235,9 @@ describe('User retriving test by username and password', () => {
             const response = await request.post('/EBookHub/users/createUser').send({
                 firstName: 'TestFirstName',
                 lastName: 'TestLastName',
-                eMail: 'TestEmail',
+                eMail: 'TestEmail@com.ca',
                 username: 'TestUser',
-                password: 'Test123'
+                password: 'Test123@'
             }) 
             expect(response.statusCode).toBe(201);
             //incorrect password provided in route
@@ -262,9 +262,9 @@ describe('Updating user information', () => {
             const response = await request.post('/EBookHub/users/createUser').send({
                 firstName: 'TestFirstName',
                 lastName: 'TestLastName',
-                eMail: 'TestEmail',
+                eMail: 'TestEmail@com.ca',
                 username: 'TestUser',
-                password: 'Test123'
+                password: 'Test123@'
             }) 
             expect(response.statusCode).toBe(201);
             //try to get not exists user 
@@ -283,9 +283,9 @@ describe('Updating user information', () => {
             const response = await request.post('/EBookHub/users/createUser').send({
                 firstName: 'TestFirstName',
                 lastName: 'TestLastName',
-                eMail: 'TestEmail',
+                eMail: 'TestEmail@com.ca',
                 username: 'TestUser',
-                password: 'Test123'
+                password: 'Test123@'
             }) 
             expect(response.statusCode).toBe(201);
             const firstName = "TestFirstNameUpdated"
@@ -305,9 +305,9 @@ describe('Updating user information', () => {
             const response = await request.post('/EBookHub/users/createUser').send({
                 firstName: 'TestFirstName',
                 lastName: 'TestLastName',
-                eMail: 'TestEmail',
+                eMail: 'TestEmail@com.ca',
                 username: 'TestUser',
-                password: 'Test123'
+                password: 'Test123@'
             }) 
             expect(response.statusCode).toBe(201);
             const firstName = "TestLastNameUpdated"
@@ -327,9 +327,9 @@ describe('Updating user information', () => {
             const response = await request.post('/EBookHub/users/createUser').send({
                 firstName: 'TestFirstName',
                 lastName: 'TestLastName',
-                eMail: 'TestEmail',
+                eMail: 'TestEmail@com.ca',
                 username: 'TestUser',
-                password: 'Test123'
+                password: 'Test123@'
             }) 
             expect(response.statusCode).toBe(201);
             const firstName = "TestEmailUpdated@com.ca"
@@ -349,9 +349,9 @@ describe('Updating user information', () => {
             const response = await request.post('/EBookHub/users/createUser').send({
                 firstName: 'TestFirstName',
                 lastName: 'TestLastName',
-                eMail: 'TestEmail',
+                eMail: 'TestEmail@com.ca',
                 username: 'TestUser',
-                password: 'Test123'
+                password: 'Test123@'
             }) 
             expect(response.statusCode).toBe(201);
             const updatedPassword = "Test1234"

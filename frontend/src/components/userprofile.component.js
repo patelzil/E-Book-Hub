@@ -4,6 +4,9 @@ import { Button, Container, Form, Modal } from "react-bootstrap";
 import UserSessionNavBar from "./usersessionnavbar.component";
 import EditIcon from '@mui/icons-material/Edit';
 import CancelIcon from '@mui/icons-material/Cancel';
+import { TextField } from "@mui/material";
+import VisibilityIcon from '@mui/icons-material/Visibility';
+import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 
 export default function UserProfile() {
 
@@ -15,10 +18,16 @@ export default function UserProfile() {
         const [username, setUserName] = useState(userObject.username)
         const [password, setPassword] = useState(userObject.password)
         const [updateSuccess,setUpdateSuccess] = useState(0);
+        const [visibilityFlag, setVisibilityFlag] = useState(false);
+        const [validationFlag, setValidationFlag] = useState(false);
+        const regex = new RegExp('^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).(?=.*[!@$%#\]).{8,12}$');
 
         const submitHandler = (event) => 
         {
             event.preventDefault();
+            if(regex.test(password))
+            {
+            setValidationFlag(true);
             axios.patch(`http://localhost:5000/EBookHub/users/${ username }`, {firstName: firstName, lastName: lastName, eMail: eMail, username: username, password: password})
             .then(function(response)
             {
@@ -37,6 +46,10 @@ export default function UserProfile() {
                 setUpdateSuccess(2);
                 console.log(error)
             })
+            } else 
+            {
+                setValidationFlag(true);
+            }   
         }
 
         return (
@@ -49,7 +62,7 @@ export default function UserProfile() {
             ( <div>
                 <Modal.Dialog style={{marginTop: "300px", width: "500px", borderColor: "green"}}>
                     <Modal.Header style={{justifyContent: "center"}}>
-                        <Modal.Title >Sign Up</Modal.Title>
+                        <Modal.Title >Updated Profile</Modal.Title>
                     </Modal.Header>
                     <Modal.Body >
                         <p style={{fontSize: "25px", textAlign: "center"}}>Successfully updated your profile!</p>
@@ -64,7 +77,7 @@ export default function UserProfile() {
             ( <div>
                 <Modal.Dialog style={{marginTop: "300px", width: "500px"}}>
                     <Modal.Header style={{justifyContent: "center"}}>
-                        <Modal.Title>Error Signing Up</Modal.Title>
+                        <Modal.Title>Error Updating Profile</Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
                         <p style={{fontSize: "25px",textAlign: "center"}}>Could not update your profile. Please try again.</p>
@@ -86,7 +99,7 @@ export default function UserProfile() {
                                 {
                                     () => 
                                     {
-                                        setEditProfileFlag(!editProfileFlag)
+                                        setEditProfileFlag(!editProfileFlag);
                                     }
                                 }>
                                 { (!editProfileFlag) ? ("Edit Profile") : ( "Cancel") }
@@ -97,30 +110,84 @@ export default function UserProfile() {
                                 <div className="form-div">
                                     <Form className="form" style={{ float: "right" }} >
                                         <Form.Group className="mb-3 input-div" controlId="formFirstName" title="firstName">
-                                            <Form.Label>First name</Form.Label>
-                                            <Form.Control required type="string" value={ (userObject !== null) ? (firstName) : ("your first name") } onChange={(e) => {setFirstName(e.target.value.trim())}} disabled={!editProfileFlag}/>
+                                            <TextField
+                                            label="First Name"
+                                            type = "text"
+                                            size="small"
+                                            style={{ width: "100%"}}
+                                            placeholder="First Name"
+                                            value={ (userObject !== null) ? (firstName) : ("your first name") }
+                                            disabled={!editProfileFlag}
+                                            onChange={ (event) =>  { setFirstName(event.target.value) } }
+                                            />
                                         </Form.Group>
     
                                         <Form.Group className="mb-3 input-div" controlId="formLastName" title="lastName">
-                                            <Form.Label>Last name</Form.Label>
-                                            <Form.Control required type="string"  value={ (userObject !== null) ? (lastName) : ("your last name") } onChange={(e) => (setLastName(e.target.value.trim()))} disabled={!editProfileFlag}/>
+                                            <TextField
+                                            label="Last Name"
+                                            type = "text"
+                                            size="small"
+                                            style={{ width: "100%"}}
+                                            placeholder="Last Name"
+                                            value={ (userObject !== null) ? (lastName) : ("your last name") }
+                                            disabled={!editProfileFlag}
+                                            onChange={ (event) =>  { setLastName(event.target.value) } }
+                                            />
                                         </Form.Group>
     
                                         <Form.Group className="mb-3 input-div" controlId="formEmail" title="email">
-                                            <Form.Label>Email address</Form.Label>
-                                            <Form.Control required type="email" value={ (userObject !== null) ? (eMail) : ("your email address") } onChange={(e) => (setEmail(e.target.value.trim()))} disabled={!editProfileFlag}/>
+                                            <TextField
+                                            label="Email"
+                                            type = "text"
+                                            size="small"
+                                            style={{ width: "100%"}}
+                                            placeholder="Email"
+                                            value={ (userObject !== null) ? (eMail) : ("your email address") }
+                                            disabled={!editProfileFlag}
+                                            onChange={ (event) =>  { setEmail(event.target.value) } }
+                                            />
                                         </Form.Group>
     
                                         <Form.Group className="mb-3 input-div" controlId="formUserName" title="userName">
-                                            <Form.Label>Username</Form.Label>
-                                            <Form.Control required type="string"  value={ (userObject !== null) ? (username) : ("your username") } onChange={(e) => (setUserName(e.target.value.trim()))} disabled={true}/>
+                                        <TextField
+                                            label="Username"
+                                            type = "text"
+                                            size="small"
+                                            style={{ width: "100%"}}
+                                            value={ (userObject !== null) ? (username) : ("your username") }
+                                            disabled={true}
+                                            onChange={ (event) =>  { setUserName(event.target.value) } }
+                                            />
                                         </Form.Group>
     
                                         <Form.Group className="mb-3 input-div" controlId="formPassword" title="password">
-                                            <Form.Label>Password</Form.Label>
-                                            <Form.Control required type="password" value={ (userObject !== null) ? (password) : ("your password") } onChange={(e) => (setPassword(e.target.value.trim()))} disabled={!editProfileFlag}/>
+                                            <TextField
+                                            error={validationFlag}
+                                            helperText={ (validationFlag) ? ("Please enter a valid password!") : ("")}
+                                            label="Password"
+                                            style={{ width: "100%"}}
+                                            type = {(visibilityFlag === true) ? ("text") : ("password")}
+                                            size="small"
+                                            value={ (userObject !== null) ? (password) : ("your password") }
+                                            disabled={!editProfileFlag}
+                                            InputProps={{
+                                            endAdornment: (visibilityFlag === true) ? (<VisibilityOffIcon onClick={() => { if(editProfileFlag){ setVisibilityFlag(false) } } } />) : (<VisibilityIcon onClick={() => { if(!editProfileFlag){ setVisibilityFlag(false) }else { setVisibilityFlag(true) } }}/>)
+                                            }}
+                                            onChange={ (event) =>  {  setPassword(event.target.value);  } }
+                                            />
+                                            <p></p>
+                                            <div style={{display: (!editProfileFlag) ? ("none") : ("block"), margin: "0px", width: "100%" }}>
+                                            <strong>Password requirements:</strong>
+                                            <ul>
+                                            <li>between 8 and 12 characters</li>
+                                            <li>must contain at least 1 uppercase letter, 1 lowercase letter, and 1 number</li>
+                                            <li>contain special characters: !, #, @, $, % </li>
+                                            </ul>
+                                            </div>
                                         </Form.Group>
-    
+                                        
+                                        
+
                                         { (editProfileFlag) ? (<Button
                                             className="submit-button input-div"
                                             style={{width: "350px"}}
@@ -129,7 +196,7 @@ export default function UserProfile() {
                                             title= "registerButton"
                                             onClick =
                                             {
-                                                    submitHandler
+                                                submitHandler 
                                             }
                                         >
                                             Submit
