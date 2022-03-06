@@ -23,35 +23,35 @@ describe('Signup Component tests', () =>
         
     })
 
-    test('Render standard component --> Form lastName',() =>
+    test('Render standard component --> Form lastName',async () =>
     {
         const { queryByTitle } = render(<BrowserRouter><SignIn /></BrowserRouter>);
         const lastName = queryByTitle("lastName");
         expect(lastName).toBeTruthy();
     })
 
-    test('Render standard component --> Form email',() =>
+    test('Render standard component --> Form email', async () =>
     {
         const { queryByTitle } = render(<BrowserRouter><SignIn /></BrowserRouter>);
         const email = queryByTitle("email");
         expect(email).toBeTruthy();
     })
 
-    test('Render standard component --> Form userName',() =>
+    test('Render standard component --> Form userName', async () =>
     {
         const { queryByTitle } = render(<BrowserRouter><SignIn /></BrowserRouter>);
         const username = queryByTitle("userName");
         expect(username).toBeTruthy();
     })
 
-    test('Render standard component --> Form password',() =>
+    test('Render standard component --> Form password', async () =>
     {
         const { queryByTitle } = render(<BrowserRouter><SignIn /></BrowserRouter>);
         const password = queryByTitle("password");
         expect(password).toBeTruthy();
     })
 
-    test('Render standard component --> Form re-password',() =>
+    test('Render standard component --> Form re-password', async () =>
     {
         const { queryByTitle } = render(<BrowserRouter><SignIn /></BrowserRouter>);
         const rePassword = queryByTitle("re-Password");
@@ -62,7 +62,7 @@ describe('Signup Component tests', () =>
 
 describe('Sigup page Navbar test', () =>
 {
-    test('Render standard component --> Navbar', () =>
+    test('Render standard component --> Navbar', async () =>
     {
         const { queryByTitle } = render(<BrowserRouter><SignInNav /></BrowserRouter>);
         
