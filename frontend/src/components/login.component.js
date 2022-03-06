@@ -4,12 +4,16 @@ import { Link } from "react-router-dom";
 import login_page from '../assets/login_page.svg'
 import axios from "axios";
 import LoginNavBar from "./loginnavbar.component";
+import TextField from '@mui/material/TextField';
+import VisibilityIcon from '@mui/icons-material/Visibility';
+import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 
 export default function Login() {
 
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [loginflag, setLoginflag] = useState(0);
+    const [visibilityFlag, setVisibilityFlag] = useState(false);
     const handleSubmit = (event) =>
     {
         event.preventDefault();
@@ -81,17 +85,29 @@ export default function Login() {
 
                                     <Form>
                                         <Form.Group className="mb-3" controlId="formBasicEmail" title="userName">
-                                            <Form.Label>Username</Form.Label>
-                                            <Form.Control required type="text" onChange={ (event) =>  { setUsername(event.target.value) } } placeholder="Username" />
+                                        <TextField
+                                            label="Username"
+                                            type = "text"
+                                            size="small"
+                                            style={{margin: "10px", width: "100%"}}
+                                            placeholder="Username"
+                                            onChange={ (event) =>  { setUsername(event.target.value) } }
+                                            />
                                         </Form.Group>
 
                                         <Form.Group className="mb-3" controlId="formBasicPassword" title="password">
-                                            <Form.Label>Password</Form.Label>
-                                            <Form.Control required type="password" onChange={ (event) =>  { setPassword(event.target.value) } } placeholder="Password" />
-                                        </Form.Group>
-
-                                        <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                                            <Form.Check type="checkbox" label="Remember me" />
+                                            <TextField
+                                            label="Password"
+                                            style={{margin: "0px 10px", width: "100%"}}
+                                            type = {(visibilityFlag === true) ? ("text") : ("password")}
+                                            placeholder="Password"
+                                            size="small"
+                                            InputProps={{
+                                            endAdornment: (visibilityFlag === true) ? (<VisibilityOffIcon onClick={() => (setVisibilityFlag(false))} />) : (<VisibilityIcon onClick={() => (setVisibilityFlag(true))}/>)
+                                            }}
+                                            onChange={ (event) =>  { setPassword(event.target.value); } }
+                                            />
+                                            <p></p>
                                         </Form.Group>
 
                                         <Button className="button-block" type="submit" title="logInButton" onClick={ handleSubmit } >Login</Button>
