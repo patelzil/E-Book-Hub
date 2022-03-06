@@ -30,6 +30,7 @@ export default function Signup(props) {
         if (password === confirmPassword)
         {
             if(regex.test(password) && regex.test(confirmPassword)){
+                setValidationFlag(false);
                 axios.post("http://localhost:5000/EBookHub/users/createUser", {firstName: firstName, lastName: lastName, eMail: eMail, username: username, password: password})
                 .then(function(response)
                 {
