@@ -7,6 +7,7 @@ import CancelIcon from '@mui/icons-material/Cancel';
 import { TextField } from "@mui/material";
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
+import user_profile from '../assets/user-profile.svg';
 
 export default function UserProfile() {
 
@@ -90,6 +91,7 @@ export default function UserProfile() {
                         </Modal.Dialog>
                     </div>)
                     : (<Container>
+                        <img className="w-50" style={{maxWidth: "50%", align:"left", margin: "5%"}} src={user_profile} alt=""/>
                         <div className="signup-container" title="editButtonUserProfile">
                             <Modal.Dialog>
                                 <Modal.Header style={{ justifyContent: "center" }}>
