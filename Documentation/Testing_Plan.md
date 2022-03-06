@@ -8,7 +8,7 @@
 | - | - | - | - |
 |`V1` |Feb 22, 2022 |Rutukumar Barvaliya |<p>Reviewers:  </p><p>Zeelkumar Khokhariya Parth Patel </p><p>Tested user Controller(User profile backend) </p>|
 |`V2.1 V2.2` |Feb 25, 2022 March 2, 2022 |Rutukumar Barvaliya |<p>Reviewers:  </p><p>Zilkumar Patel </p><p>Zeelkumar Khokhariya Parth Patel </p><p>Tested Front-end Components and Back-end Controllers using CI pipeline </p>|
-|` `V3 |March 6, 2022 |Rutukumar Barvaliya |<p>Reviewers:  Zilkumar patel Viki Makadia </p><p>` `Tested Front-end Components </p>|
+|`V3` |March 6, 2022 |Rutukumar Barvaliya |<p>Reviewers:  Zilkumar patel Viki Makadia </p><p>` `Tested Front-end Components </p>|
 
 ## 1 Introduction
 
@@ -60,8 +60,7 @@
 1. Enter new user without firstname 
 
 #### Total Unit Tests and Time Stamp: 
-
-
+![image](https://user-images.githubusercontent.com/77703218/156941994-9317f918-d456-48ea-94d6-ec7f24990817.png)
 
 #### Load and Search Book: 
 1. Render standard component 
@@ -80,8 +79,7 @@
 14. User get the free books by filtering free 
 
 #### Total Unit Tests and Time Stamp: 
-
-
+![image](https://user-images.githubusercontent.com/77703218/156942006-0475ecf0-0474-4fe0-919d-c26a83fa802f.png)
 
 ### 2.2 Test Completeness
 
