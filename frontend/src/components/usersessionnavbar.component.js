@@ -11,7 +11,7 @@ export default function UserSessionNavBar(){
 
     return (
         <Container>
-            <Navbar collapseOnSelect expand="sm" variant="dark" bg="black">
+            <Navbar collapseOnSelect expand="sm" variant="dark" bg="black" title="userNavbar">
                 <Container style={{width: "100%"}}>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse>

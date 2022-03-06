@@ -8,12 +8,12 @@ export default function User() {
 
         return (
             <> 
-            <div style={{ zIndex: 1000, top: 0, position: 'sticky', background: 'black' }}>
+            <div style={{ zIndex: 1000, top: 0, position: 'sticky', background: 'black' }} title="userDashboard">
             <UserSessionNavBar/>
             </div>
             { userObject !== null ? 
             (
-            <div>
+            <div title="dashBoardMessage">
                 <h1> Welcome to your dashboard, {userObject.firstName} { userObject.lastName} ! </h1>
                 <p>please add appropriate content</p>
             </div>

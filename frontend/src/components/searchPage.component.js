@@ -38,10 +38,10 @@ export default function SearchPageComponent(){
 
     return (
         <div>
-            <div className="ui container" style={{marginTop: '10px'}}>
+            <div className="ui container" style={{marginTop: '10px'}} title="searchRequestPage">
                 <SearchBar onSubmit={onSearchSubmit}></SearchBar>
             </div>
-            <div>
+            <div title='listOfBooks'>
                 <Books list={bookList}/>
             </div>
         </div>

@@ -1,5 +1,6 @@
-import {render, fireEvent} from "@testing-library/react";
+import {render} from "@testing-library/react";
 import SignIn from "../../../components/signup.component";
+import SignInNav from "../../../components/signupnavbar.component";
 import { BrowserRouter } from 'react-router-dom';
 
 
@@ -57,4 +58,15 @@ describe('Signup Component tests', () =>
         expect(rePassword).toBeTruthy();
     })
 
+})
+
+describe('Sigup page Navbar test', () =>
+{
+    test('Render standard component --> Navbar', () =>
+    {
+        const { queryByTitle } = render(<BrowserRouter><SignInNav /></BrowserRouter>);
+        
+        const registerbtn = queryByTitle("signUpNavbar");
+        expect(registerbtn).toBeTruthy();
+    })
 })

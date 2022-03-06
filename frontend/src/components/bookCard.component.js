@@ -7,8 +7,7 @@ import logo from '../assets/logo.png';
 export default function BookCard(props) {
     const [show, setShow] = useState(false);
 
-    const handleDetails = (event) => {
-        event.preventDefault();
+    const handleDetails = () => {
         setShow(true);
     }
 
@@ -21,10 +20,10 @@ export default function BookCard(props) {
                         <Card.Img  width="260px" height="250px" variant="top" src={props.bookDetails.imageLink ==="NOT AVAILABLE" ? logo : props.bookDetails.imageLink.thumbnail}/>
                     </div>
                     <Card.Body style={{width: "100%", marginTop: "0px"}}>
-                        <Card.Title className="book-title" style={{fontSize: "18px", fontWeight: "bold"}}>{props.bookDetails.title}</Card.Title>
-                        <Card.Subtitle className="book-title" style={{fontSize: "16px", fontWeight: "bold"}}>{props.bookDetails.subtitle}</Card.Subtitle>
+                        <Card.Title className="book-title" style={{fontSize: "20px", fontWeight: "bold"}}>{props.bookDetails.title}</Card.Title>
+                        <Card.Subtitle className="book-title" style={{fontSize: "18px", fontWeight: "bold"}}>{props.bookDetails.subtitle}</Card.Subtitle>
 
-                        <Card.Text className="book-title" style={{fontSize: "14px"}}>
+                        <Card.Text className="book-title" style={{fontSize: "18px"}}>
                             {props.bookDetails.authors[0]}
                         </Card.Text>
 
@@ -45,46 +44,22 @@ export default function BookCard(props) {
                     onHide={() => setShow(false)}
                     fullscreen
                     centered
-                    scrollable={true}
-                    restoreFocus={false}
-                    dialogClassName="book-modal"
                 >
-                    <Modal.Header closeButton></Modal.Header>
                     <Modal.Body>
-                        <div className="body-modal">
-                            <div className="image-modal">
-                                <img  width="240px" height="300px" variant="top" src={props.bookDetails.imageLink ==="NOT AVAILABLE" ? logo : props.bookDetails.imageLink.thumbnail} alt={props.bookDetails.title}/>
-                                <br/>
-                                <p><b>Authors:</b><br/>
-                                    <div>
-                                        {(props.bookDetails.authors === null) ? (<span>No authors available</span>) : (props.bookDetails.authors)}
-                                    </div>
-                                </p>
-                            </div>
-                            <div className="description-modal">
-                                <Modal.Title id="contained-modal-title-vcenter">
-                                    {props.bookDetails.title}
-                                </Modal.Title>
-                                <h4>{props.bookDetails.subtitle}</h4>
-                                <hr/>
-                                <p><b><i>Description:</i></b><br/><br/>{props.bookDetails.description === "NOT AVAILABLE" ? "No descriptive material is available for this title." : props.bookDetails.description} </p>
-                                <b><i>More information:</i></b><br/>
-                                <pre>
-                                    Publisher       : {props.bookDetails.publisher}<br/>
-                                    Publish date    : {props.bookDetails.publishDate}<br/>
-                                    Number of pages : {props.bookDetails.pageCount}<br/>
-                                    Category        : {props.bookDetails.category[0]}
-                                </pre>
-                            </div>
-                        </div>
+                        <Modal.Title id="contained-modal-title-vcenter">
+                            {props.bookDetails.title}
+                        </Modal.Title>
+                        <h4>{props.bookDetails.subtitle}</h4>
+                        <p>
+                            {props.bookDetails.description}
+                        </p>
                     </Modal.Body>
                     <Modal.Footer>
-                        <Modal.Title>
-                            {<div>FREE</div>/*props.bookDetails.price*/}
-                        </Modal.Title>
+                        <Button onClick={() => setShow(false)}>Close</Button>
                     </Modal.Footer>
                 </Modal>
             </div>
+
         </>
     )
 }

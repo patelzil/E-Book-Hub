@@ -19,7 +19,6 @@ class SearchBar extends React.Component {
 
     handleFormSubmit = (event) => {
         event.preventDefault();
-        console.log(event.target);
         this.props.onSubmit(this.state.term, this.state.filter, this.state.minPrice, this.state.maxPrice);
 
     }
@@ -122,7 +121,7 @@ class SearchBar extends React.Component {
                     />
                 </Form>
 
-                <Button className="submit-button" style={{margin: '1.5rem'}} size="md" type="input" onClick={this.handlePriceSubmit}>Set price range</Button>
+                <Button className="submit-button" style={{margin: '1.5rem'}} size="md" type="input" onClick={this.handlePriceSubmit} title="filterSearchButton">Set price range</Button>
 
             </div>
 
@@ -130,7 +129,7 @@ class SearchBar extends React.Component {
 
         return(
            <div className="ui segment" style={{padding: '2rem', marginBottom: "20px"}}>
-                <Form onSubmit={this.handleFormSubmit}>
+                <Form onSubmit={this.handleFormSubmit} >
                     <FormGroup>
                         <InputGroup>
                             <FormControl
@@ -151,7 +150,7 @@ class SearchBar extends React.Component {
 
                                 <Dropdown.ItemText>Filter by</Dropdown.ItemText>
                                 <Dropdown.Divider />
-                                <Dropdown.Item as="button"><div onClick={this.handleDropDownChange}>Category</div></Dropdown.Item>
+                                <Dropdown.Item as="button"><div onClick={this.handleDropDownChange} title="selectionFilterButton">Category</div></Dropdown.Item>
                                 <Dropdown.Item as="button"><div onClick={this.handleDropDownChange}>Title</div></Dropdown.Item>
                                 <Dropdown.Item as="button"><div onClick={this.handleDropDownChange}>Author</div></Dropdown.Item>
                                 <Dropdown.Item as="button"><div onClick={this.handleDropDownChange}>Price</div></Dropdown.Item>
