@@ -38,6 +38,8 @@ export default function Signup(props) {
                         setSignedUp(1);
                         const temp = response.data.data.newUser;
                         localStorage.setItem( 'userObject' ,JSON.stringify(temp));
+                        localStorage.setItem('loginNavbar', JSON.stringify({ flag: true }));
+                        localStorage.setItem('logout', JSON.stringify({ flag: false }));
                     } else {
                          setSignedUp(2);
                     }
