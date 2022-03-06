@@ -1,0 +1,192 @@
+.button {
+    border: 1px solid black;
+    background: white;
+    color: black;
+    margin: 10px;
+    padding: 5px 15px;
+    border-radius: 6px;
+    transition-duration: 0.5s;
+    text-decoration: none;
+}
+
+.inactive-button, .inactive-button:hover {
+    border: 1px solid white;
+    background: black;
+    color: white;
+    margin: 10px;
+    padding: 5px 15px;
+    border-radius: 6px;
+    text-decoration: none;
+}
+
+.button:hover {
+    border: 1px solid white;
+    background: black;
+    color: white;
+    margin: 10px;
+    padding: 5px 15px;
+    border-radius: 6px;
+}
+
+.submit-button:hover {
+    border: 1px solid black;
+    background: white;
+    color: black;
+    margin: 10px;
+    padding: 5px 15px;
+    border-radius: 6px;
+    transition-duration: 0.5s;
+    text-decoration: none;
+}
+
+.submit-button {
+    border: 1px solid white;
+    background: black;
+    color: white;
+    margin: 10px;
+    padding: 5px 15px;
+    border-radius: 6px;
+}
+
+.button-block {
+    border: 1px solid black;
+    background: white;
+    color: black;
+    margin: 10px;
+    padding: 5px 15px;
+    border-radius: 6px;
+    transition-duration: 0.5s;
+    text-decoration: none;
+    width: 100%;
+}
+
+.button-block:hover {
+    border: 1px solid white;
+    background: black;
+    color: white;
+    margin: 10px;
+    padding: 5px 15px;
+    border-radius: 6px;
+    width: 100%;
+}
+
+.icon-img{
+    width: 70px;
+    height: 70px;
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.card{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-header{
+    background-color: white;
+}
+
+
+.SignUp{
+    color: black;
+    font-weight: bold;
+}
+
+.user {
+    justify-content: flex-end;
+}
+
+.input-div {
+    width: 350px;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-color: black;
+    width: 100%;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+.form-div {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
+.signup-container {
+    display: flex;
+    float: right;
+    flex-direction: row;
+    align-content: center;
+}
+
+.book-title {
+    width: 12em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/*BOOK MODAL STYLES*/
+.book-modal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 70%;
+    height: 80%;
+    padding-top: 100px;
+    margin-left: 15%;
+    margin-right: 15%;
+    overflow-y: initial !important
+}
+
+.body-modal {
+    display: flex;
+    flex-direction: row;
+    overflow-y: auto;
+}
+
+.image-modal {
+    display: flex;
+    flex-direction: column;
+    white-space: pre;
+}
+
+.description-modal {
+    display: flex;
+    flex-direction: column;
+    margin-right: 10px;
+    margin-left: 15px;
+}
+
+/* STYLE AFFILIATED TO HOME PAGE */
+/* Do not show the scroll bars */
+::-webkit-scrollbar{
+    display: none;
+}
+
+.dropDownButton{
+    position: absolute;
+    background-color: black;
+}
+
+.big-checkbox {
+    height: 40px;
+    padding-top: 2rem;
+    padding-left: 3rem;
+    font-size: large;
+}
+
+
+.search-card {
+    width: 92%;
+}
