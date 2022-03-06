@@ -7,7 +7,7 @@ import '../styles/styles.css'
 export default function SignUpNavBar(){
     return (
         <Container>
-            <Navbar collapseOnSelect expand="sm" variant="dark" bg="black">
+            <Navbar collapseOnSelect expand="sm" variant="dark" bg="black" title = "signUpNavbar">
                 <Container style={{width: "100%"}}>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse>

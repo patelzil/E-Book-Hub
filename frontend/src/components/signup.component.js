@@ -20,8 +20,8 @@ export default function Signup(props) {
     const [visibilityFlag, setVisibilityFlag] = useState(false);
     const [validationFlag, setValidationFlag] = useState(false);
     const [emailFlag, setEmailFlag] = useState(false);
-    const regex = new RegExp('^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).(?=.*[!@$%#\]).{8,12}$');
-    const regexEmail = new RegExp('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}');
+    const regex = new RegExp(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,12}$/);
+    const regexEmail = new RegExp(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/);
     const handleSubmit = (event) => {
         
         event.preventDefault();

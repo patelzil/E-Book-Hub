@@ -7,7 +7,7 @@ import '../styles/styles.css'
 export default function NavBar(){
     return (
         <Container>
-            <Navbar collapseOnSelect expand="sm" variant="dark" bg="black">
+            <Navbar collapseOnSelect expand="sm" variant="dark" bg="black" title="bookNavbar">
                 <Container style={{width: "100%"}}>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse>
