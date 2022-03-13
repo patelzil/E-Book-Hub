@@ -5,9 +5,9 @@ name: Backend Test
 
 on:
   push:
-    branches: [ developer ]
+    branches: [ docker-test-cd ]
   pull_request:
-    branches: [ developer ]
+    branches: [ docker-test-cd ]
 
 jobs:
   build:
@@ -27,3 +27,14 @@ jobs:
     - name: Run Tests
       run: npm test
       working-directory: ${{env.working-directory}}
+
+
+    - name: Build & push Docker image
+      uses: mr-smithers-excellent/docker-build-push@v5
+      with:
+        image: ebookhub-docker-images/E-Book-Hub
+        tags: latest
+        registry: docker.io
+        dockerfile: Dockerfile
+        username: iamparthpatel
+        password: #1Lakulish
