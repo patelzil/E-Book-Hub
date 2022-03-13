@@ -5,9 +5,9 @@ name: Backend Test
 
 on:
   push:
-    branches: [ docker-test-cd ]
+    branches: [ developer ]
   pull_request:
-    branches: [ docker-test-cd ]
+    branches: [ developer ]
 
 jobs:
   build:
@@ -36,5 +36,5 @@ jobs:
         tags: latest
         registry: docker.io
         dockerfile: Dockerfile
-        username: iamparthpatel
-        password: #1Lakulish
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
