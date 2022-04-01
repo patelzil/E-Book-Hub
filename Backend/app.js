@@ -20,15 +20,14 @@ io.on('connection', (socket) => {
     socket.on('disconnect', ()=> {
         console.log('user disconnected')
     });
-    socket.on('chat message', (msg) => {
-        io.emit('chat message', msg + " from back")
+    socket.on('message', (msg) => {
+        io.emit('message', msg)
     })
 })
 
 server.listen(3005, () => {
     console.log('listening on *:3005');
 });
-
 // --- Socket server set up ends ---
 
 //Middlewares - output in console a response status
