@@ -190,3 +190,60 @@
 .search-card {
     width: 92%;
 }
+
+.message-container {
+    background-color: white;
+    color: black;
+    border-width: 2px;
+    border-color: gray;
+    width: 100%;
+}
+
+/*chat styles begin here*/
+.chat-left{
+    position:relative;
+    background:wheat;
+    box-shadow: 4px 8px 10px #616161;
+    /*box-shadow: 6px 6px gray;*/
+    width:300px;
+    padding:5px;
+    border-radius:5px;
+    margin:10px;
+    max-width:50%;
+}
+
+.chat-left:before{
+    content:"";
+    position:absolute;
+    width:0px;
+    height:0px;
+    border: 10px solid;
+    border-color: transparent wheat transparent transparent;
+    left:-20px;
+    top:10px;
+}
+
+.chat-right{
+    position:relative;
+    background:black;
+    box-shadow: 4px 8px 10px #616161;
+    color: white;
+    width:300px;
+    padding:5px;
+    margin:5px;
+    border-radius:5px;
+    max-width: 50%;
+}
+
+.chat-right:before{
+    content:"";
+    position:absolute;
+    width:0px;
+    height:0px;
+    border: 10px solid;
+    border-color: transparent transparent transparent black;
+    right:-20px;
+    top:10px;
+}
+
+/*chat styles end here*/
