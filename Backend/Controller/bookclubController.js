@@ -99,7 +99,7 @@ exports.saveMessage = async(req, res) => {
     if (club.Users.indexOf(req.body.data.sender) != -1) {
         club.MessagesInfo.push(message);
 
-        await bookclub.findOneAndUpdate({
+        let updatedBookclub = await bookclub.findOneAndUpdate({
                 bookclubName: req.body.bookclubName,
             },
             club, {
@@ -113,6 +113,7 @@ exports.saveMessage = async(req, res) => {
         res.status(201).json({
             status: "Success",
             message: `message got from ${req.body.data.sender}`,
+            data: updatedBookclub.MessagesInfo,
         });
     } else {
         res.status(201).json({
