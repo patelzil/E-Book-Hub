@@ -1,31 +1,36 @@
 import React from "react";
 import io from 'socket.io-client'
-import NavBar from "./navbar.component";
 import { Button, Form } from "react-bootstrap";
 import Message from './message.component';
+import UserSessionNavBar from "./usersessionnavbar.component";
+import axios from "axios";
 
 export default class ChatRoom extends React.Component {
     constructor(props) {
         super(props);
+
         this.state = {
             isConnected: false,
             messages: [{
-                senderName: "Zil",
-                message: "Hello",
-                time: "Mar 31,2022 10:21 p.m."
-            },{
-                senderName: "Ayush",
-                message: "Hello",
-                time: "Mar 31,2022 10:21 p.m."
-            },{
-                senderName: "Zil",
-                message: "how are you?",
-                time: "Mar 31,2022 10:21 p.m."
+                bookclubName: "this.state.bookClub",
+                data: {
+                    sender: "user",
+                    message: "message",
+                    time: "getFullTime"
+                }
+            }, {
+                bookclubName: "this.state.bookClub",
+                data: {
+                    sender: "user",
+                    message: "message",
+                    time: "getFullTime"
+                }
             }],
             message: "",
-            username:"",
-            bookClub: 23
+            username: "Zeel",
+            bookClub: "Comp4350", //props.bookclubName,
         }
+
         this.socket =  io('http://localhost:3005', {
             transports: ['websocket'],
         });
@@ -49,12 +54,15 @@ export default class ChatRoom extends React.Component {
             }
             // add the message to the database here
             const newMsg = {
-                senderName: "Zil",
-                message: message,
-                time: getFullTime()
+                bookclubName: this.state.bookClub,
+                data: {
+                    sender: this.state.username,
+                    message: message,
+                    time: getFullTime()
+                }
             }
+
             this.setState({messages: [...this.state.messages, newMsg]})
-            console.log(this.state.messages)
         });
     }
 
@@ -66,7 +74,7 @@ export default class ChatRoom extends React.Component {
         event.preventDefault();
         if(this.state.message.length > 0) {
             this.socket.emit('message', this.state.message)
-            this.setState({message: ''})
+            this.setState({message: ""})
         }
     }
 
@@ -74,16 +82,16 @@ export default class ChatRoom extends React.Component {
         return (
             <>
                 <div style={{ zIndex: 1000, top: 0, position: 'sticky', background: 'black' }}>
-                    <NavBar/>
+                    <UserSessionNavBar/>
                 </div>
                 <div style={{display:'flex',flexDirection:'column',height:'92%', justifyContent:'space-between', alignItems:'center'}}>
                     <div
                         style={{width:'100%', display: 'flex', flexDirection: "column", paddingRight: '10px',
-                            paddingLeft: '5px',marginBottom: "10px", height:'100%',
+                            paddingLeft: '5px',marginBottom: "10px", height:'100%', overflow: "scroll"
                         }}
                     >
                             {this.state.messages.map(msg =>
-                                <Message key={msg.time} message={msg.message} time={msg.time} senderName={msg.senderName}>
+                                <Message key={msg.data.sender + msg.data.message + msg.data.time} message={msg.data.message} time={msg.data.time} senderName={msg.data.sender}>
                                     {msg.text}
                                 </Message>
                             )}

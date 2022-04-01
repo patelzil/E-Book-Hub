@@ -13,17 +13,12 @@ const bookRouter = require("./routes/bookRoutes");
 const purchaseRouter = require("./routes/buyRoutes");
 const bookclubRouter = require("./routes/bookclubRoutes");
 
-const app = express();
-
 // Socket server setup
 app.get('/', (req, res) => {
     res.sendFile(__dirname + '/index.html');
 });
 
 io.on('connection', (socket) => {
-    socket.on('disconnect', ()=> {
-        console.log('user disconnected')
-    });
     socket.on('message', (msg) => {
         io.emit('message', msg)
     })
