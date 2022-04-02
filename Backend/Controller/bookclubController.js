@@ -9,7 +9,7 @@ exports.createBookclub = async(req, res) => {
     if (bookclubExist) {
         res.status(404).json({
             status: "Fail",
-            Message: "BookClub already exist",
+            message: "BookClub already exist",
         });
     } else {
         let newBookclub = await bookclub.create(req.body);
@@ -39,6 +39,7 @@ exports.createBookclub = async(req, res) => {
             },
         });
     }
+    
 };
 
 exports.addUserToClub = async(req, res) => {
@@ -188,7 +189,7 @@ exports.removeUserfromClub = async(req, res) => {
 
             res.status(201).json({
                 status: "Success",
-                message: `User ${req.body.user} is been successfully remove  from book club!!`,
+                message: `User ${req.body.user} is been successfully remove from book club!!`,
             });
         } else {
             res.status(404).json({
@@ -199,7 +200,7 @@ exports.removeUserfromClub = async(req, res) => {
     } else {
         res.status(404).json({
             status: "Fail",
-            message: `Bookclub ${req.body.bookclubName} doesnt exist so cant delte user`,
+            message: `Bookclub ${req.body.bookclubName} doesnt exist so cant delete user`,
         });
     }
 };

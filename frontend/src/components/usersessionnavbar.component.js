@@ -1,5 +1,6 @@
 import React from "react";
 import { Container, Dropdown, DropdownButton, Nav, Navbar} from 'react-bootstrap'
+import { Link } from "react-router-dom"
 import logo from '../assets/logo.png'
 import '../styles/styles.css'
 import DashboardIcon from '@mui/icons-material/Dashboard';
@@ -21,6 +22,11 @@ export default function UserSessionNavBar(){
                                 E-Book-Hub
                             </Navbar.Brand>
                         </Nav>
+
+                        <Nav className="">
+                            <Link to="/bookClubs" className="button">Book Club</Link>
+                        </Nav>
+
                         <DropdownButton style={{ backgroundColor: "white", borderRadius: "5px" }} variant="none" title={ <> <AccountBoxIcon /> { username } </> }>
                             <Dropdown.Item href="/profile" > My Profile</Dropdown.Item>
                             <Dropdown.Divider />
@@ -28,6 +34,7 @@ export default function UserSessionNavBar(){
                             <Dropdown.Divider />
                             <Dropdown.Item href="/" onClick= { () => { localStorage.clear(); localStorage.setItem("logout", JSON.stringify({ flag: true })); } }>Logout</Dropdown.Item>
                         </DropdownButton>
+
                     </Navbar.Collapse>
 
                 </Container>
