@@ -11,25 +11,23 @@ export default class ChatRoom extends React.Component {
 
         this.state = {
             isConnected: false,
-            messages: [{
-                bookclubName: "this.state.bookClub",
-                data: {
-                    sender: "user",
-                    message: "message",
-                    time: "getFullTime"
-                }
-            }, {
-                bookclubName: "this.state.bookClub",
-                data: {
-                    sender: "user",
-                    message: "message",
-                    time: "getFullTime"
-                }
-            }],
+            messages: [],
             message: "",
             username: "Zeel",
-            bookClub: "Comp4350", //props.bookclubName,
+            bookClub: "FUNTIME", //props.bookclubName,
         }
+
+        let currentState = this;
+        axios.get("http://localhost:5000/EBookHub/books/bookclub/getBookclub/" + this.state.bookClub)
+            .then(function(response){
+                console.log(response.data)
+                if(response.data.status === "Success") {
+                    currentState.setState({messages: response.data.message.MessagesInfo})
+                }
+            })
+            .catch(function (error) {
+                console.log("Error fetching book club info" + error)
+            })
 
         this.socket =  io('http://localhost:3005', {
             transports: ['websocket'],
@@ -52,17 +50,32 @@ export default class ChatRoom extends React.Component {
                 const am_pm = (date.getHours() > 12) ? " p.m." : " a.m.";
                 return (month + " " + date.getDate() + "," + date.getFullYear() + " " + hour + ':' + minutes + am_pm)
             }
+
             // add the message to the database here
+            const club = this.state.bookClub;
             const newMsg = {
-                bookclubName: this.state.bookClub,
-                data: {
-                    sender: this.state.username,
-                    message: message,
-                    time: getFullTime()
-                }
+                sender: this.state.username,
+                message: message,
+                time: getFullTime()
             }
 
             this.setState({messages: [...this.state.messages, newMsg]})
+            let currentState = this;
+            axios.post(`http://localhost:5000/EBookHub/books/bookclub/message`, {bookclubName: club, data: newMsg})
+                .then(function(response)
+                {
+                    if(response.data.status === "Success")
+                    {
+                        currentState.setState({messages: response.data.data})
+                    }
+                    else if(response.data.status === "Fail")
+                    {
+                        console.log("Could not send the message")
+                    }
+                })
+                .catch(function (error) {
+                    console.log(error)
+                })
         });
     }
 
@@ -90,10 +103,12 @@ export default class ChatRoom extends React.Component {
                             paddingLeft: '5px',marginBottom: "10px", height:'100%', overflow: "scroll"
                         }}
                     >
-                            {this.state.messages.map(msg =>
-                                <Message key={msg.data.sender + msg.data.message + msg.data.time} message={msg.data.message} time={msg.data.time} senderName={msg.data.sender}>
-                                    {msg.text}
-                                </Message>
+                            {this.state.messages.length > 0 ? (
+                                this.state.messages.map(msg =>
+                                    <Message key={msg.id} message={msg.message} time={msg.time} senderName={msg.sender}/>
+                                )
+                            ) : (
+                                <div style={{display: "flex", alignItems: "center", justifyContent: 'space-around', height: '100%'}}><h4>No chats to display.</h4></div>
                             )}
                     </div>
                     <div style={{boxShadow: '0px -8px 10px #616161', display: 'flex', alignItems: "center", width: '100%', borderRadius:'5px'}}>
