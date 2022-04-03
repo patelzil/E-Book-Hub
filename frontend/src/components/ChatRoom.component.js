@@ -93,16 +93,16 @@ export default class ChatRoom extends React.Component {
             <>
                 <div style={{display:'flex',flexDirection:'column',height:'92%', justifyContent:'space-between', alignItems:'center'}}>
                     <div
-                        style={{width:'100%', display: 'flex', flexDirection: "column", paddingRight: '10px',
+                        style={{width:'100%', display: 'flex', flexDirection: "column-reverse", paddingRight: '10px',
                             paddingLeft: '5px',marginBottom: "10px", height:'100%', overflow: "scroll"
                         }}
                     >
                             {this.state.messages.length > 0 ? (
-                                this.state.messages.map(msg =>
+                                this.state.messages.slice(0).reverse().map(msg =>
                                     <Message key={msg.id} message={msg.message} time={msg.time} senderName={msg.sender}/>
                                 )
                             ) : (
-                                <div style={{display: "flex", alignItems: "center", justifyContent: 'space-around', height: '100%'}}><h4>No chats to display. {this.state.bookClub}</h4></div>
+                                <div style={{display: "flex", alignItems: "center", justifyContent: 'space-around', height: '100%'}}><h4>No chats to display.</h4></div>
                             )}
                     </div>
                     <div style={{boxShadow: '0px -8px 10px #616161', display: 'flex', alignItems: "center", width: '100%', borderRadius:'5px'}}>
