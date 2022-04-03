@@ -39,6 +39,7 @@ export default function BookCard(props) {
                     </Card.Body>
                 </Card>
             </div>
+            
             <div>
                 <Modal
                     show={show}
@@ -50,6 +51,7 @@ export default function BookCard(props) {
                     dialogClassName="book-modal"
                 >
                     <Modal.Header closeButton></Modal.Header>
+                    
                     <Modal.Body>
                         <div className="body-modal">
                             <div className="image-modal">
