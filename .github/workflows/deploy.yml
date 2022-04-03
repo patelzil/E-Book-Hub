@@ -1,0 +1,35 @@
+name: Publish Docker image
+
+on:
+  push:
+    branches: [ developer ]
+  pull_request:
+    branches: [ developer ]
+    
+jobs:
+  push_to_registry:
+    name: Push Docker image to Docker Hub
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the repo
+        uses: actions/checkout@v2
+     
+      - name: Log in to Docker
+        uses: docker/login-action@f054a8b539a109f9f41c372932f1ae047eff08c9
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+
+      - name: Docker Server build
+        run: |
+          docker build ./Backend -t patelzp/ebookhub:server
+      - name: Docker push
+        run: |
+          docker push patelzp/ebookhub:server
+        
+      - name: Docker Client build
+        run: |
+          docker build ./frontend -t patelzp/ebookhub:client
+      - name: Docker push
+        run: |
+          docker push patelzp/ebookhub:client
