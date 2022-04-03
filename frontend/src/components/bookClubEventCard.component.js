@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import {Button, Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Typography from '@mui/material/Typography';
@@ -6,18 +6,17 @@ import { CardActions, CardContent, Divider,Chip } from "@mui/material";
 import { BsCheckLg } from "react-icons/bs";
 import { BsXLg } from "react-icons/bs";
 import axios from "axios";
-import ChatInfo from "./chatInfo.component";
 
 
 export default function BookClubEventCard(props){
-    
+
     function isUserInThisClub(){
         let userInClub = (props.bookClubDetails.Users).includes(props.currentUser.username);
         return userInClub;
     }
 
     const [showJoin, setShowJoin] = useState(isUserInThisClub() )
-    const [bookClubItem, setBookClubItem] = useState(props.bookClubDetails)
+    // const [bookClubItem, setBookClubItem] = useState(props.bookClubDetails)
 
     const handleJoin = (event) => {
         axios.post("http://localhost:5000/EBookHub/books/bookclub/addUser", {bookclubName: props.bookClubDetails.bookclubName, user: props.currentUser.username })
@@ -35,12 +34,12 @@ export default function BookClubEventCard(props){
             }
         })
         .catch(function (error) {
-            alert(error)  
+            alert(error)
             console.log(error)
         })
     }
 
-     
+
     const handleLeave = (event) => {
         axios.post("http://localhost:5000/EBookHub/books/bookclub/deleteUser", {bookclubName: props.bookClubDetails.bookclubName, user: props.currentUser.username })
         .then(function(response)
@@ -57,20 +56,16 @@ export default function BookClubEventCard(props){
             }
         })
         .catch(function (error) {
-            alert(error)  
+            alert(error)
             console.log(error)
         })
-    }
-
-    const handleViewActivity = (event) => {
-        setBookClubItem(props.bookClubDetails);
     }
 
     return(
         <div style={ {width:'400px', display:"flex", justifyContent:"center",alignItems: "center", margin:'5px'}}>
             <Card style={{backgroundColor:"#f5f5f5", borderRadius:"25px" }} sx={{maxWidth: 400, displayPrint: 'flex', justifyContent:'center'}} variant="outine">
                 <CardContent>
-                    <div style={{justifyContent:"center", margin:"2px",padding:"2px",borderRadius:"25px",display:"flex", padding:"5px",color:"#FFFFFF",background: "#304352" ,background: "linear-gradient(to right, #304352, #d7d2cc)" }}>
+                    <div style={{justifyContent:"center", margin:"2px", borderRadius:"25px",display:"flex", padding:"5px",color:"#FFFFFF",background: "linear-gradient(to right, #304352, #d7d2cc)" }}>
                         <Typography variant="h5" component="div">
                             {props.bookClubDetails.bookclubName}
                         </Typography>
@@ -80,7 +75,7 @@ export default function BookClubEventCard(props){
                         <Chip label="CLUB INFO" />
                     </Divider>
 
-                    <div style={{height:"150px",width:"350px", overflow: 'clip'}}> 
+                    <div style={{height:"150px",width:"350px", overflow: 'clip'}}>
                         <Typography variant="body" >
                             {props.bookClubDetails.info}
                         </Typography>
@@ -89,14 +84,14 @@ export default function BookClubEventCard(props){
                 </CardContent>
 
                 <CardActions>
-                    {showJoin? 
+                    {showJoin?
                         <Button variant="outline-danger" size = "md" onClick={handleLeave}> <BsXLg/> LEAVE </Button>
                     :
                         <Button variant="outline-success" size = "md" onClick={handleJoin}> <BsCheckLg/> JOIN </Button>
                     }
-                    
+
                     <Link to="/chatActivity" state ={{bookClubItem: props.bookClubDetails}} className="button">View Activity</Link>
-            
+
                 </CardActions>
             </Card>
         </div>
