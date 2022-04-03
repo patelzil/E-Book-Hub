@@ -5,16 +5,19 @@
     "main": "app.js",
     "scripts": {
         "start": "nodemon server.js",
-        "test": "jest --testEnvironment=node"
+        "test": "jest --testEnvironment=node --forceExit"
     },
     "author": "Webito",
     "license": "ISC",
     "dependencies": {
+        "bcryptjs": "^2.4.3",
         "cors": "^2.8.5",
         "express": "^4.17.3",
+        "knex": "^1.0.4",
         "mongoose": "^5.13.14",
         "morgan": "^1.10.0",
         "nodemon": "^2.0.15",
+        "objection": "^3.0.1",
         "socket.io": "^4.4.1"
     },
     "devDependencies": {
