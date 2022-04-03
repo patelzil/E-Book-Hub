@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 import BookClubEventCard from "./bookClubEventCard.component";
-import NavBar from "./navbar.component";
-import UserSessionNavBar from "./usersessionnavbar.component";
 import {Button, Card } from "react-bootstrap";
 import Modal from 'react-bootstrap/Modal';
 import { Form } from "react-bootstrap";
@@ -12,7 +10,7 @@ import axios from "axios";
 export default function BookClubEvents(props){
     const  userSessionNavbar = (localStorage.getItem('loginNavbar') !== null) ? (JSON.parse(localStorage.getItem('loginNavbar'))) : (null);
     const userObject = JSON.parse(localStorage.getItem('userObject'));
-    
+
     // FORM FIEDS
     const [bookClubTitle, setBookClubTitle] = useState("")
     const [bookClubInfo, setBookClubInfo] = useState("")
@@ -48,22 +46,22 @@ export default function BookClubEvents(props){
                 } else if(response.data.status === "Fail") {
                     window.alert(response.data.message);
                     // TODO: Show error to user about BookClub already exists!
-                    
+
                 }
             })
-            .catch(function (error) {  
+            .catch(function (error) {
                 console.log(error)
                 setErrorMessage("Book Club already exists! You can choose another Title for your book Club.")
                 alert("Book Club already exists! You can choose another Title for your book Club.");
             })
-            
+
         }
-        
+
         setValidated(true);
 
     }
 
-    
+
 
     return (
         <div>
@@ -85,7 +83,7 @@ export default function BookClubEvents(props){
                     dialogClassName="bookClub-modal"
                 >
                     <Modal.Header closeButton><h2>Making reading more interesting...</h2></Modal.Header>
-                    
+
                     <Modal.Body>
                         <Form noValidate validated={validated} onSubmit={handleCreateBookClub}>
                             <Form.Group className="mb-3" controlId="formBasicText" onChange={(event) =>  { setBookClubTitle(event.target.value.trim()) }}>
@@ -96,7 +94,7 @@ export default function BookClubEvents(props){
                                 </Form.Text>
                                 <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                                 <Form.Control.Feedback type="invalid">A Bookclub must have title!</Form.Control.Feedback>
-                                
+
                             </Form.Group>
 
                             <Form.Group className="mb-3" controlId="formBasicPassword" onChange={(event) =>  { setBookClubInfo(event.target.value.trim()) }}>
@@ -134,7 +132,7 @@ export default function BookClubEvents(props){
                     )}
                 </Grid>
             </div>
-            
+
         </div>
     );
 }

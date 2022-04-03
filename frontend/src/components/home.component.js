@@ -1,5 +1,4 @@
 import React from "react";
-import BookClubEvents from "./bookClubEvents.component";
 import NavBar from "./navbar.component";
 import SearchPage from './searchPage.component'
 import UserSessionNavBar from "./usersessionnavbar.component";

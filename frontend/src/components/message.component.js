@@ -2,8 +2,7 @@ import React from 'react'
 import { Card } from 'react-bootstrap'
 
 export default function Message({senderName, message, time}) {
-    // const currentUser = JSON.parse(localStorage.getItem("userObject")).username;
-    const currentUser = "patel"
+    const currentUser = JSON.parse(localStorage.getItem("userObject")).username;
     return (
         <>
             {

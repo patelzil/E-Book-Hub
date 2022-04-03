@@ -2,7 +2,6 @@ import React from "react";
 import io from 'socket.io-client'
 import { Button, Form } from "react-bootstrap";
 import Message from './message.component';
-import UserSessionNavBar from "./usersessionnavbar.component";
 import axios from "axios";
 
 export default class ChatRoom extends React.Component {
@@ -13,14 +12,13 @@ export default class ChatRoom extends React.Component {
             isConnected: false,
             messages: [],
             message: "",
-            username: "Zeel",
-            bookClub: "FUNTIME", //props.bookclubName,
+            username: JSON.parse(localStorage.getItem("userObject")).username,
+            bookClub: props.bookClub.bookclubName,
         }
 
         let currentState = this;
         axios.get("http://localhost:5000/EBookHub/books/bookclub/getBookclub/" + this.state.bookClub)
             .then(function(response){
-                console.log(response.data)
                 if(response.data.status === "Success") {
                     currentState.setState({messages: response.data.message.MessagesInfo})
                 }
@@ -36,7 +34,6 @@ export default class ChatRoom extends React.Component {
 
     componentDidMount() {
         this.socket.on('connect', () => {
-            console.log("frontend - connect")
             this.setState({isConnected: true});
         });
 
@@ -94,17 +91,14 @@ export default class ChatRoom extends React.Component {
     render(){
         return (
             <>
-                <div style={{ zIndex: 1000, top: 0, position: 'sticky', background: 'black' }}>
-                    <UserSessionNavBar/>
-                </div>
                 <div style={{display:'flex',flexDirection:'column',height:'92%', justifyContent:'space-between', alignItems:'center'}}>
                     <div
-                        style={{width:'100%', display: 'flex', flexDirection: "column", paddingRight: '10px',
+                        style={{width:'100%', display: 'flex', flexDirection: "column-reverse", paddingRight: '10px',
                             paddingLeft: '5px',marginBottom: "10px", height:'100%', overflow: "scroll"
                         }}
                     >
                             {this.state.messages.length > 0 ? (
-                                this.state.messages.map(msg =>
+                                this.state.messages.slice(0).reverse().map(msg =>
                                     <Message key={msg.id} message={msg.message} time={msg.time} senderName={msg.sender}/>
                                 )
                             ) : (
