@@ -11,7 +11,7 @@ export default function Books(props) {
                 ) : props.list.length > 0 ? (
                     props.list.map((book)=><BookCard key={book.id} bookDetails={book}/>)
                 ) : (
-                    <h3 style={{textAlign: "center", margin: "20px"}}>No books found or Make sure backend is running on port 5000.</h3>
+                    <h3 style={{textAlign: "center", margin: "20px"}}>No books found. Please try again.</h3>
                 )}
             </Grid>
         </div>
