@@ -13,6 +13,7 @@ import {Chip} from "@mui/material";
 import { BsArrowLeftSquare, BsFillPersonFill, BsFillPeopleFill } from "react-icons/bs";
 import {Button, ButtonToolbar } from "react-bootstrap";
 import { useNavigate } from 'react-router-dom';
+import ChatRoom from "./ChatRoom.component";
 
 
 const drawerWidth = 350;
@@ -27,8 +28,8 @@ export default function ChatInfo(props) {
         position="fixed"
         sx={{ width: `calc(100% - ${drawerWidth}px)`, ml: `${drawerWidth}px` }}
       >
-        <Toolbar style={{color:"#FFFFFF",background: "#304352" ,background: "linear-gradient(to right, #304352, #d7d2cc)"}}>
-          
+        <Toolbar style={{color:"#FFFFFF", background: "linear-gradient(to right, #304352, #d7d2cc)"}}>
+
             <Typography variant="h6">
                 {/* The club title goes here */}
                 {props.bookClub.bookclubName}
@@ -37,7 +38,7 @@ export default function ChatInfo(props) {
         </Toolbar>
 
       </AppBar>
-      
+
       <Drawer
         sx={{
           width: drawerWidth,
@@ -66,12 +67,12 @@ export default function ChatInfo(props) {
                 {props.bookClub.info}
             </Typography>
         </div>
-  
+
 
         <Divider>
             <Chip label="HOST" />
         </Divider>
-        
+
         <div>
             <Typography variant="h4" style={{padding:"5px" , textAlign:"Center"}}>
                 {/* Render the club HOST - who is always index 0 of the users group */}
@@ -83,12 +84,12 @@ export default function ChatInfo(props) {
         <Divider>
             <Chip label="MEMBERS" />
         </Divider>
-        
-        <div style={{padding:"5px" , textAlign:"Center"}}> 
+
+        <div style={{padding:"5px" , textAlign:"Center"}}>
             <Typography variant="h4">
                 <BsFillPeopleFill/>
             </Typography>
-            
+
             <List style={{textAlign:"Center"}}>
                 {/* Render the list of users of the book club */}
                 { props.bookClub.Users.map((user) => (
@@ -97,9 +98,9 @@ export default function ChatInfo(props) {
                     </ListItem>
                 ))}
             </List>
-              
+
         </div>
-       
+
 
       </Drawer>
 
@@ -107,8 +108,7 @@ export default function ChatInfo(props) {
         component="main"
         sx={{ flexGrow: 1, bgcolor: 'background.default',p: 3 }}
       >
-       
-        {/* CHAT CODE GOES HERE */}
+        <ChatRoom bookClub={props.bookClub}/>
       </Box>
     </Box>
   );
