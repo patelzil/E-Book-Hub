@@ -4,6 +4,9 @@ const fetch = require("node-fetch");
 const cors = require("cors");
 const userRouter = require("./routes/userRoutes");
 const bookRouter = require("./routes/bookRoutes");
+const purchaseRouter = require("./routes/buyRoutes");
+const bookclubRouter = require("./routes/bookclubRoutes");
+
 const app = express();
 //Middlewares - output in console a response status
 app.use(cors());
@@ -18,6 +21,10 @@ app.use(express.json());
 app.use("/EBookHub/users", userRouter);
 
 app.use("/EBookHub/books", bookRouter);
+
+app.use("/EBookHub/books/purchase", purchaseRouter);
+
+app.use("/EBookHub/books/bookclub", bookclubRouter);
 
 //exporting app
 module.exports = app;
