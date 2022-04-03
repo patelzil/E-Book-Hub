@@ -1,3 +1,8 @@
+#root {
+    height: 100%;
+    width: 100%;
+}
+
 .button {
     border: 1px solid black;
     background: white;
@@ -190,3 +195,50 @@
 .search-card {
     width: 92%;
 }
+
+/*chat styles begin here*/
+.chat-left{
+    position: relative;
+    background: wheat;
+    box-shadow: 4px 8px 10px #616161;
+    width: auto;
+    max-width: 70%;
+    padding: 5px;
+    border-radius: 5px;
+    margin: 10px;
+}
+
+.chat-left:before{
+    content: "";
+    position: absolute;
+    width: 0px;
+    height: 0px;
+    border: 10px solid;
+    border-color: transparent wheat transparent transparent;
+    left: -20px;
+    top: 10px;
+}
+
+.chat-right{
+    position: relative;
+    background: black;
+    box-shadow: 4px 8px 10px #616161;
+    color: white;
+    width: auto;
+    padding: 5px;
+    margin: 5px;
+    border-radius: 5px;
+    max-width: 70%;
+}
+
+.chat-right:before{
+    content: "";
+    position: absolute;
+    width: 0px;
+    height: 0px;
+    border: 10px solid;
+    border-color: transparent transparent transparent black;
+    right: -20px;
+    top: 10px;
+}
+/*chat styles end here*/

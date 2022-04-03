@@ -6,11 +6,11 @@ import Login from "./components/login.component";
 import Signup from "./components/signup.component";
 import User from "./components/user.component";
 import UserProfile from "./components/userprofile.component";
+import ChatRoom from "./components/ChatRoom.component";
 
 function App() {
 
   return (
-    <>
       <Router>
           <Routes>
           <Route path="/" exact element={<Home/>}/>
@@ -18,9 +18,9 @@ function App() {
           <Route path="/signup" element={<Signup />}/>
           <Route path="/user" element={<User/>}/>
           <Route path="/profile" element={<UserProfile/>}/>
-          </Routes> 
+          <Route path="/chat" element={<ChatRoom/>}/>
+          </Routes>
       </Router>
-      </>
   );
 }
 
