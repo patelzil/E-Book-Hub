@@ -117,7 +117,7 @@ exports.saveMessage = async(req, res) => {
             data: updatedBookclub.MessagesInfo,
         });
     } else {
-        res.status(201).json({
+        res.status(404).json({
             status: "Fail",
             message: `User doent exist in bookclub ${req.body.bookclubName}`,
         });
