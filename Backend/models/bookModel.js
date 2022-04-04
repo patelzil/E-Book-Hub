@@ -54,7 +54,10 @@ let getBooksResponse = function(bookArray) {
         throw err;
     }
     for (i = 0; i < size; i++) {
-        if (bookArray.items[i].volumeInfo !== undefined) {
+        if (
+            bookArray.items[i].volumeInfo !== undefined &&
+            bookArray.items[i].saleInfo.saleability === "FREE"
+        ) {
             let book = {
                 id: bookArray.items[i].id,
                 title: bookArray.items[i].volumeInfo.title,
@@ -73,6 +76,30 @@ let getBooksResponse = function(bookArray) {
             book = checkBookValue(book);
 
             bookShelf.push(book);
+        } else {
+            if (
+                bookArray.items[i].volumeInfo !== undefined &&
+                bookArray.items[i].saleInfo.saleability !== "FREE"
+            ) {
+                let book = {
+                    id: bookArray.items[i].id,
+                    title: bookArray.items[i].volumeInfo.title,
+                    subTitle: bookArray.items[i].volumeInfo.subtitle,
+                    category: bookArray.items[i].volumeInfo.categories,
+                    authors: bookArray.items[i].volumeInfo.authors,
+                    publisher: bookArray.items[i].volumeInfo.publisher,
+                    publishDate: bookArray.items[i].volumeInfo.publishedDate,
+                    description: bookArray.items[i].volumeInfo.description,
+                    pageCount: bookArray.items[i].volumeInfo.pageCount,
+                    imageLink: bookArray.items[i].volumeInfo.imageLinks,
+                    price: (Math.random() * (50.0 - 0.5) + 8.5).toFixed(1),
+                    rating: (Math.random() * (5.0 - 0.5) + 0.5).toFixed(1),
+                };
+
+                book = checkBookValue(book);
+
+                bookShelf.push(book);
+            }
         }
     }
 
