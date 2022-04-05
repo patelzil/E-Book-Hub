@@ -19,6 +19,7 @@ beforeAll( async ()=> {
 afterAll( async () => {
     //make we have deleted the test user from the database
     await user.findOneAndDelete({username: 'TestUser'})
+    await user.findOneAndDelete({username: 'TestUser1RRRR'})
     await mongoose.connection.close();
 })
 
@@ -132,15 +133,12 @@ describe('User signin/Login test', () => {
                 password: 'Test123@'
             }) 
             expect(response1.statusCode).toBe(400);
-            await user.findOneAndDelete({username: 'TestUser'});
         });
     })
     
 })
 
 //get user testing 
-
-
 describe('User retriving test by username and password', () => {
 
     describe('Enter correct username and password to get user', () =>
@@ -151,15 +149,16 @@ describe('User retriving test by username and password', () => {
             const response = await request.post('/EBookHub/users/createUser').send({
                 firstName: 'TestFirstName',
                 lastName: 'TestLastName',
-                eMail: 'TestEmail@com.ca',
-                username: 'TestUser',
+                eMail: 'TestEmail123311@com.ca',
+                username: 'TestUser1RRRR',
                 password: 'Test123@'
             }) 
             expect(response.statusCode).toBe(201);
 
-            const response1 = await request.get('/EBookHub/users/TestUser/Test123@');
+            const response1 = await request.get('/EBookHub/users/TestUser1RRRR/Test123@');
             const obj = JSON.parse(response1.text);
             expect(obj.status).toMatch('success');
+            await user.findOneAndDelete({username: 'TestUser1RRRR'});
             await user.findOneAndDelete({username: 'TestUser'});    
         });
     })
