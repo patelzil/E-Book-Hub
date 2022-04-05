@@ -6,7 +6,7 @@ export default function BookClubSignUpModal(props){
 
     return(
         <Modal show={props.isOpen} onHide={this.closeModal}>
-          <Modal.Header closeButton>
+          <Modal.Header closeButton data-testid="chatRoom">
             <Modal.Title>Modal heading</Modal.Title>
           </Modal.Header>
 

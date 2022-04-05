@@ -19,6 +19,7 @@ exports.checkPaymentValidation = async(req, res) => {
                 let bookadded = await boughtBooks.create(req.body);
 
                 res.status(200).json({
+                    status: "Success",
                     found: bookadded,
                 });
             } else {
@@ -50,6 +51,7 @@ exports.getAllBooks = async(req, res) => {
             let books = await boughtBooks.find({ username: req.body.username });
 
             res.status(200).json({
+                status: 'Success',
                 found: books,
             });
         } else {
