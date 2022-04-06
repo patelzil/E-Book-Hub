@@ -6,11 +6,14 @@ import Login from "./components/login.component";
 import Signup from "./components/signup.component";
 import User from "./components/user.component";
 import UserProfile from "./components/userprofile.component";
+import BookClubs from "./components/bookClubs.component"
+import ChatActivity from "./components/chatActivity.component"
+import ChatRoom from "./components/ChatRoom.component";
+import Payment from "./components/payment.component";
 
 function App() {
 
   return (
-    <>
       <Router>
           <Routes>
           <Route path="/" exact element={<Home/>}/>
@@ -18,9 +21,12 @@ function App() {
           <Route path="/signup" element={<Signup />}/>
           <Route path="/user" element={<User/>}/>
           <Route path="/profile" element={<UserProfile/>}/>
+          <Route path="/bookClubs" element={<BookClubs/>}/>
+          <Route path="/chatActivity" element={<ChatActivity/>}/>
+          <Route path="/chat" element={<ChatRoom/>}/>
+          <Route path="/payment" element={<Payment />}/>
           </Routes> 
       </Router>
-      </>
   );
 }
 

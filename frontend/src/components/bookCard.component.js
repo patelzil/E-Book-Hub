@@ -3,13 +3,29 @@ import {Button, Card } from "react-bootstrap";
 import {Rating} from "@mui/material";
 import Modal from 'react-bootstrap/Modal';
 import logo from '../assets/logo.png';
+import { useNavigate } from "react-router-dom";
 
 export default function BookCard(props) {
     const [show, setShow] = useState(false);
+    const navigate = useNavigate();
+    const  loginFlag = (localStorage.getItem('loginNavbar') !== null) ? (JSON.parse(localStorage.getItem('loginNavbar'))) : (null);
 
     const handleDetails = (event) => {
         event.preventDefault();
         setShow(true);
+    }
+
+    const handleBuyBook = (event) => {
+        event.preventDefault();
+        if(loginFlag !== null)
+        {
+            localStorage.setItem('book-wl', JSON.stringify(props.bookDetails));
+            navigate('/payment');
+        } else
+        {
+            localStorage.setItem('book-nl', JSON.stringify(props.bookDetails));
+            navigate('/login');
+        } 
     }
 
     return (
@@ -18,7 +34,7 @@ export default function BookCard(props) {
                 <Card style={{ width: '260px', height: '450px', margin: "15px" }}>
                     <div style={{width: "100%", height: "250px", display: "flex", flexDirection: "column", alignItems: "center",
                         justifyContent: "center"}}>
-                        <Card.Img  width="260px" height="250px" variant="top" src={props.bookDetails.imageLink ==="NOT AVAILABLE" ? logo : props.bookDetails.imageLink.thumbnail}/>
+                        <Card.Img  width="260px" height="250px" style={{objectFit: 'contain'}} variant="top" src={props.bookDetails.imageLink ==="NOT AVAILABLE" ? logo : props.bookDetails.imageLink.thumbnail}/>
                     </div>
                     <Card.Body style={{width: "100%", marginTop: "0px"}}>
                         <Card.Title className="book-title" style={{fontSize: "18px", fontWeight: "bold"}}>{props.bookDetails.title}</Card.Title>
@@ -28,17 +44,18 @@ export default function BookCard(props) {
                             {props.bookDetails.authors[0]}
                         </Card.Text>
 
-                        <div style={{fontSize: "18px", fontWeight: "bold", margin: "0px"}}>FREE
+                        <div style={{fontSize: "18px", fontWeight: "bold", margin: "0px"}}>{(props.bookDetails.price === 'FREE') ? (<>FREE</>) : (<>CAD ${props.bookDetails.price}</>)}
                             <div style={{ float: "right"}}>
                                 <Rating name="read-only" value={props.bookDetails.rating} precision={0.5} readOnly />
                             </div>
                         </div>
-
+                        {(props.showBuy) ? (<><Button className="card button" style={{width: "90%", marginBottom: "5px"}} onClick={handleBuyBook}>Buy</Button></>) : (<></>)}
                         <Button className="card button" style={{width: "90%", marginBottom: "5px"}} onClick={handleDetails}>Details</Button>
-
+                        
                     </Card.Body>
                 </Card>
             </div>
+            
             <div>
                 <Modal
                     show={show}
@@ -50,6 +67,7 @@ export default function BookCard(props) {
                     dialogClassName="book-modal"
                 >
                     <Modal.Header closeButton></Modal.Header>
+                    
                     <Modal.Body>
                         <div className="body-modal">
                             <div className="image-modal">
@@ -80,7 +98,7 @@ export default function BookCard(props) {
                     </Modal.Body>
                     <Modal.Footer>
                         <Modal.Title>
-                            {<div>FREE</div>/*props.bookDetails.price*/}
+                            { <div>{props.bookDetails.price}</div> }
                         </Modal.Title>
                     </Modal.Footer>
                 </Modal>
