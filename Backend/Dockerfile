@@ -12,4 +12,4 @@ RUN npm ci
 COPY . /app
 
 EXPOSE 5000
-CMD [ "node", "server.js" ]
+CMD [ "npm", "start" ]
