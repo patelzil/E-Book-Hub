@@ -48,7 +48,7 @@ describe('Book purchase check payment validation and get all book tests', () => 
         })
 
         await checkPaymentValidation(req,res).then( async()=> {
-            expect(res.json.status).toBe('Success');
+            expect(res.json.status).toBe('success');
             expect(res.json.found.id).toBe('81hf8fsdg334sda74rw2sfdcvd723')
             expect(res.json.found.username).toBe('trialuser')
             expect(res.json.found.title).toBe('test book')
@@ -123,7 +123,7 @@ describe('Book purchase check payment validation and get all book tests', () => 
 
     test('Get all purchased book', async ()=>{
         const req = await mockRequest({
-            body: { 
+            query: { 
                 username: 'trialuser',
             },
             method: 'GET',
@@ -143,7 +143,7 @@ describe('Book purchase check payment validation and get all book tests', () => 
         })
 
         await getAllBooks(req,res).then( async()=> {
-            expect(res.json.status).toBe('Success');
+            expect(res.json.status).toBe('success');
         })
     })
 })
