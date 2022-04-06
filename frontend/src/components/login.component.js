@@ -51,7 +51,7 @@ export default function Login() {
                             <p style={{fontSize: "25px", textAlign: "center"}}>Successfully Logged In!</p>
                         </Modal.Body>
                         <Modal.Footer>
-                            <Link to={ "/user" }>
+                            <Link to={ (localStorage.getItem('book-nl')) ? ("/payment"): ("/user") }>
                             <Button variant="success" type="button" >Close</Button>
                             </Link>
                         </Modal.Footer>

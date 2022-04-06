@@ -9,6 +9,7 @@ import UserProfile from "./components/userprofile.component";
 import BookClubs from "./components/bookClubs.component"
 import ChatActivity from "./components/chatActivity.component"
 import ChatRoom from "./components/ChatRoom.component";
+import Payment from "./components/payment.component";
 
 function App() {
 
@@ -23,7 +24,8 @@ function App() {
           <Route path="/bookClubs" element={<BookClubs/>}/>
           <Route path="/chatActivity" element={<ChatActivity/>}/>
           <Route path="/chat" element={<ChatRoom/>}/>
-          </Routes>
+          <Route path="/payment" element={<Payment />}/>
+          </Routes> 
       </Router>
   );
 }

@@ -17,8 +17,10 @@ export default function BookClubEventCard(props){
 
     const [showJoin, setShowJoin] = useState(isUserInThisClub() )
     // const [bookClubItem, setBookClubItem] = useState(props.bookClubDetails)
+    const [flag, setFlag] = useState(false);
 
     const handleJoin = (event) => {
+        event.preventDefault();
         axios.post("http://localhost:5000/EBookHub/books/bookclub/addUser", {bookclubName: props.bookClubDetails.bookclubName, user: props.currentUser.username })
         .then(function(response)
         {
@@ -27,7 +29,6 @@ export default function BookClubEventCard(props){
                 // alert("Succcessfully added");
                 setShowJoin(isUserInThisClub());
                 window.location.reload(false);
-
             } else {
                 alert("failed to add");
 
@@ -37,10 +38,24 @@ export default function BookClubEventCard(props){
             alert(error)
             console.log(error)
         })
+        
+        axios.get(`http://localhost:5000/EBookHub/users/${ props.currentUser.username }/${ props.currentUser.password }`)
+            .then(function(response){
+                if(response.data.status === "success")
+                {
+                        const temp = response.data.data.user;
+                        localStorage.setItem('userObject', JSON.stringify(temp));
+                } 
+            })
+            .catch(function (error) {
+                console.log(error)
+            })
+
     }
 
 
     const handleLeave = (event) => {
+        event.preventDefault();
         axios.post("http://localhost:5000/EBookHub/books/bookclub/deleteUser", {bookclubName: props.bookClubDetails.bookclubName, user: props.currentUser.username })
         .then(function(response)
         {
@@ -59,6 +74,18 @@ export default function BookClubEventCard(props){
             alert(error)
             console.log(error)
         })
+
+        axios.get(`http://localhost:5000/EBookHub/users/${ props.currentUser.username }/${ props.currentUser.password }`)
+            .then(function(response){
+                if(response.data.status === "success")
+                {
+                        const temp = response.data.data.user;
+                        localStorage.setItem('userObject', JSON.stringify(temp));
+                } 
+            })
+            .catch(function (error) {
+                console.log(error)
+            })
     }
 
     return(
@@ -85,9 +112,9 @@ export default function BookClubEventCard(props){
 
                 <CardActions>
                     {showJoin?
-                        <Button variant="outline-danger" size = "md" onClick={handleLeave}> <BsXLg/> LEAVE </Button>
+                        <Button variant="outline-danger" size = "md" onClick={ handleLeave }> <BsXLg/> LEAVE </Button>
                     :
-                        <Button variant="outline-success" size = "md" onClick={handleJoin}> <BsCheckLg/> JOIN </Button>
+                        <Button variant="outline-success" size = "md" onClick={ handleJoin }> <BsCheckLg/> JOIN </Button>
                     }
 
                     <Link to="/chatActivity" state ={{bookClubItem: props.bookClubDetails}} className="button">View Activity</Link>
