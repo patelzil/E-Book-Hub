@@ -19,6 +19,7 @@ exports.checkPaymentValidation = async(req, res) => {
                 let bookadded = await boughtBooks.create(req.body);
 
                 res.status(200).json({
+                    status: "success",
                     found: bookadded,
                 });
             } else {
@@ -44,18 +45,19 @@ exports.checkPaymentValidation = async(req, res) => {
 
 exports.getAllBooks = async(req, res) => {
     try {
-        let userExist = await Users.exists({ username: req.body.username });
+        let userExist = await Users.exists({ username: req.query.username });
 
         if (userExist) {
-            let books = await boughtBooks.find({ username: req.body.username });
+            let books = await boughtBooks.find({ username: req.query.username });
 
             res.status(200).json({
+                status: "success",
                 found: books,
             });
         } else {
             res.status(404).json({
                 status: "failed",
-                message: "No such user: " + req.body.username,
+                message: "No such user: " + req.query.username,
             });
         }
     } catch (err) {
