@@ -1,7 +1,5 @@
 import axios from 'axios';
-import NavBar from "./navbar.component";
 import UserSessionNavBar from "./usersessionnavbar.component";
-import Modal from 'react-bootstrap/Modal';
 import React, {useEffect, useState} from "react";
 import BookClubEvents from "./bookClubEvents.component";
 

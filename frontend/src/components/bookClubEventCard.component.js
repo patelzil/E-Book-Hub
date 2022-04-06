@@ -17,8 +17,6 @@ export default function BookClubEventCard(props){
 
     const [showJoin, setShowJoin] = useState(isUserInThisClub() )
     // const [bookClubItem, setBookClubItem] = useState(props.bookClubDetails)
-    const [flag, setFlag] = useState(false);
-
     const handleJoin = (event) => {
         event.preventDefault();
         axios.post("http://localhost:5000/EBookHub/books/bookclub/addUser", {bookclubName: props.bookClubDetails.bookclubName, user: props.currentUser.username })
