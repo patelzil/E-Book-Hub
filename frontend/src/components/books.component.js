@@ -9,7 +9,7 @@ export default function Books(props) {
                 { props.list === undefined ? (
                     <h3 style={{textAlign: "center", margin: "20px"}}>Search to see books.</h3>
                 ) : props.list.length > 0 ? (
-                    props.list.map((book)=><BookCard key={book.id} bookDetails={book}/>)
+                    props.list.map((book)=><BookCard key={book.id} bookDetails={book} showBuy={props.showBuy}/>)
                 ) : (
                     <h3 style={{textAlign: "center", margin: "20px"}}>No books found. Please try again.</h3>
                 )}

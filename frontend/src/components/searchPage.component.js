@@ -42,7 +42,7 @@ export default function SearchPageComponent(){
                 <SearchBar onSubmit={onSearchSubmit}></SearchBar>
             </div>
             <div title='listOfBooks'>
-                <Books list={bookList}/>
+                <Books list={bookList} showBuy={true}/>
             </div>
         </div>
     )
