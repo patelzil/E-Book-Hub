@@ -17,6 +17,7 @@
         "mock-req-res": "^1.2.0",
         "mongoose": "^5.13.14",
         "morgan": "^1.10.0",
+        "node-fetch": "^2.6.7",
         "objection": "^3.0.1",
         "socket.io": "^4.4.1"
     },
