@@ -109,7 +109,6 @@ exports.saveMessage = async(req, res) => {
             }
         );
 
-        console.log(club);
 
         res.status(201).json({
             status: "Success",
@@ -126,7 +125,6 @@ exports.saveMessage = async(req, res) => {
 
 exports.getAllClubs = async(req, res) => {
     let allClubs = await bookclub.find();
-    console.log(allClubs);
     if (allClubs) {
         res.status(201).json({
             status: "Pass",
@@ -174,7 +172,6 @@ exports.removeUserfromClub = async(req, res) => {
 
             users_bookclubs.splice(index_finder, 1);
 
-            console.log(user);
 
             await users.findOneAndUpdate({
                     username: req.body.user,
@@ -207,7 +204,6 @@ exports.removeUserfromClub = async(req, res) => {
 
 exports.getBookclub = async(req, res) => {
     let club = await bookclub.findOne({ bookclubName: req.params.bookclubName });
-    console.log(club);
 
     if (club) {
         res.status(201).json({
