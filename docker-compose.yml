@@ -1,0 +1,19 @@
+version: "3.9"  # optional since v1.27.0
+services:
+  backend:
+    build: .
+    container_name: ebookhub_backend_c
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./Backend:app
+      - ./Backend/node_modules
+  frontend:
+    build: .
+    container_name: ebookhub_frontend_c
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./frontend:app
+    stdin_open: true
+    tty: true
