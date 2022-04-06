@@ -6,11 +6,11 @@ WORKDIR /app
 # Install app dependencies
 COPY package.json /app
 COPY package-lock.json /app
-RUN npm install
+RUN npm ci
 
 # Bundle app source
 COPY . /app
 
 EXPOSE 5000
-CMD ["npm", "ci"]
+
 CMD [ "npm", "start" ]
