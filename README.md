@@ -16,7 +16,7 @@
 * Find our other documentation on our [Wiki Page](https://github.com/Patelzil/E-Book-Hub/wiki)
 
 ## Meeting Minutes
-* Our [meeting minutes](https://github.com/Patelzil/E-Book-Hub/blob/developer/Documentation/Meeting_Minutes.md)
+* Our [meeting minutes](https://github.com/Patelzil/E-Book-Hub/blob/main/Documentation/Meeting_Minutes.md)
 
 ## Architectural Diagrams
 * Our [architectural diagram](https://github.com/Patelzil/E-Book-Hub/blob/developer/Documentation/ArchitecturalBlockDiagram.md)
