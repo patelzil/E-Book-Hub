@@ -1,16 +1,7 @@
-FROM node:16-alpine
-
-# Create app directory
-WORKDIR /app
-
-# Install app dependencies
-COPY package.json /app
-COPY package-lock.json /app
-RUN npm ci
-
-# Bundle app source
-COPY . /app
-
+FROM node:17-alpine
+WORKDIR /e-book-hub
+COPY . .
+RUN npm install
 EXPOSE 5000
-
-CMD [ "npm", "start" ]
+CMD ["npm", "ci"]
+CMD ["npm", "start"]
