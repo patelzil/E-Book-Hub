@@ -51,7 +51,7 @@ exports.getAllBooks = async(req, res) => {
             let books = await boughtBooks.find({ username: req.query.username });
 
             res.status(200).json({
-                status: "success",
+                status: 'success',
                 found: books,
             });
         } else {

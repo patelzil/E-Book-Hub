@@ -13,7 +13,7 @@ export default class ChatRoom extends React.Component {
             messages: [],
             message: "",
             username: JSON.parse(localStorage.getItem("userObject")).username,
-            bookClub: props.bookClub.bookclubName,
+            bookClub: (props.bookClub !== undefined || props.bookClub !== null) ? (props.bookClub.bookclubName) : "TestClub",
         }
 
         let currentState = this;
@@ -91,28 +91,30 @@ export default class ChatRoom extends React.Component {
     render(){
         return (
             <>
-                <div style={{display:'flex',flexDirection:'column',height:'92%', justifyContent:'space-between', alignItems:'center'}}>
+                <div style={{display:'flex',flexDirection:'column',height:'92%', justifyContent:'space-between', alignItems:'center'}} data-testid="chatRoom">
                     <div
                         style={{width:'100%', display: 'flex', flexDirection: "column-reverse", paddingRight: '10px',
                             paddingLeft: '5px',marginBottom: "10px", height:'100%', overflow: "scroll"
                         }}
+                        data-testid="chatCols"
                     >
                             {this.state.messages.length > 0 ? (
                                 this.state.messages.slice(0).reverse().map(msg =>
-                                    <Message key={msg.id} message={msg.message} time={msg.time} senderName={msg.sender}/>
+                                    <Message key={msg.id} message={msg.message} time={msg.time} senderName={msg.sender} data-testid="chatMessage"/>
                                 )
                             ) : (
                                 <div style={{display: "flex", alignItems: "center", justifyContent: 'space-around', height: '100%'}}><h4>No chats to display.</h4></div>
                             )}
                     </div>
-                    <div style={{boxShadow: '0px -8px 10px #616161', display: 'flex', alignItems: "center", width: '100%', borderRadius:'5px'}}>
-                        <Form style={{display: 'flex', flexDirection: "row", paddingLeft: '5%', paddingRight: '5%', width: '100%'}}>
+                    <div style={{boxShadow: '0px -8px 10px #616161', display: 'flex', alignItems: "center", width: '100%', borderRadius:'5px'}} data-testid="chatBox">
+                        <Form style={{display: 'flex', flexDirection: "row", paddingLeft: '5%', paddingRight: '5%', width: '100%'}} data-testid="chatForm">
                             <input
                                 value={this.state.message}
                                 autoComplete={"off"}
                                 placeholder="Message..."
                                 style={{ width: '80%', height: '34px', margin: "5px", padding: '9px', borderRadius: "10px", borderColor: "1px black", borderWidth: "1px"}}
                                 onChange={ e => {this.onChangeMsg(e.target.value)}}
+                                data-testid="chatInputField"
                             />
                             <Button
                                 className="button"
@@ -120,6 +122,7 @@ export default class ChatRoom extends React.Component {
                                 type="submit"
                                 style={{width: "68px", height: "34px", margin: '5px'}}
                                 onClick={this.onSend}
+                                data-testid="chatSendButton"
                             >
                                 Send
                             </Button>

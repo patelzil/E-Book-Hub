@@ -1,5 +1,5 @@
-const user = require('../../models/bookModel');
-const app = require('../../app');
+const user = require('../../../models/bookModel');
+const app = require('../../../app');
 let supertest = require('supertest');
 let request = supertest(app);
 const mongoose = require('mongoose');
@@ -17,6 +17,14 @@ beforeAll( async ()=> {
 
 afterAll( async () => {
     await mongoose.connection.close();
+})
+
+//dummy test to prevent quota execeeding
+describe('Book get test', ()=>
+{
+    test('User got default book page',async () =>{
+        expect(true).toBeTruthy();
+    })
 })
 
 describe('Book get test', ()=>

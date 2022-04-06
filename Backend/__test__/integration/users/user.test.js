@@ -1,5 +1,5 @@
-const user = require('../../models/userModel');
-const app = require('../../app');
+const user = require('../../../models/userModel');
+const app = require('../../../app');
 let supertest = require('supertest');
 let request = supertest(app);
 const mongoose = require('mongoose');
@@ -19,6 +19,7 @@ beforeAll( async ()=> {
 afterAll( async () => {
     //make we have deleted the test user from the database
     await user.findOneAndDelete({username: 'TestUser'})
+    await user.findOneAndDelete({username: 'TestUser1RRRR'})
     await mongoose.connection.close();
 })
 
@@ -132,15 +133,12 @@ describe('User signin/Login test', () => {
                 password: 'Test123@'
             }) 
             expect(response1.statusCode).toBe(400);
-            await user.findOneAndDelete({username: 'TestUser'});
         });
     })
     
 })
 
 //get user testing 
-
-
 describe('User retriving test by username and password', () => {
 
     describe('Enter correct username and password to get user', () =>
@@ -151,15 +149,16 @@ describe('User retriving test by username and password', () => {
             const response = await request.post('/EBookHub/users/createUser').send({
                 firstName: 'TestFirstName',
                 lastName: 'TestLastName',
-                eMail: 'TestEmail@com.ca',
-                username: 'TestUser',
+                eMail: 'TestEmail123311@com.ca',
+                username: 'TestUser1RRRR',
                 password: 'Test123@'
             }) 
             expect(response.statusCode).toBe(201);
 
-            const response1 = await request.get('/EBookHub/users/TestUser/Test123@');
+            const response1 = await request.get('/EBookHub/users/TestUser1RRRR/Test123@');
             const obj = JSON.parse(response1.text);
             expect(obj.status).toMatch('success');
+            await user.findOneAndDelete({username: 'TestUser1RRRR'});
             await user.findOneAndDelete({username: 'TestUser'});    
         });
     })
@@ -199,7 +198,7 @@ describe('User retriving test by username and password', () => {
             }) 
             expect(response.statusCode).toBe(201);
             //incorrect password provided in route
-            const response1 = await request.get('/EBookHub/users/TestUser1/Test123@');
+            const response1 = await request.get('/EBookHub/users/TestUser111/Test123@');
             const obj = JSON.parse(response1.text);
             expect(obj.status).toMatch('fail');
             await user.findOneAndDelete({username: 'TestUser'});    
@@ -268,7 +267,7 @@ describe('Updating user information', () => {
             }) 
             expect(response.statusCode).toBe(201);
             //try to get not exists user 
-            const response1 = await request.patch('/EBookHub/users/TestUser1');
+            const response1 = await request.patch('/EBookHub/users/TestUser111');
             const obj = JSON.parse(response1.text);
             expect(obj.status).toMatch('fail');
             await user.findOneAndDelete({username: 'TestUser'});

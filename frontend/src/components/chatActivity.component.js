@@ -9,9 +9,8 @@ export default function ChatActivity(props){
     const location = useLocation()
     const { bookClubItem } = location.state
 
-    console.log(bookClubItem)
     return(
-        <div>
+        <div data-testid="chatRoomActivity">
             <div style={{ zIndex: 1000, top: 0, position: 'sticky', background: 'black' }} title="userDashboard">
                 <UserSessionNavBar/>
             </div>
