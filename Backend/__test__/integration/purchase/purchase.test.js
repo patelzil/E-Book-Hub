@@ -133,7 +133,7 @@ describe('Add book to the Users Dashboard', () => {
         }
 
         test('User should not be able to access book if username not exits', async() =>{
-            const response = await request.get('/EBookHub/books/purchase/boughtBooks/getAll').send({
+            const response = await request.get('/EBookHub/books/purchase/boughtBooks/getAll').query({
                 username:'TestUserInvalid'
             })
             const obj = JSON.parse(response.text);
@@ -141,7 +141,7 @@ describe('Add book to the Users Dashboard', () => {
         })
 
         test('User should be able to Get all added books', async() =>{
-            const response = await request.get('/EBookHub/books/purchase/boughtBooks/getAll').send({
+            const response = await request.get('/EBookHub/books/purchase/boughtBooks/getAll').query({
                 username:'TestUser1'
             })
             const obj = JSON.parse(response.text);
