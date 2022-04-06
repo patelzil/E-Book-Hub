@@ -7,10 +7,9 @@ WORKDIR /app
 COPY package.json /app
 COPY package-lock.json /app
 RUN npm ci
-RUN npm install nodemon --save
 
 # Bundle app source
 COPY . /app
 
 EXPOSE 5000
-CMD [ "npm", "start" ]
+CMD [ "node", "server.js" ]
