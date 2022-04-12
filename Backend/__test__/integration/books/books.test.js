@@ -3,9 +3,11 @@ const app = require('../../../app');
 let supertest = require('supertest');
 let request = supertest(app);
 const mongoose = require('mongoose');
+const dotenv = require('dotenv');
+dotenv.config({path:'./config.env'})
 
 beforeAll( async ()=> {
-    const uri = "mongodb+srv://zeelkhokhariya:Webito@123@cluster0.acf3e.mongodb.net/EbookHub?retryWrites=true&w=majority";
+    const uri = process.env.DATABASE;
     const mongooseOpts = {
         useNewUrlParser: true,
         useCreateIndex: true,

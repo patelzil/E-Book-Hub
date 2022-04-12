@@ -4,13 +4,17 @@ const http = require('http');
 const server = http.createServer(app);
 const { Server } = require("socket.io")
 const io = new Server(server)
+const dotenv = require('dotenv');
+dotenv.config({path:'./config.env'})
 //Database config
+const DB = process.env.DATABASE;
 mongoose
     .connect(
-        "mongodb+srv://zeelkhokhariya:Webito@123@cluster0.acf3e.mongodb.net/EbookHub?retryWrites=true&w=majority", {
+            DB , {
             useNewUrlParser: true,
             useCreateIndex: true,
             useFindAndModify: false,
+            useUnifiedTopology: true
         }
     )
     .then(() => {
