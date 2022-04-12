@@ -22,8 +22,6 @@ export default function BookClubs(){
             })
     }, []);
 
-    const  userSessionNavbar = (localStorage.getItem('loginNavbar') !== null) ? (JSON.parse(localStorage.getItem('loginNavbar'))) : (null);
-
     return(
         <div>
    
