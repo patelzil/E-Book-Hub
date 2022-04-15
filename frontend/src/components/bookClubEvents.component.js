@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import BookClubEventCard from "./bookClubEventCard.component";
-import {Button, Card } from "react-bootstrap";
+import {Button } from "react-bootstrap";
 import Modal from 'react-bootstrap/Modal';
 import { Form } from "react-bootstrap";
 import {Grid} from "@mui/material";
@@ -8,7 +8,6 @@ import { CardActions,  } from "@mui/material";
 import axios from "axios";
 
 export default function BookClubEvents(props){
-    const  userSessionNavbar = (localStorage.getItem('loginNavbar') !== null) ? (JSON.parse(localStorage.getItem('loginNavbar'))) : (null);
     const userObject = JSON.parse(localStorage.getItem('userObject'));
 
     // FORM FIEDS

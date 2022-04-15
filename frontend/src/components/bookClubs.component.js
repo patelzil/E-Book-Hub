@@ -4,7 +4,7 @@ import React, {useEffect, useState} from "react";
 import BookClubEvents from "./bookClubEvents.component";
 
 export default function BookClubs(){
-    
+
     const [bookClubList, setBookClubList] = useState([])
 
     useEffect(() => {
@@ -22,11 +22,9 @@ export default function BookClubs(){
             })
     }, []);
 
-    const  userSessionNavbar = (localStorage.getItem('loginNavbar') !== null) ? (JSON.parse(localStorage.getItem('loginNavbar'))) : (null);
-
     return(
         <div>
-   
+
             <div style={{ zIndex: 1000, top: 0, position: 'sticky', background: 'black' }} title="userDashboard">
                 <UserSessionNavBar/>
             </div>
@@ -37,7 +35,7 @@ export default function BookClubs(){
         </div>
 
 
-  
+
 
     )
 }

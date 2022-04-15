@@ -3,6 +3,11 @@
     width: 100%;
 }
 
+.custom-scrollbar::-webkit-scrollbar-track{
+    overflow: auto;
+    display: none;
+}
+
 .button {
     border: 1px solid black;
     background: white;
@@ -175,9 +180,9 @@
 
 /* STYLE AFFILIATED TO HOME PAGE */
 /* Do not show the scroll bars */
-::-webkit-scrollbar{
-    display: none;
-}
+/*::-webkit-scrollbar{*/
+/*    display: none;*/
+/*}*/
 
 .dropDownButton{
     position: absolute;
