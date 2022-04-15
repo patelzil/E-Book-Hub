@@ -91,10 +91,11 @@ export default class ChatRoom extends React.Component {
     render(){
         return (
             <>
-                <div style={{display:'flex',flexDirection:'column',height:'92%', justifyContent:'space-between', alignItems:'center'}} data-testid="chatRoom">
+                <div style={{display:'flex',flexDirection:'column',height:'100%', justifyContent:'space-between', alignItems:'center'}} data-testid="chatRoom">
                     <div
+                        className={"custom-scrollbar"}
                         style={{width:'100%', display: 'flex', flexDirection: "column-reverse", paddingRight: '10px',
-                            paddingLeft: '5px',marginBottom: "10px", height:'100%', overflow: "scroll"
+                            paddingLeft: '5px',marginBottom: "10px", height:'95%', overflowY: "scroll"
                         }}
                         data-testid="chatCols"
                     >
@@ -107,7 +108,7 @@ export default class ChatRoom extends React.Component {
                             )}
                     </div>
                     <div style={{boxShadow: '0px -8px 10px #616161', display: 'flex', alignItems: "center", width: '100%', borderRadius:'5px'}} data-testid="chatBox">
-                        <Form style={{display: 'flex', flexDirection: "row", paddingLeft: '5%', paddingRight: '5%', width: '100%'}} data-testid="chatForm">
+                        <Form style={{display: 'flex', flexDirection: "row", paddingLeft: '5%', paddingRight: '5%', paddingTop: "10px", paddingBottom: "15px", width: '100%'}} data-testid="chatForm">
                             <input
                                 value={this.state.message}
                                 autoComplete={"off"}

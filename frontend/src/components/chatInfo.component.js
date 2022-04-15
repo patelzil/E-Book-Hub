@@ -28,7 +28,7 @@ export default function ChatInfo(props) {
                 position="fixed"
                 sx={{ width: `calc(100% - ${drawerWidth}px)`, ml: `${drawerWidth}px` }}
             >
-                <Toolbar style={{color:"#FFFFFF", background: "linear-gradient(to right, #304352, #d7d2cc)"}}>
+                <Toolbar style={{color:"#FFFFFF", background: "linear-gradient(to right, #304352, #d7d2cc)", height: "5vh"}}>
 
                     <Typography variant="h6">
                         {/* The club title goes here */}
@@ -103,7 +103,7 @@ export default function ChatInfo(props) {
 
             </Drawer>
 
-            <div style={{width: "100%", height: "100vh", marginBottom: "0px", overflow: "hidden"}}>
+            <div style={{width: "100%", height: "92vh", marginBottom: "0px"}}>
                 <ChatRoom bookClub={props.bookClub}/>
             </div>
         </Box>
