@@ -25,7 +25,7 @@ export default function BookCard(props) {
         {
             localStorage.setItem('book-nl', JSON.stringify(props.bookDetails));
             navigate('/login');
-        } 
+        }
     }
 
     return (
@@ -51,11 +51,11 @@ export default function BookCard(props) {
                         </div>
                         {(props.showBuy) ? (<><Button className="card button" style={{width: "90%", marginBottom: "5px"}} onClick={handleBuyBook}>Buy</Button></>) : (<></>)}
                         <Button className="card button" style={{width: "90%", marginBottom: "5px"}} onClick={handleDetails}>Details</Button>
-                        
+
                     </Card.Body>
                 </Card>
             </div>
-            
+
             <div>
                 <Modal
                     show={show}
@@ -67,11 +67,11 @@ export default function BookCard(props) {
                     dialogClassName="book-modal"
                 >
                     <Modal.Header closeButton></Modal.Header>
-                    
+
                     <Modal.Body>
                         <div className="body-modal">
                             <div className="image-modal">
-                                <img  width="240px" height="300px" variant="top" src={props.bookDetails.imageLink ==="NOT AVAILABLE" ? logo : props.bookDetails.imageLink.thumbnail} alt={props.bookDetails.title}/>
+                                <img  width="240px" height="300px" style={{objectFit: 'contain'}}  variant="top" src={props.bookDetails.imageLink ==="NOT AVAILABLE" ? logo : props.bookDetails.imageLink.thumbnail} alt={props.bookDetails.title}/>
                                 <br/>
                                 <p><b>Authors:</b><br/>
                                     <div>
