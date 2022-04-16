@@ -1,8 +1,8 @@
 import React, { useLayoutEffect, useState } from "react";
 import BookCard from "./bookCard.component";
 // carousel imports
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation } from "swiper";
+import {Swiper, SwiperSlide} from "swiper/react";
+import { Navigation } from 'swiper';
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
