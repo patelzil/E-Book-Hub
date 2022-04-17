@@ -3,7 +3,7 @@ import React, {useEffect, useState} from "react";
 import SearchBar from "./searchBar.component";
 import Books from "./books.component";
 
-export default function SearchPageComponent(){
+export default function SearchPageComponent(props){
     const [bookList, setBookList] = useState([])
 
     useEffect(() => {
@@ -21,10 +21,10 @@ export default function SearchPageComponent(){
     }, []);
 
     //run this functions when search bar is submitted
-    const onSearchSubmit = (searchTerm, filterValue, minPrice, maxPrice) => {
+    const onSearchSubmit = (searchTerm,minPrice, maxPrice) => {
         //call to axios function
         //filterValue : Possible terms are {searchTitle, searchAuthor, searchPrice/searchFree, searchCategory}
-        const searchUrl = 'http://localhost:5000/EBookHub/books/' + filterValue + '/' + searchTerm;
+        const searchUrl = 'http://localhost:5000/EBookHub/books/' + props.filterChosen + '/' + searchTerm;
         axios.get(searchUrl)
             .then(function(response){
                 if(response.data.status === "success"){
@@ -36,14 +36,20 @@ export default function SearchPageComponent(){
             })
     }
 
+    // position = fixed is used to make the search bar fixed
     return (
-        <div>
-            <div className="ui container" style={{marginTop: '10px'}} title="searchRequestPage">
+        <div  className="ui container" title="searchRequestPage">
+         
+            <div className="ui container"  style={{position:'fixed', zIndex:1, marginTop:'-35px'}}>
                 <SearchBar onSubmit={onSearchSubmit}></SearchBar>
+                <p>{props.filterChosen}</p>
             </div>
-            <div title='listOfBooks'>
+         
+            <div title='listOfBooks' style={{paddingTop:'70px'}}>
                 <Books list={bookList} showBuy={true}/>
             </div>
+
         </div>
+    
     )
 }
