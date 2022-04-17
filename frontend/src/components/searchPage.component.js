@@ -42,7 +42,6 @@ export default function SearchPageComponent(props){
          
             <div className="ui container"  style={{position:'fixed', zIndex:1, marginTop:'-35px'}}>
                 <SearchBar onSubmit={onSearchSubmit}></SearchBar>
-                <p>{props.filterChosen}</p>
             </div>
          
             <div title='listOfBooks' style={{paddingTop:'70px'}}>
