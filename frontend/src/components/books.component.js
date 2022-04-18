@@ -48,6 +48,7 @@ export default function Books(props) {
     return (
         <>
             <BookCategory title={"Search results..."} list={props.list} showBuy={props.showBuy}/>
+            <h2 style={{textAlign: 'center', paddingTop: "20px"}}>EXPLORE MORE</h2>
             <BookCategory title={"Comic Books"} list={comic} showBuy={props.showBuy}/>
             <BookCategory title={"Classics"} list={classics} showBuy={props.showBuy}/>
             <BookCategory title={"Horror"} list={horror} showBuy={props.showBuy}/>
