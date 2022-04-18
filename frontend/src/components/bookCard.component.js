@@ -98,7 +98,7 @@ export default function BookCard(props) {
                     </Modal.Body>
                     <Modal.Footer>
                         <Modal.Title>
-                            { <div>{props.bookDetails.price}</div> }
+                            { <div>CAD ${props.bookDetails.price}</div> }
                         </Modal.Title>
                     </Modal.Footer>
                 </Modal>
