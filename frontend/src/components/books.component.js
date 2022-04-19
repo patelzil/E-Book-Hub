@@ -1,19 +1,61 @@
-import React from "react";
-import BookCard from "./bookCard.component";
-import {Grid} from "@mui/material";
+import React, {useEffect, useState} from "react";
+import BookCategory from "./bookCategory";
+import axios from "axios";
 
 export default function Books(props) {
+    const [comic, setComic] = useState([]);
+    const [classics, setClassics] = useState([]);
+    const [horror, setHorror] = useState([]);
+
+    useEffect(() => {
+        let isSubscribed = true;
+
+        axios.get('http://localhost:5000/EBookHub/books/searchCategory/comic')
+            .then(function(response){
+                if(response.data.status === "success"){
+                    setComic(response.data.data.responseBooks);
+                }else{
+                    setComic([])
+                }
+            })
+            .catch(function (error) {
+                console.log(error)
+            })
+
+        axios.get('http://localhost:5000/EBookHub/books/searchCategory/classics')
+            .then(function(response){
+                if(response.data.status === "success"){
+                    setClassics(response.data.data.responseBooks);
+                }else{
+                    setClassics([])
+                }
+            })
+            .catch(function (error) {
+                console.log(error)
+            })
+
+        axios.get('http://localhost:5000/EBookHub/books/searchCategory/horror')
+            .then(function(response){
+                if(response.data.status === "success"){
+                    setHorror(response.data.data.responseBooks);
+                }else{
+                    setHorror([])
+                }
+            })
+            .catch(function (error) {
+                console.log(error)
+            })
+
+        return () => (isSubscribed = false)
+    }, []);
+
     return (
-        <div style={{padding: "30px"}} title="bookComponent">
-            <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
-                { props.list === undefined ? (
-                    <h3 style={{textAlign: "center", margin: "20px"}}>Search to see books.</h3>
-                ) : props.list.length > 0 ? (
-                    props.list.map((book)=><BookCard key={book.id} bookDetails={book} showBuy={props.showBuy}/>)
-                ) : (
-                    <h3 style={{textAlign: "center", margin: "20px"}}>No books found. Please try again.</h3>
-                )}
-            </Grid>
-        </div>
+        <>
+            <BookCategory title={"Search results..."} list={props.list} showBuy={props.showBuy}/>
+            <h2 style={{textAlign: 'center', paddingTop: "20px"}}>EXPLORE MORE</h2>
+            <BookCategory title={"Comic Books"} list={comic} showBuy={props.showBuy}/>
+            <BookCategory title={"Classics"} list={classics} showBuy={props.showBuy}/>
+            <BookCategory title={"Horror"} list={horror} showBuy={props.showBuy}/>
+        </>
     )
 }

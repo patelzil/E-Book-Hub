@@ -5,7 +5,6 @@ import { useLocation } from 'react-router-dom'
 
 
 export default function ChatActivity(props){
-    const  userSessionNavbar = (localStorage.getItem('loginNavbar') !== null) ? (JSON.parse(localStorage.getItem('loginNavbar'))) : (null);
     const location = useLocation()
     const { bookClubItem } = location.state
 

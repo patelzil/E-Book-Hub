@@ -1,3 +1,4 @@
+import React from 'react';
 import { TextField } from "@mui/material";
 import { Button, Form, Modal } from "react-bootstrap";
 import NavBar from "./navbar.component";
@@ -15,7 +16,7 @@ export default function Payment() {
 
     const navigate = useNavigate();
     const  userSessionNavbar = (localStorage.getItem('loginNavbar') !== null) ? (JSON.parse(localStorage.getItem('loginNavbar'))) : (null);
-    const  book = (localStorage.getItem('book-wl') !== null) ? (JSON.parse(localStorage.getItem('book-wl'))) : 
+    const  book = (localStorage.getItem('book-wl') !== null) ? (JSON.parse(localStorage.getItem('book-wl'))) :
                   (localStorage.getItem('book-nl') !== null) ? (JSON.parse(localStorage.getItem('book-nl')))
                   : (null);
     const username =  (localStorage.getItem('userObject') !== null) ? (JSON.parse(localStorage.getItem('userObject')).username) : (null);
@@ -23,7 +24,7 @@ export default function Payment() {
     const [rentFlag, setRentFlag] = useState(true);
     const handlePayment = (event) => {
         event.preventDefault();
-        const book_user = 
+        const book_user =
         {
                 id: book.id,
                 username: username,
@@ -38,7 +39,7 @@ export default function Payment() {
                 imageLink: book.imageLink,
                 price: (book.price === 'FREE') ? (book.price) : ((buyFlag) ? (book.price) : (0.5 * book.price)),
                 rating: book.rating,
-        }; 
+        };
         axios.post(`http://localhost:5000/EBookHub/books/purchase/payment/`, book_user)
             .then(function(response){
                 if(response.data.status === "success")
@@ -73,7 +74,7 @@ export default function Payment() {
                                 >
 
                                     <FormGroup style={{ display:"inline-block", padding: "2%" }} >
-                                        <FormControlLabel 
+                                        <FormControlLabel
                                         control={<Checkbox/>}
                                         onClick={ () => { setRentFlag(!rentFlag);  }}
                                         label="BUY"
@@ -81,7 +82,7 @@ export default function Payment() {
                                         />
                                         <FormControlLabel
                                         control={<Checkbox />}
-                                        onClick={ () => { setBuyFlag(!buyFlag); } } 
+                                        onClick={ () => { setBuyFlag(!buyFlag); } }
                                         label="RENT"
                                         disabled = { !rentFlag }
                                         />
@@ -102,7 +103,7 @@ export default function Payment() {
                                     <InputMask
                                         mask="9999-9999-9999-9999"
                                     >
-                                    {() => 
+                                    {() =>
                                     <TextField
                                         required
                                         label="Card Number"
@@ -114,11 +115,11 @@ export default function Payment() {
                                     </Form.Group>
 
                                     <Form.Group className="mb-3">
-                                        
+
                                         <InputMask
                                         mask="99/99"
                                     >
-                                    {() => 
+                                    {() =>
                                     <TextField
                                     required
                                     label="Expiry Month/Year"
@@ -133,7 +134,7 @@ export default function Payment() {
                                     <InputMask
                                         mask="999"
                                     >
-                                    {() => 
+                                    {() =>
                                     <TextField
                                     required
                                     label="CVV"
@@ -142,11 +143,11 @@ export default function Payment() {
                                     placeholder="xxx"
                                     />}
                                     </InputMask>
-                                        
+
                                     </Form.Group>
 
-                                    <Button 
-                                    className="card button" 
+                                    <Button
+                                    className="card button"
                                     style={{width: "53%", marginBottom: "5px"}}
                                     onClick={ (event) => { handlePayment(event); } }
                                     >
@@ -164,9 +165,7 @@ export default function Payment() {
                                     <img  width="240px" height="300px" variant="top" src={book.imageLink ==="NOT AVAILABLE" ? logo : book.imageLink.thumbnail} alt={book.title} style={{ alignSelf: "center" }} />
                                     <br/>
                                     <p><b>Authors:</b><br/>
-                                        <div>
                                             {(book.authors === null) ? (<span>No authors available</span>) : (book.authors)}
-                                        </div>
                                     </p>
                                     <p style={{ alignSelf:"center" }}><b>{  (book.price === 'FREE') ? (book.price) : ((buyFlag) ? (<>CAD ${book.price}</>) : (<>CAD ${0.5 * book.price}</>))  }</b><br/></p>
                         </div>
