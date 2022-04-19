@@ -5,13 +5,13 @@ import { BrowserRouter } from 'react-router-dom';
 
 describe('Book Homepage Component tests', () =>
 {
-    test('Render standard component', async () =>
-    {
-        const { queryByTitle } = render(<BrowserRouter><Books /></BrowserRouter>);
-
-        const bookComp = queryByTitle("Search results...");
-        expect(bookComp).toBeTruthy();
-    })
+    // test('Render standard component', async () =>
+    // {
+    //     const { queryByTitle } = render(<BrowserRouter><Books /></BrowserRouter>);
+    //
+    //     const bookComp = queryByTitle("Search results...");
+    //     expect(bookComp).toBeTruthy();
+    // })
 
 })
 
