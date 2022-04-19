@@ -165,9 +165,7 @@ export default function Payment() {
                                     <img  width="240px" height="300px" variant="top" src={book.imageLink ==="NOT AVAILABLE" ? logo : book.imageLink.thumbnail} alt={book.title} style={{ alignSelf: "center" }} />
                                     <br/>
                                     <p><b>Authors:</b><br/>
-                                        <div>
                                             {(book.authors === null) ? (<span>No authors available</span>) : (book.authors)}
-                                        </div>
                                     </p>
                                     <p style={{ alignSelf:"center" }}><b>{  (book.price === 'FREE') ? (book.price) : ((buyFlag) ? (<>CAD ${book.price}</>) : (<>CAD ${0.5 * book.price}</>))  }</b><br/></p>
                         </div>

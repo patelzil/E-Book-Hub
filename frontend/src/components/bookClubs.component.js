@@ -10,7 +10,6 @@ export default function BookClubs(){
     useEffect(() => {
         axios.get('http://localhost:5000/EBookHub/books/bookclub/getAllClubs')
             .then(function(response){
-                console.log(response.data.status)
                 if(response.data.status === "Pass"){
                     setBookClubList(response.data.message);
                 }else{

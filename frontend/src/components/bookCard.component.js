@@ -46,7 +46,7 @@ export default function BookCard(props) {
 
                         <div style={{fontSize: "18px", fontWeight: "bold", margin: "0px"}}>{(props.bookDetails.price === 'FREE') ? (<>FREE</>) : (<>CAD ${props.bookDetails.price}</>)}
                             <div style={{ float: "right"}}>
-                                <Rating name="read-only" value={props.bookDetails.rating} precision={0.5} readOnly />
+                                <Rating name="read-only" value={Number(props.bookDetails.rating)} precision={0.5} readOnly />
                             </div>
                         </div>
                         {(props.showBuy) ? (<><Button className="card button" style={{width: "90%", marginBottom: "5px"}} onClick={handleBuyBook}>Buy</Button></>) : (<></>)}
@@ -74,9 +74,9 @@ export default function BookCard(props) {
                                 <img  width="240px" height="300px" style={{objectFit: 'contain'}}  variant="top" src={props.bookDetails.imageLink ==="NOT AVAILABLE" ? logo : props.bookDetails.imageLink.thumbnail} alt={props.bookDetails.title}/>
                                 <br/>
                                 <p><b>Authors:</b><br/>
-                                    <div>
+                                    {/*<div>*/}
                                         {(props.bookDetails.authors === null) ? (<span>No authors available</span>) : (props.bookDetails.authors)}
-                                    </div>
+                                    {/*</div>*/}
                                 </p>
                             </div>
                             <div className="description-modal">

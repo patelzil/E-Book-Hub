@@ -91,8 +91,8 @@ export default function ChatInfo(props) {
 
                     <List style={{textAlign:"Center"}}>
                         {/* Render the list of users of the book club */}
-                        { props.bookClub.Users.map((user) => (
-                            <ListItem dense={false} divider={true} style={{textAlign:"center" }}>
+                        { props.bookClub.Users.map((user, index) => (
+                            <ListItem key={index} dense={false} divider={true} style={{textAlign:"center" }}>
                                 <ListItemText primary={user} />
                             </ListItem>
                         ))}
