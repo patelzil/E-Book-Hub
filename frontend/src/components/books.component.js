@@ -8,6 +8,8 @@ export default function Books(props) {
     const [horror, setHorror] = useState([]);
 
     useEffect(() => {
+        let isSubscribed = true;
+
         axios.get('http://localhost:5000/EBookHub/books/searchCategory/comic')
             .then(function(response){
                 if(response.data.status === "success"){
@@ -43,6 +45,8 @@ export default function Books(props) {
             .catch(function (error) {
                 console.log(error)
             })
+
+        return () => (isSubscribed = false)
     }, []);
 
     return (
