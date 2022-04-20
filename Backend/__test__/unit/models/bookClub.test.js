@@ -1,9 +1,11 @@
 const mongoose = require('mongoose');
 const bookClub = require('../../../models/bookClubModel');
+const dotenv = require('dotenv');
+dotenv.config({path:'./config.env'})
 
 beforeAll( async ()=> {
     jest.useFakeTimers('legacy')
-    const uri = "mongodb+srv://zeelkhokhariya:Webito@123@cluster0.acf3e.mongodb.net/EbookHub?retryWrites=true&w=majority";
+    const uri = process.env.DATABASE;
     const mongooseOpts = {
         useNewUrlParser: true,
         useCreateIndex: true,
