@@ -3,6 +3,9 @@
 ## Short Description
 * E-Book-Hub will be a web application that develops an interest to its users towards reading electronic books in an easily viewable layout of all popular books. 
 
+## Instructions for docker run and build
+* Our [Docker Run/Build Guide](https://github.com/Patelzil/E-Book-Hub/blob/main/Documentation/DockerGuide.md)
+
 ## Project Proposal
 * Our [Project Proposal](https://github.com/Patelzil/E-Book-Hub/blob/main/Documentation/ProjectProposal.md)
 
@@ -13,7 +16,7 @@
 * Find our other documentation on our [Wiki Page](https://github.com/Patelzil/E-Book-Hub/wiki)
 
 ## Meeting Minutes
-* Our [meeting minutes](https://github.com/Patelzil/E-Book-Hub/blob/developer/Documentation/Meeting_Minutes.md)
+* Our [meeting minutes](https://github.com/Patelzil/E-Book-Hub/blob/main/Documentation/Meeting_Minutes.md)
 
 ## Architectural Diagrams
 * Our [architectural diagram](https://github.com/Patelzil/E-Book-Hub/blob/developer/Documentation/ArchitecturalBlockDiagram.md)

@@ -331,3 +331,182 @@
 ### Outcomes:
 
 - Got some changes in implementation of code and added extra sub feature for book page as said by TA Ridham.
+
+## March 8 at 6:00 PM
+
+### Length of Meeting
+
+- 1hr min
+
+### Attendance
+
+- Zeel
+- Rutu
+- Zil
+- Parth
+- Viki
+
+### Agenda:
+
+- Sprint 3 rubric
+- Take from the previous sprint
+
+### Discussion:
+
+- Went through the rubric to see what needs to be completed by the end of the sprint.
+- Found out we had a bit of communication gap and decided to work on it by taking updates from each other in our discord server.
+- Do not be stuck on one problem (it wastes time), ask for help from the team members.
+
+### Outcomes:
+
+- Clarify concerns we had with the TA or the professor if need be.
+
+## March 10 at 6:00 PM
+
+### Length of Meeting
+
+- 1hr 15 min
+
+### Attendance
+
+- Zeel
+- Rutu
+- Zil
+- Parth
+- Viki
+
+### Agenda:
+
+- Clarity on features.
+- Discussed how our UI on the features will look like.
+
+### Discussion:
+
+- Discussed on what we really needed from our features.
+- Had a discussion on how our UI needs to look like.
+- Talked about our backend needs to work with the frontend.
+
+### Outcomes:
+- Divided the work in this manner: Zeel and Rutu working on Backend, Parth working on buy/rent feature, Zil working on chat feature and Viki working on Bookclub features.
+
+## March 15 at 6:00 PM (Team Meeting)
+
+### Length of Meeting
+
+- 3hr and 10 min
+
+### Attendance
+
+- Zeel
+- Rutu
+- Zil
+- Parth
+- Viki
+
+### Agenda:
+
+- Decide the which technology to use for testing the application
+- Dicuss about architecture diagrams.
+
+### Discussion:
+
+- Disussed on the testing libraries and finally come up using the react testing library for test.
+- Updated and changed few architecture diagrams
+
+### Outcomes:
+
+- Set goal and agenda for next meeting, everyone got overall idea that everyone is on the same page.
+
+## March 17 at 6:00 PM (Team Meeting)
+
+### Length of Meeting
+
+- 4hr and 05 min
+
+### Attendance
+
+- Zeel
+- Rutu
+- Zil
+- Parth
+- Viki
+
+### Agenda:
+
+- Decided group deadline for realising sprint 3
+- Worked on chat feature and watched setup.
+- Design plan with how to procecced with backend and frontend at the same time.
+
+### Discussion:
+
+- Went through the vision statement and made final edits.
+- Discuss the three layer of web application and the data flow across the three layers.
+- Discussed an extra feature to add to the project:
+  - Discuss the user stories for the Audio book.
+- Distributd the Architectural diagram task as per the user stories.
+
+### Outcomes:
+
+- Sounds complicated but we would want to try it.
+- scheduling next meeting early to discuss dev and front end issues and assignment of work for the issue2
+- Happy faces!!
+
+## March 22 at 6:00 PM (Team Meeting)
+
+### Length of Meeting
+
+- 2hr 30min
+
+### Attendance
+
+- Zeel
+- Rutu
+- Zil
+- Parth
+- Viki
+
+### Agenda:
+
+- Review work that has been done so for (Skeleton for buy/rent ebooks, backend routes).
+- Discuss about continous deployment using github Actions.
+- Discuss on libraries to use for chat room and book clubs.
+
+### Discussion:
+
+- Decided tasks and divided tasks into seperate teams such as backend and frontend.
+- Decied which library to use for chat room of book clubs for backend and frontend.
+
+### Outcomes:
+
+- Set up GitHub Actions for CD.
+- Started working on the skeleton of agenda.
+- scheduling next meeting to discuss progress on sprint 3.
+
+## March 29 at 6:00 PM (Team Meeting with TA)
+
+### Length of Meeting
+
+- 3hr
+
+### Attendance
+
+- Zeel
+- Rutu
+- Zil
+- Parth
+- Viki
+
+### Agenda:
+
+- Discuss all of the work that we had been done so far and the problems that we encountered.
+- Ask for suggestions or anything else that needs to be done before sprint 3.
+- Show our automation on Build, Run and Push to docker hub before pushing to main/developer branch.
+
+### Discussion:
+
+- Discussed about the features that we have implemented so far and bookclub and chatroom feature
+- Discussed about the number of features was enough for sprint 3.
+
+### Outcomes:
+
+- Got some changes in implementation of code, libraries and added extra sub features for bookclub and chat room page.
