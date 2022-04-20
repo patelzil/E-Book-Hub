@@ -36,14 +36,14 @@ export default function BookClubEventCard(props){
             alert(error)
             console.log(error)
         })
-        
+
         axios.get(`http://localhost:5000/EBookHub/users/${ props.currentUser.username }/${ props.currentUser.password }`)
             .then(function(response){
                 if(response.data.status === "success")
                 {
                         const temp = response.data.data.user;
                         localStorage.setItem('userObject', JSON.stringify(temp));
-                } 
+                }
             })
             .catch(function (error) {
                 console.log(error)
@@ -79,7 +79,7 @@ export default function BookClubEventCard(props){
                 {
                         const temp = response.data.data.user;
                         localStorage.setItem('userObject', JSON.stringify(temp));
-                } 
+                }
             })
             .catch(function (error) {
                 console.log(error)
@@ -109,13 +109,17 @@ export default function BookClubEventCard(props){
                 </CardContent>
 
                 <CardActions>
-                    {showJoin?
-                        <Button variant="outline-danger" size = "md" onClick={ handleLeave }> <BsXLg/> LEAVE </Button>
-                    :
+                    {showJoin? (
+                        <div>
+                            <Button variant="outline-danger" size = "md" onClick={ handleLeave }> <BsXLg/> LEAVE </Button>
+                            <Link to="/chatActivity" state ={{bookClubItem: props.bookClubDetails}} className="button">View Activity</Link>
+                        </div>
+                        ):(
                         <Button variant="outline-success" size = "md" onClick={ handleJoin }> <BsCheckLg/> JOIN </Button>
+                        )
                     }
 
-                    <Link to="/chatActivity" state ={{bookClubItem: props.bookClubDetails}} className="button">View Activity</Link>
+
 
                 </CardActions>
             </Card>

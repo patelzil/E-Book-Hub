@@ -9,6 +9,9 @@ const http = require('http');
 const server = http.createServer(app);
 const { Server } = require("socket.io")
 const io = new Server(server)
+const dotenv = require('dotenv');
+dotenv.config({path:'./config.env'})
+
 app.get('/', (req, res) => {
     res.sendFile(__dirname + '/index.html');
 });
@@ -21,7 +24,7 @@ io.on('connection', (socket) => {
 
 beforeAll( async ()=> {
     jest.useFakeTimers('legacy')
-    const uri = "mongodb+srv://zeelkhokhariya:Webito@123@cluster0.acf3e.mongodb.net/EbookHub?retryWrites=true&w=majority";
+    const uri = process.env.DATABASE;
     const mongooseOpts = {
         useNewUrlParser: true,
         useCreateIndex: true,

@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import io from 'socket.io-client'
 import { Button, Form } from "react-bootstrap";
 import Message from './message.component';
@@ -15,17 +15,6 @@ export default class ChatRoom extends React.Component {
             username: JSON.parse(localStorage.getItem("userObject")).username,
             bookClub: (props.bookClub !== undefined || props.bookClub !== null) ? (props.bookClub.bookclubName) : "TestClub",
         }
-
-        let currentState = this;
-        axios.get("http://localhost:5000/EBookHub/books/bookclub/getBookclub/" + this.state.bookClub)
-            .then(function(response){
-                if(response.data.status === "Success") {
-                    currentState.setState({messages: response.data.message.MessagesInfo})
-                }
-            })
-            .catch(function (error) {
-                console.log("Error fetching book club info" + error)
-            })
 
         this.socket =  io('http://localhost:3005', {
             transports: ['websocket'],
@@ -89,25 +78,38 @@ export default class ChatRoom extends React.Component {
     }
 
     render(){
+        setTimeout(()=> {
+            let currentState = this;
+            axios.get("http://localhost:5000/EBookHub/books/bookclub/getBookclub/" + this.state.bookClub)
+                .then(function (response) {
+                    if (response.data.status === "Success") {
+                        currentState.setState({messages: response.data.message.MessagesInfo})
+                    }
+                })
+                .catch(function (error) {
+                    console.log("Error fetching book club info" + error)
+                })
+        }, 1000);
         return (
             <>
-                <div style={{display:'flex',flexDirection:'column',height:'92%', justifyContent:'space-between', alignItems:'center'}} data-testid="chatRoom">
+                <div style={{display:'flex',flexDirection:'column',height:'100%', justifyContent:'space-between', alignItems:'center'}} data-testid="chatRoom">
                     <div
+                        className={"custom-scrollbar"}
                         style={{width:'100%', display: 'flex', flexDirection: "column-reverse", paddingRight: '10px',
-                            paddingLeft: '5px',marginBottom: "10px", height:'100%', overflow: "scroll"
+                            paddingLeft: '5px',marginBottom: "10px", height:'95%', overflowY: "scroll"
                         }}
                         data-testid="chatCols"
                     >
                             {this.state.messages.length > 0 ? (
-                                this.state.messages.slice(0).reverse().map(msg =>
-                                    <Message key={msg.id} message={msg.message} time={msg.time} senderName={msg.sender} data-testid="chatMessage"/>
+                                this.state.messages.slice(0).reverse().map((msg, index) =>
+                                    <Message key={index} message={msg.message} time={msg.time} senderName={msg.sender} data-testid="chatMessage"/>
                                 )
                             ) : (
                                 <div style={{display: "flex", alignItems: "center", justifyContent: 'space-around', height: '100%'}}><h4>No chats to display.</h4></div>
                             )}
                     </div>
                     <div style={{boxShadow: '0px -8px 10px #616161', display: 'flex', alignItems: "center", width: '100%', borderRadius:'5px'}} data-testid="chatBox">
-                        <Form style={{display: 'flex', flexDirection: "row", paddingLeft: '5%', paddingRight: '5%', width: '100%'}} data-testid="chatForm">
+                        <Form style={{display: 'flex', flexDirection: "row", paddingLeft: '5%', paddingRight: '5%', paddingTop: "10px", paddingBottom: "15px", width: '100%'}} data-testid="chatForm">
                             <input
                                 value={this.state.message}
                                 autoComplete={"off"}

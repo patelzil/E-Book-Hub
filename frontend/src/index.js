@@ -1,16 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Provider } from "react-redux";
-import { createStore} from "redux";
-import rootReducer from "./reducers";
 import App from './App';
+import {Elements} from '@stripe/react-stripe-js';
+import {loadStripe} from '@stripe/stripe-js';
 
-const store = createStore(rootReducer)
+const stripePromise = loadStripe(process.env.REACT_API_KEY);
 
 ReactDOM.render(
-    <Provider store={store}>
+      <Elements stripe={stripePromise}>
         <App />
-    </Provider>,
+      </Elements>,
   document.getElementById('root')
 );
 

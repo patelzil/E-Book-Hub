@@ -2,6 +2,7 @@ import React from "react";
 import NavBar from "./navbar.component";
 import SearchPage from './searchPage.component'
 import UserSessionNavBar from "./usersessionnavbar.component";
+import HomeUpdated from "./homeUpdated.component";
 
 export default function Home(){
 
@@ -9,10 +10,12 @@ export default function Home(){
 
     return (
         <div>
-            <div style={{ zIndex: 1000, top: 0, position: 'sticky', background: 'black' }}>
+            <div style={{ zIndex: 0, top: 0, position: 'sticky', background: 'black' }}>
             { ( userSessionNavbar !== null && userSessionNavbar.flag === true) ? (<UserSessionNavBar/>) : (<NavBar/>)}
             </div>
-            <SearchPage/>
+
+            <HomeUpdated />
+            {/* <SearchPage/> */}
         </div>
     )
 }

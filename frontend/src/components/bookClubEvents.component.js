@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import BookClubEventCard from "./bookClubEventCard.component";
-import {Button, Card } from "react-bootstrap";
+import {Button } from "react-bootstrap";
 import Modal from 'react-bootstrap/Modal';
 import { Form } from "react-bootstrap";
 import {Grid} from "@mui/material";
@@ -8,9 +8,7 @@ import { CardActions,  } from "@mui/material";
 import axios from "axios";
 
 export default function BookClubEvents(props){
-    const  userSessionNavbar = (localStorage.getItem('loginNavbar') !== null) ? (JSON.parse(localStorage.getItem('loginNavbar'))) : (null);
     const userObject = JSON.parse(localStorage.getItem('userObject'));
-
     // FORM FIEDS
     const [bookClubTitle, setBookClubTitle] = useState("")
     const [bookClubInfo, setBookClubInfo] = useState("")
@@ -126,7 +124,7 @@ export default function BookClubEvents(props){
                     { props.list === undefined ? (
                         <h3 style={{textAlign: "center", margin: "20px"}}>Search to see book clubs</h3>
                     ) : props.list.length > 0 ? (
-                        props.list.map((bookClub)=><BookClubEventCard key={bookClub.id} bookClubDetails={bookClub} currentUser={userObject}/>)
+                        props.list.map((bookClub, index)=><BookClubEventCard key={index} bookClubDetails={bookClub} currentUser={userObject}/>)
                     ) : (
                         <h3 style={{textAlign: "center", margin: "20px"}}>No book clubs found</h3>
                     )}

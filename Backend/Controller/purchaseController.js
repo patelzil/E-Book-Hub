@@ -1,5 +1,9 @@
 const boughtBooks = require("../models/boughtBookModel.js");
 const Users = require("../models/userModel.js");
+const dotenv = require('dotenv');
+dotenv.config({path:'./config.env'})
+
+const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 
 exports.checkPaymentValidation = async(req, res) => {
     try {
@@ -65,6 +69,42 @@ exports.getAllBooks = async(req, res) => {
             status: "failed",
             message: err.message,
             description: "Failed to get all books",
+        });
+    }
+};
+
+exports.postSecret = async(req, res) => {
+
+    const domainURL = 'http://localhost:3000/';
+    let session;
+
+       const { line_items, customer_email } = req.body;
+
+       if (!line_items || !customer_email)
+       {
+            throw err;
+       } 
+       
+       try {
+        session = await stripe.checkout.sessions.create({
+         payment_method_types: ['card'],
+         mode: 'payment',
+         line_items,
+         customer_email,
+         success_url: `${domainURL}successfulPayment?session_id={CHECKOUT_SESSION_ID}`,
+         cancel_url: `${domainURL}`,
+         shipping_address_collection: { allowed_countries: ['CA', 'US'] }
+       });
+
+       res.status(200).json
+       ({ 
+           status: "success",
+           sessionId: session.id, 
+       });
+    } catch (err) {
+        res.status(404).json({
+            status: "failed",
+            description: "failed to pay for the books",
         });
     }
 };
