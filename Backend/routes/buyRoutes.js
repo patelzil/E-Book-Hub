@@ -9,4 +9,6 @@ router.route("/payment").post(purchaseController.checkPaymentValidation);
 
 router.route("/boughtBooks/getAll").get(purchaseController.getAllBooks);
 
+router.route("/securePayment").post(purchaseController.postSecret);
+
 module.exports = router;

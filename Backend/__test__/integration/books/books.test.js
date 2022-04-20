@@ -3,9 +3,12 @@ const app = require('../../../app');
 let supertest = require('supertest');
 let request = supertest(app);
 const mongoose = require('mongoose');
+const dotenv = require('dotenv');
+dotenv.config({path:'./config.env'})
 
 beforeAll( async ()=> {
-    const uri = "mongodb+srv://zeelkhokhariya:Webito@123@cluster0.acf3e.mongodb.net/EbookHub?retryWrites=true&w=majority";
+    jest.useFakeTimers('legacy')
+    const uri = process.env.DATABASE;
     const mongooseOpts = {
         useNewUrlParser: true,
         useCreateIndex: true,
@@ -101,6 +104,7 @@ describe('Book get test', ()=>
 
     describe('Get books with publisher name',() =>
     {
+<<<<<<< Updated upstream
         // test('User get the books by searching publisher name', async () =>{
         //     jest.setTimeout(30000);
         //     const publisherName = "Lion";
@@ -108,6 +112,8 @@ describe('Book get test', ()=>
         //     const obj = JSON.parse(response.text);
         //     expect(obj.data.responseBooks[0].publisher).toMatch(/Lion/);
         // })
+=======
+>>>>>>> Stashed changes
 
         test('User can not get the books by searching irrelevent publisher name', async () =>{
             jest.setTimeout(30000);
