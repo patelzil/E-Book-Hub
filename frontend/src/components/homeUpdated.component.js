@@ -22,7 +22,6 @@ import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
 import SearchPage from './searchPage.component'
 import UserSessionNavBar from "./usersessionnavbar.component";
 import NavBar from "./navbar.component";
-import { Checkbox } from "@mui/material";
 
 
 const drawerWidth = 250;
@@ -45,7 +44,7 @@ const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })(
     }),
   }),
 );
-  
+
 const AppBar = styled(MuiAppBar, {
   shouldForwardProp: (prop) => prop !== 'open',
 })(({ theme, open }) => ({
@@ -62,7 +61,7 @@ const AppBar = styled(MuiAppBar, {
     }),
   }),
 }));
-  
+
 const DrawerHeader = styled('div')(({ theme }) => ({
   display: 'flex',
   alignItems: 'center',
@@ -159,21 +158,21 @@ export default function PersistentDrawerLeft(){
                 orientation="vertical"
                 value={view}
                 exclusive
-                fullWidth = "true"
+                fullWidth ={true}
                 size="large"
                 onChange={handleChange}
               >
               <ToggleButton value="searchCategory" aria-label="category" >
                 <div style={{display:'flex', width:'150px', justifyContent:'left'}}>
-                  
+
                   <div style={{float:'left', justifyContent:'flex-start'}}>
                     <ListAltIcon />
                   </div>
-                  
+
                   <div style={{marginLeft:'15px'}}>
                     Category
                   </div>
-                
+
                 </div>
 
               </ToggleButton>
@@ -216,25 +215,6 @@ export default function PersistentDrawerLeft(){
             <div>
               { (filterValue.filterChosen === "searchPrice" || filterValue.filterChosen === "searchFree" || filterValue.filterChosen === "") && (
                   <Form className="d-flex" style={{display: 'inline-block'}}>
-                  {/* <FormGroup controlId="formInlineMin">*/}
-                  {/*    <FormLabel>Min Price</FormLabel>{' '}*/}
-                  {/*    <FormControl*/}
-                  {/*        type="number"*/}
-                  {/*        min = {0}*/}
-                  {/*        placeholder="0"*/}
-                  {/*        value={this.state.minPrice}*/}
-                  {/*        onChange={this.handleMinPrice}/>*/}
-                  {/*</FormGroup>{' '}*/}
-                  {/*-*/}
-                  {/*<FormGroup controlId="formInlineMax">*/}
-                  {/*    <FormLabel>Max Price</FormLabel>{' '}*/}
-                  {/*    <FormControl*/}
-                  {/*        type="number"*/}
-                  {/*        placeholder="500"*/}
-                  {/*        value={this.state.maxPrice}*/}
-                  {/*        onChange={this.handleMaxPrice}/>*/}
-                  {/*</FormGroup>{' '} */}
-            
                   <Form.Check
                       className="big-checkbox"
                       type = "checkbox"
@@ -246,37 +226,12 @@ export default function PersistentDrawerLeft(){
                 </Form>
               )}
             </div>
-
-        {/* <List>
-
-        {['Category', 'Title', 'Author', 'Drafts'].map((text, index) => (
-            <ListItem button key={text}>
-            <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-            </ListItemIcon>
-            <ListItemText primary={text} />
-            </ListItem>
-        ))}
-        </List>
-        
-        <Divider />
-
-        <List>
-        {['Price'].map((text, index) => (
-            <ListItem button key={text}>
-            <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-            </ListItemIcon>
-            <ListItemText primary={text} />
-            </ListItem>
-        ))}
-        </List> */}
         </Drawer>
 
         <Main open={open}>
                 <SearchPage filterChosen={filterValue.filterChosen} />
         </Main>
     </Box>
-  
+
   );
 }
