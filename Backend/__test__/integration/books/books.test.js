@@ -104,7 +104,6 @@ describe('Book get test', ()=>
 
     describe('Get books with publisher name',() =>
     {
-<<<<<<< Updated upstream
         // test('User get the books by searching publisher name', async () =>{
         //     jest.setTimeout(30000);
         //     const publisherName = "Lion";
@@ -112,8 +111,6 @@ describe('Book get test', ()=>
         //     const obj = JSON.parse(response.text);
         //     expect(obj.data.responseBooks[0].publisher).toMatch(/Lion/);
         // })
-=======
->>>>>>> Stashed changes
 
         test('User can not get the books by searching irrelevent publisher name', async () =>{
             jest.setTimeout(30000);
