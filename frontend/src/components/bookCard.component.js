@@ -9,6 +9,7 @@ export default function BookCard(props) {
     const [show, setShow] = useState(false);
     const navigate = useNavigate();
     const  loginFlag = (localStorage.getItem('loginNavbar') !== null) ? (JSON.parse(localStorage.getItem('loginNavbar'))) : (null);
+    const  booksOwned = (localStorage.getItem('booksOwned') !== null) ? (JSON.parse(localStorage.getItem('booksOwned'))) : (null);
 
     const handleDetails = (event) => {
         event.preventDefault();
@@ -49,9 +50,22 @@ export default function BookCard(props) {
                                 <Rating name="read-only" value={Number(props.bookDetails.rating)} precision={0.5} readOnly />
                             </div>
                         </div>
-                        {(props.showBuy) ? (<><Button className="card button" style={{width: "90%", marginBottom: "5px"}} onClick={handleBuyBook}>Buy</Button></>) : (<></>)}
+                        { (booksOwned != null) ? (booksOwned.map(item => (item.id === props.bookDetails.id && item.title === props.bookDetails.title ) ? (<><Button className="card button" style={{width: "90%", marginBottom: "5px"}} onClick={ () => { navigate('/reader'); }}>Read</Button></>) : (<></>) )) : (<></>)  }
+                        { (booksOwned != null) ? ((props.showBuy && booksOwned.filter(item => (item.id === props.bookDetails.id && item.title === props.bookDetails.title)).length === 0) ? ( 
+                        <>
+                        <Button className="card button" style={{width: "90%", marginBottom: "5px"}} onClick={handleBuyBook}>Buy</Button>
                         <Button className="card button" style={{width: "90%", marginBottom: "5px"}} onClick={handleDetails}>Details</Button>
 
+                        </>) 
+                        : 
+                        (<></>)) 
+                        : (<>
+                        <Button className="card button" style={{width: "90%", marginBottom: "5px"}} onClick={handleBuyBook}>Buy</Button>
+                        <Button className="card button" style={{width: "90%", marginBottom: "5px"}} onClick={handleDetails}>Details</Button>
+                        </>) 
+                        }
+                        
+                        
                     </Card.Body>
                 </Card>
             </div>

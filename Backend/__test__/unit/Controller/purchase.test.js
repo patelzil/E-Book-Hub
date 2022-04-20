@@ -2,9 +2,11 @@ const mongoose = require('mongoose');
 const { mockRequest, mockResponse } = require('mock-req-res')
 const boughtBooks = require('../../../models/boughtBookModel')
 const {checkPaymentValidation , getAllBooks} = require('../../../Controller/purchaseController');
+const dotenv = require('dotenv');
+dotenv.config({path:'./config.env'})
 
 beforeAll( async ()=> {
-    const uri = "mongodb+srv://zeelkhokhariya:Webito@123@cluster0.acf3e.mongodb.net/EbookHub?retryWrites=true&w=majority";
+    const uri = process.env.DATABASE;
     const mongooseOpts = {
         useNewUrlParser: true,
         useCreateIndex: true,

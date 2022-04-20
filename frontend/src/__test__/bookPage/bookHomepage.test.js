@@ -10,6 +10,8 @@ describe('Book Homepage Component tests', () =>
     //     const { queryByTitle } = render(<BrowserRouter><Books /></BrowserRouter>);
     //
     //     const bookComp = queryByTitle("Search results...");
+        
+    //     const bookComp = queryByTitle("bookComponent");
     //     expect(bookComp).toBeTruthy();
     // })
 
