@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import io from 'socket.io-client'
 import { Button, Form } from "react-bootstrap";
 import Message from './message.component';
@@ -15,17 +15,6 @@ export default class ChatRoom extends React.Component {
             username: JSON.parse(localStorage.getItem("userObject")).username,
             bookClub: (props.bookClub !== undefined || props.bookClub !== null) ? (props.bookClub.bookclubName) : "TestClub",
         }
-
-        let currentState = this;
-        axios.get("http://localhost:5000/EBookHub/books/bookclub/getBookclub/" + this.state.bookClub)
-            .then(function(response){
-                if(response.data.status === "Success") {
-                    currentState.setState({messages: response.data.message.MessagesInfo})
-                }
-            })
-            .catch(function (error) {
-                console.log("Error fetching book club info" + error)
-            })
 
         this.socket =  io('http://localhost:3005', {
             transports: ['websocket'],
@@ -89,6 +78,18 @@ export default class ChatRoom extends React.Component {
     }
 
     render(){
+        setTimeout(()=> {
+            let currentState = this;
+            axios.get("http://localhost:5000/EBookHub/books/bookclub/getBookclub/" + this.state.bookClub)
+                .then(function (response) {
+                    if (response.data.status === "Success") {
+                        currentState.setState({messages: response.data.message.MessagesInfo})
+                    }
+                })
+                .catch(function (error) {
+                    console.log("Error fetching book club info" + error)
+                })
+        }, 1000);
         return (
             <>
                 <div style={{display:'flex',flexDirection:'column',height:'100%', justifyContent:'space-between', alignItems:'center'}} data-testid="chatRoom">
