@@ -39,16 +39,16 @@ export default function SearchPageComponent(props){
     // position = fixed is used to make the search bar fixed
     return (
         <div  className="ui container" title="searchRequestPage">
-         
+
             <div className="ui container"  style={{position:'fixed', zIndex:1, marginTop:'-35px'}}>
                 <SearchBar onSubmit={onSearchSubmit}></SearchBar>
             </div>
-         
-            <div title='listOfBooks' style={{paddingTop:'70px'}}>
+
+            <div title='listOfBooks' style={{paddingTop:'100px'}}>
                 <Books list={bookList} showBuy={true}/>
             </div>
 
         </div>
-    
+
     )
 }

@@ -100,8 +100,8 @@ export default class ChatRoom extends React.Component {
                         data-testid="chatCols"
                     >
                             {this.state.messages.length > 0 ? (
-                                this.state.messages.slice(0).reverse().map(msg =>
-                                    <Message key={msg.id} message={msg.message} time={msg.time} senderName={msg.sender} data-testid="chatMessage"/>
+                                this.state.messages.slice(0).reverse().map((msg, index) =>
+                                    <Message key={index} message={msg.message} time={msg.time} senderName={msg.sender} data-testid="chatMessage"/>
                                 )
                             ) : (
                                 <div style={{display: "flex", alignItems: "center", justifyContent: 'space-around', height: '100%'}}><h4>No chats to display.</h4></div>
