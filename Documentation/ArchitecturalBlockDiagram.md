@@ -30,11 +30,11 @@ This is the API overview and models.
 
 
 - ### User Story: As a user, I should be able to apply filters to the search (i.e., Rent books, year of published, author name) so that I may easily see what books I want to read.
-  ![](./images/filteredSearch.jpg)
+  ![](./images/sequence-searchBooks.png)
   
   
 - ### User Story: As a user, I should be able to search the book by its title so that I could easily find them or add to my library list.  
-  ![](./images/searchQuery-eBook.jpg)
+  ![](./images/sequence-searchBooks_default-Page-3.drawio.png)
 
 
 ## Core Feature: Buy/rent ebook
