@@ -21,6 +21,9 @@
 ## Architectural Diagrams
 * Our [architectural diagram](https://github.com/Patelzil/E-Book-Hub/blob/developer/Documentation/ArchitecturalBlockDiagram.md)
 
+## Intructions for opening PDF in the Read Section
+* Please Install [MCORS](https://chrome.google.com/webstore/detail/moesif-origin-cors-change/digfbfaphojjndkpccljibejjbppifbc?hl=en) chrome extension inorder to read the ebook PDF document. Please turn off this extension for other features of the application.
+
 ## Contributors
 | Name | Username | Role |
 |---|---|---|
